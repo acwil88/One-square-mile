@@ -38,9 +38,14 @@ Reading notes:
 - "St & Earth mnd" = stake and earth mound (corner monument). "pls" is written as-is;
   most likely "piles" (of earth). The south... (west) line carries an intermediate monument
   at 950 vrs ("2 pls") — the quarter-corner — and the full corner at 1900 vrs ("4 pls").
-- Bearings are 13° off cardinal (S 13° E / N 77° E / N 13° W / S 77° W). With the stated
-  magnetic variation of 12° 9-1/2' East, the lines are within about a degree of true
-  cardinal — the surveyor ran near-magnetic bearings.
+- Bearings are 13° off cardinal (S 13° E / N 77° E / N 13° W / S 77° W). The field-notes
+  header states "Variation 12° 9-1/2' East" — left here exactly as written, with no
+  inference drawn from it.
+- OPEN QUESTION (2026-09-26): the real MCAD section polygon runs about 14° off true
+  north (grid azimuths 75.8° / 165.8° / 255.9° / 345.3°), matching Powell's calls within
+  a degree or two. Applied conventionally, a 12° 9½' E variation would swing his lines
+  to near-cardinal — but the ground runs 14° off. Which convention Powell used is not
+  known. Do not "correct" the calls toward cardinal.
 
 ## Side lengths
 
@@ -48,6 +53,11 @@ Reading notes:
 so a statute mile is 1900.8 varas. Powell chained this section at an even **1900 varas**
 (5,277.8 ft) — eight-tenths of a vara short of a full mile, i.e. the section as surveyed
 is ~2.2 ft under a statute mile per side. Well within 1876 chaining tolerance.
+
+Measured from the MCAD polygon (2026-09-26): 5,306 / 5,311 / 5,351 / 5,319 ft —
+1,910 to 1,926 varas. Area 650.1 ac against 640 patented: the section carries ~10 ac
+of Texas survey surplus. Print Powell's 1,900-vara calls along each edge with the
+measured length beside each call in smaller type.
 
 ## Certification (verbatim, signatures)
 
