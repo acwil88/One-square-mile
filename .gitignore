@@ -1,9 +1,3 @@
-# Full-resolution masters live locally; previews are in-repo
+# ee-1954.tif exceeds GitHub 100MB file limit; kept local-only
+# (lossless-compressed copy TBD)
 aerials/ee-1954.tif
-aerials/ee-1965.tif
-aerials/ee-1974.tif
-aerials/ee-1984.tif
-aerials/ee-1995.tif
-# PDF render intermediates
-phase2/glo-page-*.png
-phase2/glo-patent-file.txt
