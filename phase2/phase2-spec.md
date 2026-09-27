@@ -151,12 +151,11 @@ Nothing in this list needs a phone call or an email.
 
 Once the assets land: compose in ReportLab (vector linework, embedded rasters at native resolution), export 24 × 36 PDF at 300 dpi effective, fonts embedded, PDF/X-ish (no transparency surprises for the plotter). Deliver: `proof-v1.pdf`, `fold-mockup.pdf`, `print-spec.md` (sheet size, paper weight, color mode, fold instructions, quantity).
 
-## 6. Print spec (provisional)
+## 6. Print spec (revised 2026-09-27 — one framed, one folded)
 
-- 24 × 36 in, portrait, single-sided, color (for the blue and red only — the rest is black).
-- Heaviest bond the plotter shop stocks, 28# minimum. No gloss.
-- 1 copy, hand-folded 3 × 4 to 8 × 9. Reprint on demand — anyone who corrects it gets the next one.
-- Estimate $10–30 for one sheet. One quote is enough.
+- **Framed copy:** 24 × 36 in, portrait, matte archival inkjet, 190–230 gsm, color-managed (the red and blue are the only inks that matter). No fold. Stock 24 × 36 frame, no mat, acrylic or glass. $25–50 print.
+- **Desk copy:** same file on the heaviest plotter bond the shop stocks, hand-folded 3 × 4 to 8 × 9. $10–30.
+- Nothing prints until Claude signs off the proof. Adam approves the final proof once; that is the second of his three taps.
 
 ## 7. Timeline
 

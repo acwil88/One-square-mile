@@ -16,7 +16,7 @@ Method in `phase2/alignment-status-2026-09-27.md`. Reference is `phase2/ee-1984-
 **Done when:** a checkerboard against 1984 shows section-line roads continuing across tiles, and the .md states the error. Do 1974 first; if 1954 (1:63,000) won't align to better than ±500 ft, deliver it labeled "approximate" rather than skipping it.
 
 ## 4. Print quote  `[ ]`
-Web only. Find two Midland-area plotter/blueprint shops that print 24×36 single-sheet color on heavy bond (28# or better), with published or listed prices. Output `phase2/print-quotes.md`: shop, address, price for one sheet, paper options, turnaround, whether they take an emailed PDF. Do not contact them.
+Web only. Find two Midland-area shops that print 24×36 wide-format on **matte archival inkjet paper (190–230 gsm)** and also on plotter bond, with published or listed prices. Output `phase2/print-quotes.md`: shop, address, price per sheet on each paper, turnaround, whether they take an emailed PDF, and whether they sell or fit a stock 24×36 frame. Do not contact them.
 **Done when:** two rows with prices, or a note that prices aren't published and the listed phone/email for Adam to use.
 
 ## 5. Source-log hygiene  `[ ]`
