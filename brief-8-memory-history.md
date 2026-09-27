@@ -69,14 +69,15 @@ From the club's own history and corroborating sources:
 
 ## 2. Could not confirm (margin candidates)
 
-1. **Pre-1911 grantor to John D. Edwards** — the deed chain starts with the 1911 Edwards-heirs conveyance; who conveyed to Edwards first is unknown (source-log row 21).
+1. **Pre-1911 chain — RESOLVED 2026-09-26 (source-log row 39):** there is no "John D. Edwards" in the chain. The "DR/12/64" reference was a misreading of **DR/12/54**: Charles J. Canda → Mrs. Mary T. Edwards, deed recorded 1/6/1906 (doc 1906-1676), "T&P RY CO SUR-7 T-1-S BLK-39 640-ACS". The 1911 deed (DR/21/354, image read) recites the Book 12 p. 54 Canda deed; its "EDWARDS JOHN" is Mary's son/heir (wife Mamie), no middle initial. Related: Canda → West Edwards for Sec 17 (1899) and Sec 18 (1894/1905). The 1906 deed image itself was not viewable (portal outage) — retry later.
 2. **Biographies of S.W. Estes, Arminta Estes, or Thelma/Ethel Aldredge Estes** — no reliable public-web biographies, obituaries, or census material located.
-3. **Hailco Inc.** (grantee in a 1981 Midland West conveyance; index grantor on the Green Tree North plat) — could not identify the company, its principals, or its role. The "Hailco USA Corporation" found online filed in Texas on December 8, 1998 and was tax-forfeited in 2002 ([corporationwiki](https://www.corporationwiki.com/Texas/Hurst/hailco-usa-corporation/35419907.aspx)) — too late to be the 1981 entity; **do not use it**.
+3. **Hailco Inc. — PARTIALLY RESOLVED 2026-09-26:** Midland homebuilder active by 1980, per *Macha v. Carameros* (Tex. App. 1984). Principals and exact role in the 1981–82 Green Tree transactions still unconfirmed. The "Hailco USA Corporation" found online filed in Texas on December 8, 1998 and was tax-forfeited in 2002 ([corporationwiki](https://www.corporationwiki.com/Texas/Hurst/hailco-usa-corporation/35419907.aspx)) — too late to be the 1981 entity; **do not use it**.
 4. **First arm's-length lot sale, initial lot prices, first completed home** in Green Tree North — no dependable public source. Earliest homes appear in the 1986 aerial under construction; nothing print-safe before that.
 5. **Contemporary newspaper coverage** — Midland Reporter-Telegram archives are paywalled; no accessible historical items found.
 6. **Portal to Texas History, Handbook of Texas, THC Atlas** — no items located for these subjects via public web search; the Portal's internal search is not accessible from this environment.
-7. **Jerry Mobley, John Wood, Charles Howard** — no biographies beyond the club's founding narrative.
+7. **Jerry Mobley, John Wood** — no biographies beyond the club's founding narrative. **Charles Howard — PARTIALLY RESOLVED 2026-09-26:** Charles Howard, P.E. of Austin, designed Green Tree's original course (1980) plus Tomahawk/Comanche Trail (1990), Blackhawk, Champion Lakes. Middle name, firm, dates, obituary unconfirmed.
 8. **Outcome of the FDIC/Midland West litigation** — the 1990 opinion documents the financing, not the resolution.
+9. **Pre-railroad Indigenous history on the section itself** — no named trail, camp, spring, or event documented on Section 7; the Comanche War Trail passed ~35 mi NE via Big Spring and cannot be claimed for the mile. Midland Draw is the section's pre-railroad watercourse.
 
 ## 3. Recommended margin language
 
@@ -84,7 +85,12 @@ From the club's own history and corroborating sources:
 - "'Button' Estes = Aldredge 'Little Button' Estes, Jr."
 - "Green Tree Country Club conceived 1977 by Jerry Mobley; course opened ~1980–81; expanded to 27 holes in 1985."
 - "Green Tree North platted Dec. 1, 1982, by Midland West Corp.; earliest homes mid-1980s."
-- "Could not confirm: first lot sale and prices; the 1981 Hailco Inc.; pre-1911 grantor to John D. Edwards."
+- "Could not confirm: first lot sale and prices; Hailco Inc. principals; pre-1883 Indigenous sites on the section."
+- "1906: Charles J. Canda (NY financier, Texas Pacific Land Trust trustee) → Mary T. Edwards, 640 ac (DR/12/54). No 'John D. Edwards' in the chain — earlier reference was a misreading."
+- "Course architect: Charles Howard, P.E., Austin (1980)."
+- "HAILCO INC.: Midland homebuilder, active by 1980."
+
+Full expansion research (Canda bio, Hailco case cite, Howard courses, pre-railroad notes, with sources) is in `brief-8-expansion-2026-09-26.md`.
 
 ## 4. Source table
 
