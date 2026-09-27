@@ -30,7 +30,7 @@ def lines_of(geom):
     if geom['type']=='Polygon': return geom['coordinates']
     if geom['type']=='MultiPolygon': return [r for p in geom['coordinates'] for r in p]
     return []
-c=canvas.Canvas('/home/claude/build/proof-v2.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
+c=canvas.Canvas('/home/claude/build/proof-v3.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
 BLEED=90.0  # ft shown beyond the section
 def clip_rect():
     x0,y0=pg(loc_minx-BLEED,loc_miny-BLEED); x1,y1=pg(loc_maxx+BLEED,loc_maxy+BLEED); return x0,y0,x1-x0,y1-y0
@@ -95,7 +95,7 @@ se=[P[CORN['SE']], mid(CORN['SE'],CORN['NE']), (P[CORN['SW']]+P[CORN['NE']])/2, 
 for i,pt in enumerate(se):
     X,Y=pg_grid(*pt); (pth.moveTo if i==0 else pth.lineTo)(X,Y)
 pth.close(); c.drawPath(pth); c.setDash([])
-c.setFont('Cond',7.5); c.setFillColor(BLK); X,Y=pg_grid(*(P[CORN['SE']]*0.5+((P[CORN['SW']]+P[CORN['NE']])/2)*0.5)); c.drawCentredString(X,Y+120*PPF,'SE/4 · 160 ACRES · SURFACE ONLY · 31 OCT 1978')
+c.setFont('Cond',7.5); c.setFillColor(BLK); X,Y=pg_grid(*(P[CORN['SE']]*0.5+((P[CORN['SW']]+P[CORN['NE']])/2)*0.5)); c.drawCentredString(X,Y+120*PPF,'SE/4 · 160 ACRES · SURFACE ONLY · NOV 1978')
 # pipelines
 pipes=load('pipelines-2277.geojson')
 for f in pipes:
@@ -220,7 +220,7 @@ for i,(yr,src,img) in enumerate(years):
     c.setFillColor(BLK); c.setFont('Serif',13); c.drawString(x,y+0.22*inch,yr); c.setFont('Cond',7.5); c.setFillColor(G40); c.drawString(x+c.stringWidth(yr,'Serif',13)+5,y+0.22*inch,src)
     c.setFont('Cond',7); c.drawString(x,y+0.06*inch,{'1954':'Open range; the draw plain across the north. Placement approximate, error over 500 ft.','1965':'Still range; a road on the west line, a pad at the draw. Placement approximate, ±300–500 ft.','1974':'First graded corridors. Placement ±300 ft, two control points on the south-line road.','1984':'Streets and a golf course under construction, south half. ±150 ft.','1995':'Course mature, south half built out. North half still range. ±150 ft.','2022':'Built out to the plat. North half: pads, gathering lines, a caliche yard. Orthoimage.'}[yr])
 # ---------- TEXT ZONE ----------
-body=ParagraphStyle('b',fontName='Serif',fontSize=10.6,leading=13,alignment=TA_JUSTIFY,spaceAfter=3)
+body=ParagraphStyle('b',fontName='Serif',fontSize=9.8,leading=12,alignment=TA_JUSTIFY,spaceAfter=3)
 head=ParagraphStyle('h',fontName='CondB',fontSize=12.5,leading=15,spaceAfter=4)
 red=ParagraphStyle('rb',parent=body,textColor=RED,alignment=0); redh=ParagraphStyle('rh',parent=head,textColor=RED)
 small=ParagraphStyle('s',fontName='Serif',fontSize=8.4,leading=10.2,alignment=TA_JUSTIFY,spaceBefore=6)
@@ -228,38 +228,40 @@ cw=(panel_w-2*g)/3
 def col(i,items):
     f=Frame(panel_x0+i*(cw+g),text_y0,cw,text_h,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0,showBoundary=0); f.addFromList(items,c)
     return f
-A_=[Paragraph('CHAIN OF TITLE, 1876–1982  ·  complete, no gaps',head)]+[Paragraph(t,body) for t in [
+A_=[Paragraph('CHAIN OF TITLE, 1876–1983  ·  complete, no gaps',head)]+[Paragraph(t,body) for t in [
 '<b>1876.</b> Surveyed 1 Feb by deputy surveyor W.C. Powell, chain carriers L.E. Wright and E.C. Bennett, “on the waters of North Concho.” Bearings in varas. Filed at the General Land Office 27 Dec.',
 '<b>1876.</b> Land Scrip No. 3123, 25 May: the Texas & Pacific has built 203 miles, 4,624 feet of railroad. This section is part of what that construction earned. Odd-numbered — railroad land, not school land.',
 '<b>1883.</b> Patented 15 Dec to Texas and Pacific Railway Co. Patent 540, Vol. 68, p. 503. 640 acres.',
-'<b>1906.</b> Charles J. Canda, trustee of the Texas Pacific Land Trust → Mrs. Mary T. Edwards, 640 acres. Recorded 6 Jan 1906, Deed Records 12/54. Three notes of $795.',
+'<b>1906.</b> Charles J. Canda, trustee of the Texas Pacific Land Trust → Mrs. Mary T. Edwards, 640 acres. Recorded 6 Jan, Deed Records 12/54. Three notes of $795.',
 '<b>1911.</b> Mary T. Edwards and heirs → S.H. Holloway, with Sections 6, 8, 17, 18; buyer assumes the 1906 notes. Four months later Holloway → S.W. Estes. <i>The Estes years begin.</i>',
-'<b>1921.</b> S.W. and Arminta Estes → Thelma Estes, about 160 acres.',
-'<b>1976.</b> Ethel Aldredge Estes → Aldredge Estes Jr.',
-'<b>1978.</b> The Estes family → Midland West Corp., 31 Oct. Surface and surface rights only, SE/4, 160 acres. Minerals stay with the family. Consideration: ten dollars and the note.',
-'<b>1981–82.</b> Midland West → Hailco Inc. (plat-joinder parcel). BSD Inc. → Midland West, agreement.',
-'<b>1982.</b> Green Tree North plat recorded 1 Dec. Cabinet C, p. 134. Developer: Midland West Corporation.',
+'<b>1921.</b> Arminta Estes → Thelma Estes, 7 June. DR 30/144. The whole section; her 1923 deeds of trust cover all 640 acres.',
+'<b>1941.</b> Family partition, 31 Oct, four instruments in a row. Thelma Estes Brown → Aldredge Estes, Section 7 (DR 70/294); Aldredge → Thelma, Section 6, the same day. Both had taken land from S.W. and Arminta. Kin, plainly; the records never say how.',
+'<b>1953, 1970.</b> Ethel Estes, Aldredge’s wife, then widow: a royalty deed on the 640 acres to Stanolind Oil & Gas; an oil and gas lease to Pan American Petroleum.',
+'<b>1976.</b> Ethel Aldredge Estes → her three children, 14 Dec. DR 615/436–438.',
+'<b>1978.</b> The Estes family → Midland West Corporation, 21–22 Nov, three deeds. Surface only; the minerals stay with the family. A deed of trust runs back to Mrs. Estes on the SE/4.',
+'<b>1979.</b> Midland West, about a dozen partners, opens the Green Tree course in July.',
+'<b>1980–81.</b> Midland West → Hailco Inc. (incorporated May 1979; Neal Hail, president), a Midland homebuilder buying finished lots. BSD Inc. → Midland West, agreement, 1982.',
+'<b>1982.</b> Green Tree North plat recorded 1 Dec. Cabinet C, p. 134. Frank Mullins becomes majority owner of Midland West the same month.',
+'<b>1983.</b> 1 March: the members buy the clubhouse and both courses from Midland West for more than $6 million. Green Tree North — 297 acres, 220 lots, nine more holes — under construction, 85 lots pre-sold, First National Bank of Midland carrying the paper.',
 '<i>The chain stops here. Sixty-seven years of one family; ninety-nine years of ranch. Everything since is somebody’s home and is not this map’s business.</i>']]
 B_=[Paragraph('THE GROUND',head)]+[Paragraph(t,body) for t in [
 '<b>Water.</b> Ogallala aquifer 100–180 ft below the section. One City of Midland well inside the line, 147 ft, unused. About ten domestic and irrigation wells drilled 2002–2021, 135–180 ft. Golf course well, 175 ft, 2021. Midland Draw crosses the north half and has carried its name on every USGS sheet from 1954 to 2019 — it never disappeared; the ranch did. Powell’s 1876 notes call this “waters of North Concho.” Modern mapping drains it east to the Colorado by Midland Draw and Beals Creek; the North Concho is not on the path.',
 '<b>Soil.</b> About 60% Amarillo and Midessa fine sandy loam — well drained, “farmland of statewide importance.” Bippus clay loam in the draws, subject to occasional flooding. No hydric soils. Water table below 80 in. A “sandy old farm with one sickly tree,” as the man who sold it put it in 1977.',
 '<b>Oil.</b> Inside the line: three producing wells, one permitted location, one dry hole. On the north line, three horizontal pads; two laterals run south under the streets, one runs north. Those three carry Martin County’s code in their API numbers though they sit in Midland County — the Railroad Commission assigns the code by the county it approved the drilling under, which is its rule and not an explanation. Two crude gathering lines (Oryx “Green Tree” system, 6.63 in) and one 16-in gas line (ONEOK WesTex) cross the north half. Operators, dates, and depths could not be pulled; the Commission’s wellbore service was down for the whole compilation.',
 '<b>Before the streets.</b> Open rangeland on every USGS edition 1954–1985: oil wells, drill holes, a gravel pit, a pipeline. Streets first appear 1991. Built out by 2010.',
-'<b>The course.</b> Summer 1977: two men buy 320 acres from the Estes family, one of them the head pro at Ranchland Hills. First National Bank finances it — $8.9 million, later litigated. Dirt-trail access until 1980. Course opens 1980–81; nine more holes 1985; rebuilt 2018.',
+'<b>The course.</b> Summer 1977: two men buy 320 acres from the Estes family, one of them the head pro at Ranchland Hills. First National Bank finances it — $8.9 million, later litigated. Dirt-trail access until 1980. The course opens July 1979; the members own it from March 1983; the north nine follows; rebuilt 2018.',
 '<b>The measure.</b> Powell called 1,900 varas on every side. The county’s polygon measures 1,910 to 1,926. The section holds about 650 acres against 640 patented — ten acres of survey excess that nobody has had to account for in 150 years.']]
 C_=[Paragraph('COULD NOT BE CONFIRMED',redh),Paragraph('Compiled from records, not walked. The following were looked for and not found, or found and not trusted:',red)]+[Paragraph('· '+t,red) for t in [
 'Identity of the pipeline drawn on the 1954 and 1966 USGS sheets.',
 'Whether the 1978 gathering line is the T-4 Permit 10611 “Green Tree” system. Likely; not shown by any single record.',
-'Operators, completion dates, and depths of the wells (RRC wellbore service unavailable throughout compilation). One dry hole’s API number returned truncated and is printed as unconfirmed.',
+'Operators, completion dates, and depths of the wells. The Railroad Commission’s record systems could not be reached on two days; its map could. One dry hole’s API number returned truncated and is printed as unconfirmed.',
 'Why three wells inside a Midland County section were permitted under Martin County’s code. The rule is in the Commission’s data dictionary; the reason for these three is in no public record.',
-'Which quarter Thelma Estes received in 1921.',
-'Whether Thelma Estes and Ethel Aldredge Estes are the same person. No instrument says so.',
-'Hailco Inc.: who they were. The nature of the 1982 BSD Inc. agreement.',
+'The nature of the 1982 BSD Inc. agreement.',
 'First lot sold, first house built, first price paid.',
-'Any 1930s–40s aerial. A 1944 Air Force frame exists at TxGIO and was not ordered.',
+'Any 1930s–40s aerial. A 1944 Air Force frame exists at TxGIO and is on order; it did not arrive in time for this edition.',
 'Powell records a magnetic variation of 12° 9½′ E; applied conventionally his lines would run near-cardinal. The ground runs 14° off. Which convention he used is not known.',
-'Anything the Reporter-Telegram printed about this ground; the archive is paywalled.']]+[Paragraph('If you know any of these, write. Second edition is free to anyone who corrects the first.',red),
-Paragraph('<b>Sources.</b> Texas General Land Office (patent, field notes, scrip); Midland County Clerk (deed records as cited); Midland Central Appraisal District (abstracts, parcels); USGS topoView and EarthExplorer (topographic sheets 1954–2019; aerials 1954, 1965, 1974, 1984, 1995); USDA NAIP 2022; Railroad Commission of Texas GIS; Texas Water Development Board; USDA-NRCS Web Soil Survey; EPA WATERS / NHDPlus; federal court records as cited. Full source log, forty-six rows, at github.com/acwil88/One-square-mile.',small),
+'What the Reporter-Telegram printed before 1977 or after 1983. Those seven years were searched; the rest were not.']]+[Paragraph('If you know any of these, write. Second edition is free to anyone who corrects the first.',red),
+Paragraph('<b>Sources.</b> Texas General Land Office (patent, field notes, scrip); Midland County Clerk (deed records as cited); Midland Central Appraisal District (abstracts, parcels); USGS topoView and EarthExplorer (topographic sheets 1954–2019; aerials 1954, 1965, 1974, 1984, 1995); Midland Reporter-Telegram 1977–1983 via the Southwest Collection, Texas Tech University; Texas Comptroller entity records; USDA NAIP 2022 (NAIP 2024 exists as a county mosaic in a proprietary format and was not used); Railroad Commission of Texas GIS; Texas Water Development Board; USDA-NRCS Web Soil Survey; EPA WATERS / NHDPlus; federal court records as cited. Full source log, fifty-plus rows, at github.com/acwil88/One-square-mile.',small),
 Paragraph('Gathered by Skippy (Meta Muse). Designed by Claude (Anthropic). Approved and paid for by a resident of the section, who is not named on it. No phone calls were made. Sheet oriented to the 1876 survey; true north 15° right of page-up. Scale 1:3,000. Aerial strip: each frame’s placement error is stated in its caption.',small)]
 from reportlab.platypus import Image as RLImage, Spacer
 fnim=Image.open(REPO+'glo-page-6.png'); fw_=fnim.size[0]; fnim.crop((0,int(fnim.size[1]*0.10),fw_,int(fnim.size[1]*0.36))).save('/home/claude/build/fieldnotes.jpg',quality=90)
