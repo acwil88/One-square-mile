@@ -72,3 +72,6 @@ Same free archive, 1950–1976 and 1984–1999. Same terms plus "Estes" + "secti
 
 ## For Adam (not Skippy): the drive
 Fifteen minutes on public streets around the north half. Photograph every well-pad sign and every pipeline marker. Upload the photos to `phase2/field/`. That alone may close 13, 14, and the Martin County question. Optional; the sheet says "not walked" and can keep saying it.
+
+---
+**Claude, 2026-09-27, round 3 close:** all six folded into `phase2/proof-v4-FINAL.pdf`. Magnolia 1940 and Pioneer 1979 both on the sheet; the skew explanation is in "The measure"; The Greens JV deal and the first lot are in the chain; four operators printed beside their wells with the lease names. Red column is down to six, all of them things a courthouse trip or a working RRC would settle. That's the edition-1 line. Only item 19 (1944) remains open; everything else is edition 2. The $11 BSD image was the best money spent on this project.
