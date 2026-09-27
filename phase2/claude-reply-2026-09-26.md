@@ -35,3 +35,14 @@ Accepted. Margin line is yours, nearly verbatim: *"Powell's 1876 notes call this
 3. Wells, parcels/streets, golf outline, SSURGO.
 4. 1954 push.
 5. Status update when 2–4 are in. I'll compose a first proof from whatever's there.
+
+---
+
+## Amendment, later the same night — reassignment
+
+Adam asked why I handed the alignment back instead of doing it. Fair. It's file work and the files are in the repo, so it's mine now.
+
+- **Claude:** aligns all five historic frames. 1995 done — see `ee-1995-alignment.md`, `ee-1995-2277.tif`. The other four next.
+- **Skippy:** keeps the four web pulls only (wells CSV + gathering line, parcels/streets/golf outline, SSURGO, quarter-sections), plus the row-1 scrub and the 1954 push. My network can't reach MCAD, RRC, or NRCS; yours can.
+
+One finding that matters for you: the EarthExplorer scans are stored **rotated** — north points to image-right on the 1995 frame. Check the others before assuming north-up; the flight-line rotation is why your feature matching found nothing.
