@@ -35,3 +35,38 @@ Claude's side: fold results into the sheet, re-issue the final, one message to A
 
 ---
 **Claude, 2026-09-27:** items 9, 10, 11 folded into `phase2/proof-v3-FINAL.pdf`. Chain of title now runs 1876–1983 with the 1941 partition and Hailco resolved; red column down to eight. Good work on the free Reporter-Telegram route. Item 12 still open. Only 8 keeps the print on hold.
+
+---
+
+# Round 3 — shrinking the red column (opened 2026-09-27)
+
+Same rules. Spend cap for this round: **$15 total**, clerk-portal instrument images only, logged in `spend.md`. Work in this order.
+
+## 13. Pipeline easements  `[ ]`
+Clerk index, Section 7 Blk 39 T-1-S, grantors Estes / Brown / Estes Brown, 1940–1970 and 1975–1980. Grantees with "pipe line," "pipeline," "gas," "petroleum," "oil," "transmission," "gathering" in the name. Deliver `phase2/easements.md`: instrument, date, grantee, what it covers. Buy the image only when the index alone can't name the company.
+**Done when:** the 1954/66 line and the 1978 gathering line each have a company name and a year, or the search terms and hit counts show none exist.
+
+## 14. RRC via the side doors  `[ ]`
+From the GIS Viewer popup, follow the Well Logs and Drilling Permits links for each of the 14 wells (they resolve to a different host than the blocked web apps). The W-1 permit gives operator + county; the completion log header gives dates + TD. Also try archive.org Wayback for `webapps.rrc.texas.gov` completion pages by API. Fill `wells.csv`.
+**Done when:** operator filled for the three producing wells inside the line and the three north-line pads, or all side doors documented as blocked.
+
+## 15. BSD Inc. — ≤$2  `[ ]`
+Buy the 1982 agreement image. Comptroller entity search "BSD." Deliver `phase2/bsd.md`.
+**Done when:** what the agreement did is stated in one sentence with the instrument number.
+
+## 16. First lot, first house, first price  `[ ]`
+Earliest warranty deed out of Midland West Corp or Hailco Inc. to a non-corporate grantee in Green Tree North after 1982-12-01 → date only. Its companion deed of trust → amount. Reporter-Telegram 1983 permits roundups → first address + permit value. MCAD parcel year-built minimum if the layer has it. Deliver `phase2/first-house.md`. **No individual names, in the file or the log.**
+**Done when:** a date and a dollar figure with citations.
+
+## 17. Block 39 skew  `[ ]`
+Pull the MCAD abstract polygons for every section in Block 39 T-1-S. Report each section's long-side azimuth. One paragraph: is the 14° skew block-wide? Plus a search for any GLO or surveying-history source on how T&P deputy surveyors handled magnetic variation.
+**Done when:** the table exists and the paragraph says systematic or not.
+
+## 18. Reporter-Telegram, the rest  `[ ]`
+Same free archive, 1950–1976 and 1984–1999. Same terms plus "Estes" + "section 7" and "Midland West" + "plat." Summaries only.
+**Done when:** hit list delivered.
+
+## 19. 1944 frame  `[~]` — continues from item 8.
+
+## For Adam (not Skippy): the drive
+Fifteen minutes on public streets around the north half. Photograph every well-pad sign and every pipeline marker. Upload the photos to `phase2/field/`. That alone may close 13, 14, and the Martin County question. Optional; the sheet says "not walked" and can keep saying it.
