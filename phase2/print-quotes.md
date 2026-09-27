@@ -12,7 +12,33 @@ whether the shop sells/fits a stock 24×36 frame.
 all are quote-on-request. National reference pricing below is FedEx's
 published rate (local store may vary).
 
-## 1. FedEx Office Print & Ship Center (published national pricing)
+## Local / mom-and-pop picks (Adam's preference, 2026-09-26)
+
+**1. Odessa Print Shop — Odessa (top local pick)**
+- 718 N Jackson Ave, Odessa, TX 79761 — (432) 580-5210
+- odessaps.forms@gmail.com — https://www.odessaprintshop.com/
+- Locally owned and operated in the Permian Basin since 1993; wide-format
+  color prints listed among offerings. Email is their preferred contact —
+  fits the outreach plan. Hours Mon–Thu 8:30–5, Fri 8:30–12.
+- **Price:** not published — request quote by email on both papers.
+
+**2. House of Printing — Midland (already listed below)**
+- Est. 1993, full-service commercial printer, downtown Midland. The
+  Midland mom-and-pop counterpart to Odessa Print Shop.
+
+**3. Arrow Printing — Odessa (backup)**
+- 109 N Hancock Ave, Odessa, TX 79767 — (432) 335-3407
+- https://www.apodessa.com/
+- 5.0-star local shop, community-focused ("we adore our customers and
+  serving our community"). Listed offerings skew small-format (cards, NCR
+  forms) — confirm 24×36 capability before quoting.
+
+(Kenner Printing, Odessa — "largest, most complete source for printing in
+the Permian Basin," (432) 333-1921 — site would not load; offerings skew
+event/wedding. Possible backup. AlphaGraphics Odessa and the UPS Store are
+franchises, not local.)
+
+## National reference
 - 4612 Billingsley Blvd, Midland, TX 79705 — (432) 699-9400
 - https://www.office.fedex.com/
 - **Archival matte 24×36:** ~$60/sheet — 6 sq ft × $10.00/sq ft standard
@@ -42,8 +68,18 @@ published rate (local store may vary).
 - **Price:** not published — request quote by email on both papers.
 - **Emailed PDF:** yes, direct email.
 
-## Frames (24×36 stock, Midland retail)
-Print shops don't stock frames. Local options for the archival print:
+## Frames and local framers (24×36)
+Print shops don't frame. Local options for the archival print:
+
+Custom framing (mom-and-pop, 2026-09-26):
+- The FaFa Gallery (Midland) — 438 Andrews Hwy, (432) 689-3004. Local
+  gallery + framing studio; archival custom framing specifically. First
+  call. http://thefafagallery.com/
+- Callender's Gallery (Midland) — 2613 W Loop 250 N, (432) 699-6700.
+  Custom framing, 4.7 stars. http://www.frameitart.com/
+- Swartz Framing Studio (Odessa) — (432) 684-3971. Dedicated framing.
+
+Stock 24×36 frames, Midland retail:
 - Hobby Lobby (Midland): basic 24×36 poster frames ~$20–30 on sale.
 - Michaels (Midland): 24×36 poster frames ~$33–64 depending on style;
   multipack bronze 24×36 ~$15.46/frame online.
