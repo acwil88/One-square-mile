@@ -42,29 +42,31 @@ Claude's side: fold results into the sheet, re-issue the final, one message to A
 
 Same rules. Spend cap for this round: **$15 total**, clerk-portal instrument images only, logged in `spend.md`. Work in this order.
 
-## 13. Pipeline easements  `[ ]`
+## 13. Pipeline easements  `[x]`
 Clerk index, Section 7 Blk 39 T-1-S, grantors Estes / Brown / Estes Brown, 1940–1970 and 1975–1980. Grantees with "pipe line," "pipeline," "gas," "petroleum," "oil," "transmission," "gathering" in the name. Deliver `phase2/easements.md`: instrument, date, grantee, what it covers. Buy the image only when the index alone can't name the company.
 **Done when:** the 1954/66 line and the 1978 gathering line each have a company name and a year, or the search terms and hit counts show none exist.
 
-## 14. RRC via the side doors  `[ ]`
+## 14. RRC via the side doors  `[x]`
 From the GIS Viewer popup, follow the Well Logs and Drilling Permits links for each of the 14 wells (they resolve to a different host than the blocked web apps). The W-1 permit gives operator + county; the completion log header gives dates + TD. Also try archive.org Wayback for `webapps.rrc.texas.gov` completion pages by API. Fill `wells.csv`.
 **Done when:** operator filled for the three producing wells inside the line and the three north-line pads, or all side doors documented as blocked.
 
-## 15. BSD Inc. — ≤$2  `[ ]`
+## 15. BSD Inc. — ≤$2  `[x]`
 Buy the 1982 agreement image. Comptroller entity search "BSD." Deliver `phase2/bsd.md`.
 **Done when:** what the agreement did is stated in one sentence with the instrument number.
+**Status 2026-09-27:** DONE. Agreement PURCHASED ($11, Adam-approved, order #18976402 — over the $2 estimate, approved). `phase2/bsd.md` written with one-sentence function + instrument. Correction: Midland West Corp is the SELLER; buyer is THE GREENS JV (Hailco + Dovecote + BSD). Comptroller: BSD, INC., SOS file 0029959300, formed 12/20/1971, inactive — the only TX "BSD Inc." in existence in 1982.
 
-## 16. First lot, first house, first price  `[ ]`
+## 16. First lot, first house, first price  `[x]`
 Earliest warranty deed out of Midland West Corp or Hailco Inc. to a non-corporate grantee in Green Tree North after 1982-12-01 → date only. Its companion deed of trust → amount. Reporter-Telegram 1983 permits roundups → first address + permit value. MCAD parcel year-built minimum if the layer has it. Deliver `phase2/first-house.md`. **No individual names, in the file or the log.**
 **Done when:** a date and a dollar figure with citations.
 
-## 17. Block 39 skew  `[ ]`
+## 17. Block 39 skew  `[x]`
 Pull the MCAD abstract polygons for every section in Block 39 T-1-S. Report each section's long-side azimuth. One paragraph: is the 14° skew block-wide? Plus a search for any GLO or surveying-history source on how T&P deputy surveyors handled magnetic variation.
 **Done when:** the table exists and the paragraph says systematic or not.
 
-## 18. Reporter-Telegram, the rest  `[ ]`
+## 18. Reporter-Telegram, the rest  `[x]`
 Same free archive, 1950–1976 and 1984–1999. Same terms plus "Estes" + "section 7" and "Midland West" + "plat." Summaries only.
 **Done when:** hit list delivered.
+**Status 2026-09-27:** DONE — all 11 combos complete. Key: 1986 embezzlement trial (ex-FNB banker McCright hid Midland West Corp. ownership, funneled $1.925M 1981 loan); Ranchland Hills 1984–99 = country-club noise only; "Estes"+"section 7" = Ward County oil field, no family link; "Midland West"+"plat" = zero; Thelma Estes obit 1983-04-19 confirms she married a Brown.
 
 ## 19. 1944 frame  `[~]` — continues from item 8.
 
