@@ -62,3 +62,25 @@ Source: https://www.rrc.texas.gov/media/ezxjqdmn/oga049.pdf
 - `lateral_azimuth_deg` for horizontals was computed from the nearest
   RRC directional-line geometry, not from a confirmed well-to-line join —
   treat as approximate.
+
+## Item 7 — RRC wellbore retry, attempt 1 (2026-09-26 ~21:55 CDT)
+Endpoints tried, all failed from this network:
+- gis.rrc.texas.gov/arcgis/rest/services (MapServer) — connection failed
+- maps.rrc.texas.gov — connection failed
+- webapps.rrc.texas.gov (wellbore/lease query) — connection failed
+- mft.rrc.texas.gov (bulk data) — connection failed
+- api.rrc.texas.gov — 403 on /, 404 on /api/
+- webmaps/gisweb/gis2/services .rrc.texas.gov — all connection failed
+- AGOL mirrors: only coastal RRC_Wells_Coastal (GLO) found; no Midland coverage.
+`operator`, spud/completion, TD still blank for all 14 rows. Attempt 2 scheduled
+2026-09-27 (different day per queue rule) before calling it blocked.
+
+## Item 7 — RRC wellbore retry, attempt 2 (2026-09-27 ~06:42 CDT) — FAILED, BLOCKED
+
+Endpoints tried:
+1. **GIS Viewer (https://gis.rrc.texas.gov/GISViewer/)** — loads. Well search accepts 8-digit county+sequence format (e.g., "31745816") and zooms to the well; rejects 10-digit/dashed/14-digit formats ("Location not found"). Identify popup returns ONLY: API number, GIS well number, symbol description, location source — plus links to Well Logs, Drilling Permits, Disposal Permits. NO operator, spud date, completion date, or total depth shown. Popup says "(Identify the well to get completion information)" but no completion attributes display.
+2. **Wellbore Query (webapps2.rrc.texas.gov/EWA/wellboreQueryAction.do)** — loads intermittently (timeouts/blank loads); when loaded, search criteria are Oil/Gas/Both, District, Lease No./Well ID, Type Well, County — NO API-number search field. Cannot look up specific wells.
+3. **Completions Query (webapps.rrc.texas.gov/CMPL/publicHomeAction.do)** — never loads (navigation timeouts, blank page).
+4. **Drilling Permits W-1 (webapps.rrc.texas.gov/DP/publicQuerySearchAction.do?countyCode=317&apiSeqNo=45816)** — never loads (blank page / timeouts).
+
+Verdict: the only working RRC endpoint locates wells but exposes no operator/spud/completion/TD; all record systems holding those fields (webapps, webapps2) are unreachable from this environment. Two attempts on different days, both failed → **item 7 marked blocked [~]** per queue done-check. `operator`, spud/completion, TD remain blank for all 14 rows in wells.csv. A future attempt would need working webapps access or an alternate RRC data source.
