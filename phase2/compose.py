@@ -121,6 +121,23 @@ for r in rows:
     else: c.circle(X,Y,s,stroke=1,fill=0)   # permitted
     c.setFont('Cond',6); c.drawString(X+s+2,Y-2,f"{r['api']}  {r['well_name']} · {st}")
 c.restoreState()
+# legend
+lx,ly=pg(120,3350); lw_,lh_=2.45*inch,1.9*inch
+c.setFillColor(Color(1,1,1,alpha=0.82)); c.setStrokeColor(BLK); c.setLineWidth(0.6); c.rect(lx,ly,lw_,lh_,stroke=1,fill=1)
+c.setFillColor(BLK); c.setFont('CondB',8.5); c.drawString(lx+8,ly+lh_-14,'WELLS  (Railroad Commission of Texas, Sept 2026)')
+items=[('producing','fill'),('horizontal pad; tick shows lateral direction','sq'),('permitted, not drilled','open'),('dry hole','dry'),('plugged','plug')]
+yy=ly+lh_-30
+for lab,k in items:
+    X=lx+16; s_=3.6; c.setLineWidth(0.8)
+    if k=='fill': c.circle(X,yy,s_,stroke=1,fill=1)
+    elif k=='sq': c.rect(X-s_,yy-s_,2*s_,2*s_,stroke=1,fill=1); c.setLineWidth(1.2); c.line(X,yy,X+12,yy+8)
+    elif k=='open': c.circle(X,yy,s_,stroke=1,fill=0)
+    elif k=='dry': c.circle(X,yy,s_,stroke=1,fill=0); c.line(X-s_,yy-s_,X+s_,yy+s_); c.line(X-s_,yy+s_,X+s_,yy-s_)
+    else: c.circle(X,yy,s_,stroke=1,fill=0); c.line(X-s_,yy,X+s_,yy)
+    c.setFont('Cond',8); c.drawString(X+18,yy-3,lab); yy-=14
+c.setLineWidth(0.9); c.setDash([5,3]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.drawString(lx+34,yy-5,'pipeline, labeled with operator and system'); yy-=14
+c.setLineWidth(0.5); c.setDash([4,3]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.drawString(lx+34,yy-5,'quarter-section line'); yy-=14
+c.setStrokeColor(G60); c.setLineWidth(0.4); c.setDash([1,2]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.setStrokeColor(BLK); c.drawString(lx+34,yy-5,'soil unit (USDA-NRCS SSURGO), named in small caps')
 # neatline
 c.setStrokeColor(BLK); c.setLineWidth(2.2); pth=c.beginPath()
 for k,i in enumerate([CORN['SW'],CORN['SE'],CORN['NE'],CORN['NW']]):
@@ -167,9 +184,14 @@ c.setFont('Serif',15); c.drawString(panel_x0,ty-1.72*inch,'Block 39, Township 1 
 c.setFont('Serif',12); c.drawString(panel_x0,ty-2.02*inch,'ONE SQUARE MILE'); c.setFont('SerifI',12); c.drawString(panel_x0+c.stringWidth('ONE SQUARE MILE  ','Serif',12),ty-2.02*inch,'Desk Edition. Compiled from records, not walked.')
 c.setFont('Serif',10.5); c.drawString(panel_x0,ty-2.28*inch,'First edition, October 2026. One copy. Corrections invited; anyone who corrects it gets the second edition free.')
 rs=ParagraphStyle('r',fontName='Serif',fontSize=11,leading=14,textColor=RED)
-fr=Frame(W-M-6.6*inch,ty-2.4*inch,6.6*inch,2.4*inch,leftPadding=0,rightPadding=0,topPadding=2,bottomPadding=0,showBoundary=0)
+fr=Frame(W-M-7.0*inch,ty-2.4*inch,3.4*inch,2.4*inch,leftPadding=0,rightPadding=0,topPadding=2,bottomPadding=0,showBoundary=0)
 fr.addFromList([Paragraph('Surveyed 1 February 1876 and docketed under <b>Martin County</b>. Corrected to Midland County in red ink, 1887, two years after Midland County was organized. The county this ground sits in was itself a correction.',rs),
  Paragraph('<font size=9>On this sheet, red means the record disagreed with itself, or ran out.</font>',rs)],c)
+# field notes reproduction in title block, right
+fnim=Image.open(REPO+'glo-page-6.png'); fw_=fnim.size[0]; fnim.crop((0,int(fnim.size[1]*0.10),fw_,int(fnim.size[1]*0.36))).save('/home/claude/build/fieldnotes.jpg',quality=90)
+iw=3.3*inch; ih=iw*(0.26*fnim.size[1])/fw_
+c.drawImage('/home/claude/build/fieldnotes.jpg',W-M-iw,ty-ih,width=iw,height=ih); c.setStrokeColor(G60); c.setLineWidth(0.4); c.rect(W-M-iw,ty-ih,iw,ih)
+c.setFont('Serif',8.4); c.setFillColor(BLK); c.drawString(W-M-iw,ty-ih-11,'Powell’s field notes, 1 Feb 1876, as filed. “Martin,” struck. GLO Bexar Scrip File 020113.')
 # ---------- AERIAL STRIP ----------
 g=0.2*inch; fw=(panel_w-5*g)/6
 years=[('1954','USGS single frame, 1:63,000, 2 May 1954',None),('1965','USGS single frame, 1:21,400, 20 Feb 1965',None),('1974','USGS single frame, 1:29,000, 19 Feb 1974',None),
@@ -233,5 +255,8 @@ C_=[Paragraph('COULD NOT BE CONFIRMED',redh),Paragraph('Compiled from records, n
 'Anything the Reporter-Telegram printed about this ground; the archive is paywalled.']]+[Paragraph('If you know any of these, write. Second edition is free to anyone who corrects the first.',red),
 Paragraph('<b>Sources.</b> Texas General Land Office (patent, field notes, scrip); Midland County Clerk (deed records as cited); Midland Central Appraisal District (abstracts, parcels); USGS topoView and EarthExplorer (topographic sheets 1954–2019; aerials 1954, 1965, 1974, 1984, 1995); USDA NAIP 2022; Railroad Commission of Texas GIS; Texas Water Development Board; USDA-NRCS Web Soil Survey; EPA WATERS / NHDPlus; federal court records as cited. Full source log, thirty-eight rows, at github.com/acwil88/One-square-mile.',small),
 Paragraph('Gathered by Skippy (Meta Muse). Designed by Claude (Anthropic). Approved and paid for by a resident of the section, who is not named on it. No phone calls were made. Sheet oriented to the 1876 survey; true north 15° right of page-up. Scale 1:3,000. Aerial strip frames aligned to ±150 ft.',small)]
+from reportlab.platypus import Image as RLImage, Spacer
+fnim=Image.open(REPO+'glo-page-6.png'); fw_=fnim.size[0]; fnim.crop((0,int(fnim.size[1]*0.10),fw_,int(fnim.size[1]*0.36))).save('/home/claude/build/fieldnotes.jpg',quality=90)
+fn_w=cw*0.92; fn_h=fn_w*(0.26*fnim.size[1])/fw_
 col(0,A_); col(1,B_); col(2,C_)
 c.showPage(); c.save(); print('ok')
