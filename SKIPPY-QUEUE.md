@@ -1,28 +1,33 @@
-# Skippy — work queue (owner: Claude; arbiter: Adam)
+# Skippy — work queue, round 2 (owner: Claude; arbiter: Adam)
 
-Single source of truth for what Claude needs from you. Work top to bottom. Each item has a done-check. Push each output as it finishes; append a line to `source-log.md` for anything new. Mark an item `[x]` here when its done-check passes, `[!]` with a one-line reason if blocked. Standing rules unchanged: no calls, no emails, nothing in the repo that couldn't print.
+Round 1 (items 1–5) is done and folded into `phase2/proof-v2-FINAL.pdf`. Print is on hold one week for this round. Same rules: work top to bottom, push each output when its done-check passes, one `source-log.md` row per new source, mark `[x]` / `[~]` / `[!]` here. **Adam has approved up to $30 of spend for items 8–10; nothing above that, and no purchase without his tap on the actual checkout.** Still no calls, no emails.
 
-## 1. Midland Draw geometry  `[x]`
-Pull the NHDPlus flowlines for COMID 5688042 and every connected reach within the NAIP frame extent (see `phase2/claude-reply-2026-09-26.md` §2 for the frame). Output `phase2/midland-draw-2277.geojson`, LineString(s), EPSG:2277, properties `comid`, `gnis_name` (may be null), `reachcode`.
-**Done when:** the file loads, at least one line crosses the section polygon, and the source-log row cites the WATERS/NHDPlus service URL.
+## 6. Newer imagery  `[ ]`
+Check for (a) NAIP 2024 Texas, 60 cm, quarter-quads `m_3210263_se_13` and `_ne_13` (Planetary Computer STAC or TxGIO); (b) TxGIO StratMap 6-inch or better urban imagery covering the section, any year after 2022. If either exists, deliver it exactly like `naip2022-2277.tif`: same EPSG:2277 frame and extent, same grid, as `phase2/newest-YYYY-2277.tif` + preview, with acquisition date in the source-log row.
+**Done when:** the file is on the identical frame (compare `gdalinfo` extents to the 2022 file) or a note says nothing newer than 2022 is published.
 
-## 2. Wells reconciliation  `[x]`
-(a) `wells.csv` lacks API 42-329-47554 (Well 1MS, east line) that source-log row 24 reported. Either add it with coordinates or state in `phase2/wells-notes.md` why row 24 was wrong.
-(b) Three APIs inside the section carry prefix 42-317 (Martin County). In `wells-notes.md`, explain (RRC assigns API county by ___) or say it could not be explained. No guessing — if RRC's own documentation doesn't say, write "not explained."
-**Done when:** `wells-notes.md` exists with both answers and `wells.csv` is consistent with it.
+## 7. RRC wellbore retry  `[ ]`
+Retry the RRC wellbore/lease endpoint for every row in `wells.csv`: operator, spud/completion date, total depth. Fill the CSV; recover the truncated API on the `42-329-xxxxx` dry hole. Two attempts on different days before calling it blocked.
+**Done when:** `operator` is filled for every producing well, or `wells-notes.md` records the dates/times the service failed.
 
-## 3. Aerial alignment, 1974 → 1965 → 1954  `[x]`
-Method in `phase2/alignment-status-2026-09-27.md`. Reference is `phase2/ee-1984-2277.tif`. Outputs per frame: `phase2/ee-YYYY-2277.tif` (NAIP grid, EPSG:2277, deflate), `ee-YYYY-2277-preview.png`, `ee-YYYY-alignment.md` (GCPs used, transform, residuals, error estimate). Accept ±300 ft.
-**Done when:** a checkerboard against 1984 shows section-line roads continuing across tiles, and the .md states the error. Do 1974 first; if 1954 (1:63,000) won't align to better than ±500 ft, deliver it labeled "approximate" rather than skipping it.
+## 8. 1944 USAF frame — $10  `[ ]`
+Order the 1944-11-26 USAF Mission 805 frame covering the section from TxGIO's historical imagery archive. Prepare the order; **stop at checkout and tell Adam** — he completes payment. When it arrives, align it to the 1965 frame the way you did 1954, deliver `phase2/ee-1944-2277.tif` + alignment note.
+**Done when:** frame delivered and aligned, or order prepared and awaiting Adam.
 
-## 4. Print quote  `[x]` (research done vs revised spec; outreach ON HOLD until print-ready PDF exists, per Adam 2026-09-26)
-Web only. Find two Midland-area shops that print 24×36 wide-format on **matte archival inkjet paper (190–230 gsm)** and also on plotter bond, with published or listed prices. Output `phase2/print-quotes.md`: shop, address, price per sheet on each paper, turnaround, whether they take an emailed PDF, and whether they sell or fit a stock 24×36 frame. Do not contact them.
-**Done when:** two rows with prices, or a note that prices aren't published and the listed phone/email for Adam to use.
+## 9. Hailco Inc. — ≤$1  `[ ]`
+Texas Secretary of State SOSDirect search for "Hailco" (and "Hailco, Inc.") — filing date, registered agent, officers/directors at formation, status. Also search the Midland County Clerk index for any other Hailco instruments 1980–1985. Deliver `phase2/hailco.md`.
+**Done when:** who they were is stated with the SOS filing number, or "no filing found" with the search terms used.
 
-## 5. Source-log hygiene  `[x]`
-Every file in `phase2/` should be traceable to a row. Add rows for anything missing.
-**Done when:** `grep` of each phase2 filename hits the log.
+## 10. Reporter-Telegram — ≤$20  `[ ]`
+Newspapers.com (or the Portal to Texas History if the R-T is there for the period) — one trial or one month, **Adam completes the signup**. Search 1977–1983 for: "Green Tree," "Midland West," "Estes" + "ranch," "Hailco," "Ranchland Hills" + "golf." Deliver `phase2/reporter-telegram.md`: date, page, one-sentence summary per hit, and a clipping image for anything about the land sale, the course opening, or the plat. No article text beyond a sentence — summaries only.
+**Done when:** the hit list is delivered, or the archive doesn't cover the years.
+
+## 11. Thelma vs. Ethel  `[ ]`
+Midland County Clerk index: marriage records and probate 1915–1980 for Thelma Estes, Ethel Estes, Ethel Aldredge, Aldredge Estes. Question to answer: is Thelma Estes (1921 grantee) the same person as Ethel Aldredge Estes (1976 grantor)? Deliver the answer with instrument numbers in `phase2/estes.md`, or "no instrument connects them."
+**Done when:** answered either way, with citations.
+
+## 12. Source-log hygiene  `[ ]`
+As before: every new file in `phase2/` traceable to a row.
 
 ---
-Claude's side, for reference (not yours): compose proof v2 from 1–3, print spec, one message to Adam.
-Older instructions in `phase2/claude-reply-2026-09-26.md`, `alignment-status-2026-09-27.md`, and `proof-v1-notes.md` are superseded by this file where they overlap.
+Claude's side: fold results into the sheet, re-issue the final, one message to Adam. Print after that.
