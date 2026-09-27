@@ -30,7 +30,7 @@ def lines_of(geom):
     if geom['type']=='Polygon': return geom['coordinates']
     if geom['type']=='MultiPolygon': return [r for p in geom['coordinates'] for r in p]
     return []
-c=canvas.Canvas('/home/claude/build/proof-v1.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition')
+c=canvas.Canvas('/home/claude/build/proof-v2.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
 BLEED=90.0  # ft shown beyond the section
 def clip_rect():
     x0,y0=pg(loc_minx-BLEED,loc_miny-BLEED); x1,y1=pg(loc_maxx+BLEED,loc_maxy+BLEED); return x0,y0,x1-x0,y1-y0
@@ -77,6 +77,11 @@ for f in streets:
         mx,my=loc[i]; 
         if not(0<mx<W_ft and 0<my<H_ft): continue
         X,Y=pg(mx,my); c.saveState(); c.translate(X,Y); c.rotate(ang); c.drawCentredString(0,2,nm.upper()); c.restoreState(); done.add(nm); break
+# Midland Draw (NHD flowline)
+draw_lines(load('midland-draw-2277.geojson'),BLU,1.1)
+dr=lines_of(load('midland-draw-2277.geojson')[0]['geometry'])[0]; dl=to_local_arr([r[:2] for r in dr]); ins=dl[(dl[:,0]>300)&(dl[:,0]<W_ft-300)]
+if len(ins)>4:
+    i=int(np.argmax(ins[:,1])); i=min(max(i,3),len(ins)-4); a,b=ins[i-2],ins[i+2]; ang=math.degrees(math.atan2(b[1]-a[1],b[0]-a[0])); X,Y=pg(*ins[i]); c.saveState(); c.translate(X,Y); c.rotate(ang); c.setFont('CondM',9); c.setFillColor(BLU); c.drawCentredString(0,6,'MIDLAND DRAW  ·  NHDPlus flowline 5688042, reach unnamed in NHD'); c.restoreState()
 # quarter lines
 mid=lambda a,b:(P[a]+P[b])/2
 c.setStrokeColor(BLK); c.setLineWidth(0.5); c.setDash([4,3])
@@ -119,7 +124,7 @@ for r in rows:
     elif st=='dry hole': c.circle(X,Y,s,stroke=1,fill=0); c.line(X-s,Y-s,X+s,Y+s); c.line(X-s,Y+s,X+s,Y-s)
     elif st=='plugged': c.circle(X,Y,s,stroke=1,fill=0); c.line(X-s,Y,X+s,Y)
     else: c.circle(X,Y,s,stroke=1,fill=0)   # permitted
-    c.setFont('Cond',6); c.drawString(X+s+2,Y-2,f"{r['api']}  {r['well_name']} · {st}")
+    c.setFont('Cond',6); api=r['api'] if 'xxxxx' not in r['api'] else '42-329-(unconfirmed)'; c.drawString(X+s+2,Y+3,f"{api}  {r['well_name']} · {st}")
 c.restoreState()
 # legend
 lx,ly=pg(120,3350); lw_,lh_=2.45*inch,1.9*inch
@@ -164,19 +169,19 @@ for k,(dx,dy,al) in {'SW':(8,8,'l'),'SE':(-8,8,'r'),'NE':(-8,-14,'r'),'NW':(8,-1
 c.setFont('SerifI',8.5); X,Y=pg_grid(*P[CORN['NW']]); c.drawString(X+2,Y+30,'Beginning at a stake & Earth mnd, 4 pls, the S.W. corner of Survey No. 6')
 # north arrow + scale bar (inside panel, lower right of section)
 TRUE_N=15.1
-X,Y=pg(W_ft-300,4250); c.saveState(); c.translate(X,Y); c.rotate(-TRUE_N); c.setLineWidth(1); c.setStrokeColor(BLK); c.setFillColor(BLK)
+X,Y=pg(W_ft-350,3450); c.saveState(); c.translate(X,Y); c.rotate(-TRUE_N); c.setLineWidth(1); c.setStrokeColor(BLK); c.setFillColor(BLK)
 c.line(0,-40,0,40); pth=c.beginPath(); pth.moveTo(0,48); pth.lineTo(-5,34); pth.lineTo(5,34); pth.close(); c.drawPath(pth,fill=1); c.setFont('CondB',8); c.drawCentredString(0,52,'TRUE N'); c.restoreState()
 c.setFont('Cond',7); c.drawCentredString(X,Y-62,'The sheet is oriented to the 1876 survey, not to north.')
 # scale bar
-sx,sy=pg(W_ft-1600,3800); c.setLineWidth(0.8)
+sx,sy=pg(170,3100); c.setLineWidth(0.8)
 for i in range(4): c.rect(sx+i*250*PPF,sy,250*PPF,4,stroke=1,fill=(i%2==0))
 c.setFont('Cond',7)
 for i in range(0,5): c.drawCentredString(sx+i*250*PPF,sy+7,str(i*250))
-c.drawString(sx+1000*PPF+4,sy+7,'FEET')
+c.drawString(sx+1000*PPF+14,sy+7,'FEET')
 V=2.7778*PPF  # pt per vara
 for i in range(4): c.rect(sx+i*90*V,sy-8,90*V,4,stroke=1,fill=(i%2==1))
 for i in range(0,5): c.drawCentredString(sx+i*90*V,sy-18,str(i*90))
-c.drawString(sx+360*V+4,sy-18,'VARAS (33⅓ in)'); c.drawString(sx,sy+18,'SCALE 1 : 3,000   ·   1 INCH = 250 FEET')
+c.drawString(sx+360*V+14,sy-18,'VARAS (33⅓ in)'); c.drawString(sx,sy+18,'SCALE 1 : 3,000   ·   1 INCH = 250 FEET')
 # ---------- TITLE BLOCK ----------
 ty=H-M
 c.setFillColor(BLK); c.setFont('Serif',118); c.drawString(panel_x0-2,ty-1.35*inch,'SECTION 7')
@@ -194,7 +199,7 @@ c.drawImage('/home/claude/build/fieldnotes.jpg',W-M-iw,ty-ih,width=iw,height=ih)
 c.setFont('Serif',8.4); c.setFillColor(BLK); c.drawString(W-M-iw,ty-ih-11,'Powell’s field notes, 1 Feb 1876, as filed. “Martin,” struck. GLO Bexar Scrip File 020113.')
 # ---------- AERIAL STRIP ----------
 g=0.2*inch; fw=(panel_w-5*g)/6
-years=[('1954','USGS single frame, 1:63,000, 2 May 1954',None),('1965','USGS single frame, 1:21,400, 20 Feb 1965',None),('1974','USGS single frame, 1:29,000, 19 Feb 1974',None),
+years=[('1954','USGS single frame, 1:63,000, 2 May 1954','/home/claude/build/base_1954.png'),('1965','USGS single frame, 1:21,400, 20 Feb 1965','/home/claude/build/base_1965.png'),('1974','USGS single frame, 1:29,000, 19 Feb 1974','/home/claude/build/base_1974.png'),
        ('1984','USGS NHAP, 28 Oct 1984','/home/claude/build/base_1984.png'),('1995','USGS NAPP color-infrared, 19 Dec 1995','/home/claude/build/base_1995.png'),('2022','USDA NAIP, 24 Sep 2022','/home/claude/build/base_naip.png')]
 # strip crop = polygon bbox + 10% in local frame, square
 side=max(W_ft,H_ft)*1.1; cx0=(loc_minx+loc_maxx)/2; cy0=(loc_miny+loc_maxy)/2
@@ -203,7 +208,7 @@ for i,(yr,src,img) in enumerate(years):
     x=panel_x0+i*(fw+g); y=strip_y0
     c.setStrokeColor(BLK); c.setLineWidth(0.6)
     if img:
-        im=cv2.imread(img,0)[int(v0):int(v1),int(u0):int(u1)]; im=cv2.resize(im,(1000,1000),interpolation=cv2.INTER_AREA); 
+        im=cv2.imread(img,0)[int(v0):int(v1),int(u0):int(u1)]; im=cv2.resize(im,(1000,1000),interpolation=cv2.INTER_AREA); lo,hi_=np.percentile(im[im>0],(1,99)); im=np.clip((im.astype(float)-lo)/(hi_-lo)*235+10,0,255).astype(np.uint8); 
         Image.fromarray(im).save(f'/home/claude/build/strip_{yr}.jpg',quality=88); c.drawImage(f'/home/claude/build/strip_{yr}.jpg',x,y+0.42*inch,fw,fw)
         # section outline on strip
         c.setLineWidth(0.5); c.setStrokeColor(BLK); pth=c.beginPath()
@@ -213,11 +218,11 @@ for i,(yr,src,img) in enumerate(years):
     else:
         c.setDash([3,3]); c.rect(x,y+0.42*inch,fw,fw); c.setDash([]); c.setFont('CondM',8); c.setFillColor(G60); c.drawCentredString(x+fw/2,y+0.42*inch+fw/2,'FRAME NOT YET ALIGNED')
     c.setFillColor(BLK); c.setFont('Serif',13); c.drawString(x,y+0.22*inch,yr); c.setFont('Cond',7.5); c.setFillColor(G40); c.drawString(x+c.stringWidth(yr,'Serif',13)+5,y+0.22*inch,src)
-    c.setFont('Cond',7); c.drawString(x,y+0.06*inch,{'1954':'Open range. A pipeline and oil-well symbols on the topo of the same year.','1965':'Still range.','1974':'First graded corridors and cleared pads.','1984':'Streets and a golf course under construction, south half.','1995':'Course mature, south half built out. North half still range.','2022':'Built out to the plat. North half: pads, gathering lines, a caliche yard.'}[yr])
+    c.setFont('Cond',7); c.drawString(x,y+0.06*inch,{'1954':'Open range; the draw plain across the north. Placement approximate, error over 500 ft.','1965':'Still range; a road on the west line, a pad at the draw. Placement approximate, ±300–500 ft.','1974':'First graded corridors. Placement ±300 ft, two control points on the south-line road.','1984':'Streets and a golf course under construction, south half. ±150 ft.','1995':'Course mature, south half built out. North half still range. ±150 ft.','2022':'Built out to the plat. North half: pads, gathering lines, a caliche yard. Orthoimage.'}[yr])
 # ---------- TEXT ZONE ----------
 body=ParagraphStyle('b',fontName='Serif',fontSize=10.6,leading=13,alignment=TA_JUSTIFY,spaceAfter=3)
 head=ParagraphStyle('h',fontName='CondB',fontSize=12.5,leading=15,spaceAfter=4)
-red=ParagraphStyle('rb',parent=body,textColor=RED); redh=ParagraphStyle('rh',parent=head,textColor=RED)
+red=ParagraphStyle('rb',parent=body,textColor=RED,alignment=0); redh=ParagraphStyle('rh',parent=head,textColor=RED)
 small=ParagraphStyle('s',fontName='Serif',fontSize=8.4,leading=10.2,alignment=TA_JUSTIFY,spaceBefore=6)
 cw=(panel_w-2*g)/3
 def col(i,items):
@@ -238,14 +243,15 @@ A_=[Paragraph('CHAIN OF TITLE, 1876–1982  ·  complete, no gaps',head)]+[Parag
 B_=[Paragraph('THE GROUND',head)]+[Paragraph(t,body) for t in [
 '<b>Water.</b> Ogallala aquifer 100–180 ft below the section. One City of Midland well inside the line, 147 ft, unused. About ten domestic and irrigation wells drilled 2002–2021, 135–180 ft. Golf course well, 175 ft, 2021. Midland Draw crosses the north half and has carried its name on every USGS sheet from 1954 to 2019 — it never disappeared; the ranch did. Powell’s 1876 notes call this “waters of North Concho.” Modern mapping drains it east to the Colorado by Midland Draw and Beals Creek; the North Concho is not on the path.',
 '<b>Soil.</b> About 60% Amarillo and Midessa fine sandy loam — well drained, “farmland of statewide importance.” Bippus clay loam in the draws, subject to occasional flooding. No hydric soils. Water table below 80 in. A “sandy old farm with one sickly tree,” as the man who sold it put it in 1977.',
-'<b>Oil.</b> Inside the line: three producing wells, one permitted location, one dry hole. On the north line, three horizontal pads whose laterals run south under the streets. Two crude gathering lines (Oryx “Green Tree” system, 6.63 in) and one 16-in gas transmission line (ONEOK WesTex) cross the north half. Operators of record as of September 2026; dates and depths could not be pulled.',
+'<b>Oil.</b> Inside the line: three producing wells, one permitted location, one dry hole. On the north line, three horizontal pads; two laterals run south under the streets, one runs north. Those three carry Martin County’s code in their API numbers though they sit in Midland County — the Railroad Commission assigns the code by the county it approved the drilling under, which is its rule and not an explanation. Two crude gathering lines (Oryx “Green Tree” system, 6.63 in) and one 16-in gas line (ONEOK WesTex) cross the north half. Operators, dates, and depths could not be pulled; the Commission’s wellbore service was down for the whole compilation.',
 '<b>Before the streets.</b> Open rangeland on every USGS edition 1954–1985: oil wells, drill holes, a gravel pit, a pipeline. Streets first appear 1991. Built out by 2010.',
 '<b>The course.</b> Summer 1977: two men buy 320 acres from the Estes family, one of them the head pro at Ranchland Hills. First National Bank finances it — $8.9 million, later litigated. Dirt-trail access until 1980. Course opens 1980–81; nine more holes 1985; rebuilt 2018.',
 '<b>The measure.</b> Powell called 1,900 varas on every side. The county’s polygon measures 1,910 to 1,926. The section holds about 650 acres against 640 patented — ten acres of survey excess that nobody has had to account for in 150 years.']]
 C_=[Paragraph('COULD NOT BE CONFIRMED',redh),Paragraph('Compiled from records, not walked. The following were looked for and not found, or found and not trusted:',red)]+[Paragraph('· '+t,red) for t in [
 'Identity of the pipeline drawn on the 1954 and 1966 USGS sheets.',
 'Whether the 1978 gathering line is the T-4 Permit 10611 “Green Tree” system. Likely; not shown by any single record.',
-'Completion dates and depths of the wells (RRC identify service unavailable at compilation).',
+'Operators, completion dates, and depths of the wells (RRC wellbore service unavailable throughout compilation). One dry hole’s API number returned truncated and is printed as unconfirmed.',
+'Why three wells inside a Midland County section were permitted under Martin County’s code. The rule is in the Commission’s data dictionary; the reason for these three is in no public record.',
 'Which quarter Thelma Estes received in 1921.',
 'Whether Thelma Estes and Ethel Aldredge Estes are the same person. No instrument says so.',
 'Hailco Inc.: who they were. The nature of the 1982 BSD Inc. agreement.',
@@ -253,8 +259,8 @@ C_=[Paragraph('COULD NOT BE CONFIRMED',redh),Paragraph('Compiled from records, n
 'Any 1930s–40s aerial. A 1944 Air Force frame exists at TxGIO and was not ordered.',
 'Powell records a magnetic variation of 12° 9½′ E; applied conventionally his lines would run near-cardinal. The ground runs 14° off. Which convention he used is not known.',
 'Anything the Reporter-Telegram printed about this ground; the archive is paywalled.']]+[Paragraph('If you know any of these, write. Second edition is free to anyone who corrects the first.',red),
-Paragraph('<b>Sources.</b> Texas General Land Office (patent, field notes, scrip); Midland County Clerk (deed records as cited); Midland Central Appraisal District (abstracts, parcels); USGS topoView and EarthExplorer (topographic sheets 1954–2019; aerials 1954, 1965, 1974, 1984, 1995); USDA NAIP 2022; Railroad Commission of Texas GIS; Texas Water Development Board; USDA-NRCS Web Soil Survey; EPA WATERS / NHDPlus; federal court records as cited. Full source log, thirty-eight rows, at github.com/acwil88/One-square-mile.',small),
-Paragraph('Gathered by Skippy (Meta Muse). Designed by Claude (Anthropic). Approved and paid for by a resident of the section, who is not named on it. No phone calls were made. Sheet oriented to the 1876 survey; true north 15° right of page-up. Scale 1:3,000. Aerial strip frames aligned to ±150 ft.',small)]
+Paragraph('<b>Sources.</b> Texas General Land Office (patent, field notes, scrip); Midland County Clerk (deed records as cited); Midland Central Appraisal District (abstracts, parcels); USGS topoView and EarthExplorer (topographic sheets 1954–2019; aerials 1954, 1965, 1974, 1984, 1995); USDA NAIP 2022; Railroad Commission of Texas GIS; Texas Water Development Board; USDA-NRCS Web Soil Survey; EPA WATERS / NHDPlus; federal court records as cited. Full source log, forty-six rows, at github.com/acwil88/One-square-mile.',small),
+Paragraph('Gathered by Skippy (Meta Muse). Designed by Claude (Anthropic). Approved and paid for by a resident of the section, who is not named on it. No phone calls were made. Sheet oriented to the 1876 survey; true north 15° right of page-up. Scale 1:3,000. Aerial strip: each frame’s placement error is stated in its caption.',small)]
 from reportlab.platypus import Image as RLImage, Spacer
 fnim=Image.open(REPO+'glo-page-6.png'); fw_=fnim.size[0]; fnim.crop((0,int(fnim.size[1]*0.10),fw_,int(fnim.size[1]*0.36))).save('/home/claude/build/fieldnotes.jpg',quality=90)
 fn_w=cw*0.92; fn_h=fn_w*(0.26*fnim.size[1])/fw_
