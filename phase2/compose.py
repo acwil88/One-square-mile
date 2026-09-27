@@ -223,12 +223,12 @@ cw=(panel_w-2*g)/3
 def col(i,items):
     f=Frame(panel_x0+i*(cw+g),text_y0,cw,text_h,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0,showBoundary=0); f.addFromList(items,c)
     return f
-A_=[Paragraph('CHAIN OF TITLE, 1876–1982',head)]+[Paragraph(t,body) for t in [
+A_=[Paragraph('CHAIN OF TITLE, 1876–1982  ·  complete, no gaps',head)]+[Paragraph(t,body) for t in [
 '<b>1876.</b> Surveyed 1 Feb by deputy surveyor W.C. Powell, chain carriers L.E. Wright and E.C. Bennett, “on the waters of North Concho.” Bearings in varas. Filed at the General Land Office 27 Dec.',
 '<b>1876.</b> Land Scrip No. 3123, 25 May: the Texas & Pacific has built 203 miles, 4,624 feet of railroad. This section is part of what that construction earned. Odd-numbered — railroad land, not school land.',
 '<b>1883.</b> Patented 15 Dec to Texas and Pacific Railway Co. Patent 540, Vol. 68, p. 503. 640 acres.',
-'<b>1905.</b> Charles J. Canda et al. → Mary T. Edwards. Deed Records 12/54. Three notes of $795.',
-'<b>1911.</b> Mary T. Edwards and heirs → S.H. Holloway, with Sections 6, 8, 17, 18; buyer assumes the 1905 notes. Four months later Holloway → S.W. Estes. <i>The Estes years begin.</i>',
+'<b>1906.</b> Charles J. Canda, trustee of the Texas Pacific Land Trust → Mrs. Mary T. Edwards, 640 acres. Recorded 6 Jan 1906, Deed Records 12/54. Three notes of $795.',
+'<b>1911.</b> Mary T. Edwards and heirs → S.H. Holloway, with Sections 6, 8, 17, 18; buyer assumes the 1906 notes. Four months later Holloway → S.W. Estes. <i>The Estes years begin.</i>',
 '<b>1921.</b> S.W. and Arminta Estes → Thelma Estes, about 160 acres.',
 '<b>1976.</b> Ethel Aldredge Estes → Aldredge Estes Jr.',
 '<b>1978.</b> The Estes family → Midland West Corp., 31 Oct. Surface and surface rights only, SE/4, 160 acres. Minerals stay with the family. Consideration: ten dollars and the note.',
