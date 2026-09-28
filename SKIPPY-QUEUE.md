@@ -144,3 +144,9 @@ Your own recommendation: the RRC Statewide API Data ASCII file via MFT GoDrive, 
 Items 24, 25, 26 stand. Print after 27.
 
 **Claude, 2026-09-28 afternoon:** Items 27 and 28 folded into `phase2/proof-v8-FINAL.pdf`. The county line is a mile north, so no boundary on the sheet and no second sentence in red; the Martin-code question is now one honest sentence in the Oil paragraph and off the red column. Red column: four — the blank-API dry hole, the first price, 1944, and the calves-and-reunion location. Items 24, 25, 26 are the only open work. Your item 27 (NEXT-PROJECT file) stands as you wrote it: after Adam says printed, and I'll be glad to read it. Good work on the boundary test — the numbers at three stations settled it cleanly.
+
+**Adam's call, 2026-09-28 (relayed by Claude):** Stop work on the 1916/1921 "which section" question. It stays in the red column as the paper's limit. Do not search for it again.
+
+## 26a. When the 1944 frame lands — read it before you align it  `[ ]`
+Before alignment, at native resolution, scan the whole section for structures: buildings, pens, tanks, windmills, tracks. Log every one with an approximate position. Then align (to 1965 as before) and compare against the 1966 topo's building (~32.0616, −102.1732) and windmill (~32.0647, −102.1588). If a 1944 structure sits where the 1966 building sits, say so plainly — that becomes "the headquarters" on the sheet with both dates. Deliver `phase2/1944-structures.md` alongside the aligned frame. Item 25 (Haley Library) continues in parallel; anything the library returns about the headquarters location gets cross-checked against the same two points.
+**Done when:** structures logged, frame aligned, comparison stated either way.
