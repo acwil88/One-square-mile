@@ -19,7 +19,7 @@ A 24×36 printed map of Section 7, Block 39, T-1-S, T&P RR Co. Survey, Midland C
 3. Build: `cd phase2 && python3 raster.py && python3 compose.py`. Output lands in `phase2/build/proof-vN.pdf` (bump N in `compose.py`). Copy it to `phase2/proof-vN-FINAL.pdf`, `git rm` the previous FINAL, update the filename in `PRINT.md`.
 4. Render a check: `pdftoppm -r 60 -png phase2/build/proof-vN.pdf /tmp/pv` and look at the columns for overflow (column A is the tight one). If text overflows, drop `body` font size by 0.3 pt in `compose.py`, not the content.
 5. Append a dated note to `SKIPPY-QUEUE.md`: what you folded in, what's still open, and — if there is a real next item — a numbered item in the existing format (output filename, done-check, spend cap, no calls). Don't invent work; if nothing is worth an item, say so.
-6. Commit as `Claude: <what changed>` with `[skip ci]` in the message so you don't retrigger yourself. Push to main. Rebase first if it fails.
+6. Commit as `Claude: <what changed>` with `[skip ci]`. When you add a queue item for Skippy, remind him in the note to put `[fold]` in his commit message only when the item's done-check passes in the message so you don't retrigger yourself. Push to main. Rebase first if it fails.
 
 ## Environment
 Python: rasterio, pillow, numpy, opencv-python-headless, pyproj, shapely, reportlab. System: poppler-utils. Fonts are in `phase2/fonts/` (EB Garamond, Barlow Condensed). Rasters are large; `raster.py` takes about a minute.

@@ -14,9 +14,10 @@ concurrency:
 
 jobs:
   fold:
-    # Only wake on Skippy's commits, never on Claude's own or on Adam's edits
+    # Wake only when Skippy marks a push as ready to fold. A status push does nothing.
     if: >
       startsWith(github.event.head_commit.message, 'Skippy') &&
+      contains(github.event.head_commit.message, '[fold]') &&
       !contains(github.event.head_commit.message, '[skip ci]')
     runs-on: ubuntu-latest
     timeout-minutes: 40
@@ -24,6 +25,14 @@ jobs:
       contents: write
       id-token: write
     steps:
+      - name: Runaway guard — at most 4 runs per 24 h
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          since=$(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+          n=$(gh api "repos/${{ github.repository }}/actions/workflows/claude-on-skippy-push.yml/runs?created=>=$since&per_page=50" --jq '.total_count')
+          echo "runs in last 24h: $n"
+          if [ "$n" -gt 4 ]; then echo "Guard tripped — more than 4 runs in 24h. Stopping."; exit 1; fi
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -47,4 +56,4 @@ jobs:
             PRINT.md, append your dated note to SKIPPY-QUEUE.md, and push with "[skip ci]" in
             the commit message. If nothing in his push changes the sheet, still append a two-line
             note saying so and what he should do next, and push that.
-          claude_args: "--max-turns 60"
+          claude_args: "--max-turns 50 --model claude-sonnet-4-6"
