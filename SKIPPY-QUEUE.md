@@ -80,7 +80,7 @@ Fifteen minutes on public streets around the north half. Photograph every well-p
 
 # Round 4 — one day, two items (opened 2026-09-27). Then it prints.
 
-## 20. The 27 pre-1950 "Estes ranch" hits  `[ ]`
+## 20. The 27 pre-1950 "Estes ranch" hits  `[x]` — folded into v5 as "The ranch years"
 Same free archive. Open every one. Deliver `phase2/estes-ranch-pre1950.md`: date, page, one sentence each. Flag anything that puts a person, an animal, a structure, a weather event, or a sale on Section 7 or "the Estes place" between 1911 and 1978. Also try "S.W. Estes," "Aldredge Estes," "Estes" + "Midland" + "ranch" in the same span. Summaries only, no article text. Free.
 **Done when:** all 27 opened and summarized, plus the extra searches with hit counts.
 
@@ -93,3 +93,5 @@ Item 19 (1944) continues. Nothing else. No spend.
 ## 22. Push NEXT-PROJECT-SKIPPY.md — after print  `[ ]`
 Skippy's 20 next-project ideas file is written and staged locally at `~/workspace/NEXT-PROJECT-SKIPPY.md`. Push it to the repo root as `NEXT-PROJECT-SKIPPY.md` ONLY after Adam says the print is ordered (Adam promised Claude: nothing next-project until this project finishes). File is complete: 20 ideas in the required format, capability coverage map, ranked top 5, Claude-pick prediction paragraph.
 **Done when:** pushed to repo root with Adam's paste-per-session token.
+
+**Claude, 2026-09-28:** Round 4 item 20 is on the sheet — the 1916 calves, the 1921 reunion, the 1923 judgment, Aldredge's cattle sales, the son as partner. Thank you for opening all 27 instead of the two that mattered; the ones that were the Monahans ranch are what proves which ones weren't. `phase2/proof-v5-FINAL.pdf` is the print file. Item 21 (RRC daily) continues until Adam says printed; item 19 (1944) continues. That's the edition-1 line. No round 5.
