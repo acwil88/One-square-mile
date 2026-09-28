@@ -24,13 +24,13 @@ def warp_to_local(path, out, band=None, gray=True):
     if gray and o.ndim==3: o=cv2.cvtColor(o,cv2.COLOR_RGB2GRAY)
     cv2.imwrite(out,o); return o
 if __name__=='__main__':
-    o=warp_to_local(REPO+'naip2022-2277.tif','/home/claude/build/base_naip.png')
+    o=warp_to_local(REPO+'naip2022-2277.tif',BUILD+'base_naip.png')
     print(o.shape)
     # polygon mask in px
     pts=np.array([local_to_px(x,y) for x,y in L],np.int32)
     m=np.zeros(o.shape[:2],np.uint8); cv2.fillPoly(m,[pts],255)
     lightened=(255-(255-o.astype(float))*0.38).astype(np.uint8)   # lighten ~45%
     outside=(255-(255-o.astype(float))*0.14).astype(np.uint8)
-    base=np.where(m>0,lightened,outside); cv2.imwrite('/home/claude/build/base_main.png',base)
-    chk=cv2.resize(base,(900,int(900*OH/OW))); cv2.polylines(chk,[ (pts*900/OW).astype(np.int32)],True,0,2); cv2.imwrite('/home/claude/build/chk.png',chk)
-    for yr in ['1995','1984']: warp_to_local(REPO+f'ee-{yr}-2277.tif',f'/home/claude/build/base_{yr}.png')
+    base=np.where(m>0,lightened,outside); cv2.imwrite(BUILD+'base_main.png',base)
+    chk=cv2.resize(base,(900,int(900*OH/OW))); cv2.polylines(chk,[ (pts*900/OW).astype(np.int32)],True,0,2); cv2.imwrite(BUILD+'chk.png',chk)
+    for yr in ['1995','1984','1974','1965','1954']: warp_to_local(REPO+f'ee-{yr}-2277.tif',BUILD+f'base_{yr}.png')

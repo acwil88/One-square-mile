@@ -9,7 +9,7 @@ from reportlab.lib.enums import TA_JUSTIFY
 from pyproj import Transformer
 from geom import *
 from raster import local_to_px, PAD, OW, OH, R
-F='/home/claude/build/fonts/'
+F=REPO+'fonts/'
 for n,f in [('Serif','EBGaramond.ttf'),('SerifI','EBGaramond-Italic.ttf'),('Cond','BarlowCondensed-Regular.ttf'),('CondM','BarlowCondensed-Medium.ttf'),('CondB','BarlowCondensed-SemiBold.ttf')]:
     pdfmetrics.registerFont(TTFont(n,F+f))
 BLK=HexColor('#1A1A1A'); RED=HexColor('#B3261E'); BLU=HexColor('#4A6FA5'); G40=HexColor('#666666'); G60=HexColor('#999999'); G80=HexColor('#C8C8C8')
@@ -30,17 +30,17 @@ def lines_of(geom):
     if geom['type']=='Polygon': return geom['coordinates']
     if geom['type']=='MultiPolygon': return [r for p in geom['coordinates'] for r in p]
     return []
-c=canvas.Canvas('/home/claude/build/proof-v7.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
+c=canvas.Canvas(BUILD+'proof-v7.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
 BLEED=90.0  # ft shown beyond the section
 def clip_rect():
     x0,y0=pg(loc_minx-BLEED,loc_miny-BLEED); x1,y1=pg(loc_maxx+BLEED,loc_maxy+BLEED); return x0,y0,x1-x0,y1-y0
 # ---------- MAIN PANEL ----------
 c.saveState(); p=c.beginPath(); p.rect(*clip_rect()); c.clipPath(p,stroke=0)
 # base raster
-base=cv2.imread('/home/claude/build/base_main.png',0)
+base=cv2.imread(BUILD+'base_main.png',0)
 from PIL import Image
-Image.fromarray(base).save('/home/claude/build/base_main.jpg',quality=85)
-bx,by=pg(loc_minx-PAD,loc_miny-PAD); c.drawImage('/home/claude/build/base_main.jpg',bx,by,width=(W_ft+2*PAD)*PPF,height=(H_ft+2*PAD)*PPF)
+Image.fromarray(base).save(BUILD+'base_main.jpg',quality=85)
+bx,by=pg(loc_minx-PAD,loc_miny-PAD); c.drawImage(BUILD+'base_main.jpg',bx,by,width=(W_ft+2*PAD)*PPF,height=(H_ft+2*PAD)*PPF)
 def draw_lines(feats,color,width,dash=None,close=False):
     c.setStrokeColor(color); c.setLineWidth(width); c.setDash(dash or []); 
     for f in feats:
@@ -207,14 +207,14 @@ fr=Frame(W-M-7.0*inch,ty-2.4*inch,3.4*inch,2.4*inch,leftPadding=0,rightPadding=0
 fr.addFromList([Paragraph('Surveyed 1 February 1876 and docketed under <b>Martin County</b>. Corrected to Midland County in red ink, 1887, two years after Midland County was organized. The county this ground sits in was itself a correction.',rs),
  Paragraph('<font size=9>On this sheet, red means the record disagreed with itself, or ran out.</font>',rs)],c)
 # field notes reproduction in title block, right
-fnim=Image.open(REPO+'glo-page-6.png'); fw_=fnim.size[0]; fnim.crop((0,int(fnim.size[1]*0.10),fw_,int(fnim.size[1]*0.36))).save('/home/claude/build/fieldnotes.jpg',quality=90)
+fnim=Image.open(REPO+'glo-page-6.png'); fw_=fnim.size[0]; fnim.crop((0,int(fnim.size[1]*0.10),fw_,int(fnim.size[1]*0.36))).save(BUILD+'fieldnotes.jpg',quality=90)
 iw=3.3*inch; ih=iw*(0.26*fnim.size[1])/fw_
-c.drawImage('/home/claude/build/fieldnotes.jpg',W-M-iw,ty-ih,width=iw,height=ih); c.setStrokeColor(G60); c.setLineWidth(0.4); c.rect(W-M-iw,ty-ih,iw,ih)
+c.drawImage(BUILD+'fieldnotes.jpg',W-M-iw,ty-ih,width=iw,height=ih); c.setStrokeColor(G60); c.setLineWidth(0.4); c.rect(W-M-iw,ty-ih,iw,ih)
 c.setFont('Serif',8.4); c.setFillColor(BLK); c.drawString(W-M-iw,ty-ih-11,'Powell’s field notes, 1 Feb 1876, as filed. “Martin,” struck. GLO Bexar Scrip File 020113.')
 # ---------- AERIAL STRIP ----------
 g=0.2*inch; fw=(panel_w-5*g)/6
-years=[('1954','USGS single frame, 1:63,000, 2 May 1954','/home/claude/build/base_1954.png'),('1965','USGS single frame, 1:21,400, 20 Feb 1965','/home/claude/build/base_1965.png'),('1974','USGS single frame, 1:29,000, 19 Feb 1974','/home/claude/build/base_1974.png'),
-       ('1984','USGS NHAP, 28 Oct 1984','/home/claude/build/base_1984.png'),('1995','USGS NAPP color-infrared, 19 Dec 1995','/home/claude/build/base_1995.png'),('2022','USDA NAIP, 24 Sep 2022','/home/claude/build/base_naip.png')]
+years=[('1954','USGS single frame, 1:63,000, 2 May 1954',BUILD+'base_1954.png'),('1965','USGS single frame, 1:21,400, 20 Feb 1965',BUILD+'base_1965.png'),('1974','USGS single frame, 1:29,000, 19 Feb 1974',BUILD+'base_1974.png'),
+       ('1984','USGS NHAP, 28 Oct 1984',BUILD+'base_1984.png'),('1995','USGS NAPP color-infrared, 19 Dec 1995',BUILD+'base_1995.png'),('2022','USDA NAIP, 24 Sep 2022',BUILD+'base_naip.png')]
 # strip crop = polygon bbox + 10% in local frame, square
 side=max(W_ft,H_ft)*1.1; cx0=(loc_minx+loc_maxx)/2; cy0=(loc_miny+loc_maxy)/2
 u0,v0=local_to_px(cx0-side/2,cy0+side/2); u1,v1=local_to_px(cx0+side/2,cy0-side/2)
@@ -223,7 +223,7 @@ for i,(yr,src,img) in enumerate(years):
     c.setStrokeColor(BLK); c.setLineWidth(0.6)
     if img:
         im=cv2.imread(img,0)[int(v0):int(v1),int(u0):int(u1)]; im=cv2.resize(im,(1000,1000),interpolation=cv2.INTER_AREA); lo,hi_=np.percentile(im[im>0],(1,99)); im=np.clip((im.astype(float)-lo)/(hi_-lo)*235+10,0,255).astype(np.uint8); 
-        Image.fromarray(im).save(f'/home/claude/build/strip_{yr}.jpg',quality=88); c.drawImage(f'/home/claude/build/strip_{yr}.jpg',x,y+0.42*inch,fw,fw)
+        Image.fromarray(im).save(BUILD+f'strip_{yr}.jpg',quality=88); c.drawImage(BUILD+f'strip_{yr}.jpg',x,y+0.42*inch,fw,fw)
         # section outline on strip
         c.setLineWidth(0.5); c.setStrokeColor(BLK); pth=c.beginPath()
         for k,ii in enumerate([CORN['SW'],CORN['SE'],CORN['NE'],CORN['NW']]):
@@ -280,7 +280,7 @@ C_=[Paragraph('COULD NOT BE CONFIRMED',redh),Paragraph('Compiled from records, n
 Paragraph('<b>Sources.</b> Texas General Land Office (patent, field notes, scrip); Midland County Clerk (deed records as cited); Midland Central Appraisal District (abstracts, parcels); USGS topoView and EarthExplorer (topographic sheets 1954–2019, features from the 1966 Northwest Midland 7.5′ sheet; aerials 1954, 1965, 1974, 1984, 1995); WellWiki, ezrrc, and texas-drilling mirrors of RRC permit and completion data; Midland Reporter-Telegram 1950–1999 via the Southwest Collection, Texas Tech University; Texas Comptroller entity records; USDA NAIP 2022 (NAIP 2024 exists as a county mosaic in a proprietary format and was not used); Railroad Commission of Texas GIS and 2024 T-4 permit register; Texas Water Development Board; USDA-NRCS Web Soil Survey; EPA WATERS / NHDPlus; federal court records as cited. Full source log, fifty-plus rows, at github.com/acwil88/One-square-mile.',small),
 Paragraph('Gathered by Skippy (Meta Muse). Designed by Claude (Anthropic). Approved and paid for by a resident of the section, who is not named on it. No phone calls were made. Sheet oriented to the 1876 survey; true north 15° right of page-up. Scale 1:3,000. Aerial strip: each frame’s placement error is stated in its caption.',small)]
 from reportlab.platypus import Image as RLImage, Spacer
-fnim=Image.open(REPO+'glo-page-6.png'); fw_=fnim.size[0]; fnim.crop((0,int(fnim.size[1]*0.10),fw_,int(fnim.size[1]*0.36))).save('/home/claude/build/fieldnotes.jpg',quality=90)
+fnim=Image.open(REPO+'glo-page-6.png'); fw_=fnim.size[0]; fnim.crop((0,int(fnim.size[1]*0.10),fw_,int(fnim.size[1]*0.36))).save(BUILD+'fieldnotes.jpg',quality=90)
 fn_w=cw*0.92; fn_h=fn_w*(0.26*fnim.size[1])/fw_
 col(0,A_); col(1,B_); col(2,C_)
 c.showPage(); c.save(); print('ok')

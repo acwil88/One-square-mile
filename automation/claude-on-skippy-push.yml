@@ -1,0 +1,50 @@
+name: Claude folds Skippy's push into the sheet
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'phase2/**'
+      - 'SKIPPY-QUEUE.md'
+      - 'source-log.md'
+
+concurrency:
+  group: claude-fold
+  cancel-in-progress: false
+
+jobs:
+  fold:
+    # Only wake on Skippy's commits, never on Claude's own or on Adam's edits
+    if: >
+      startsWith(github.event.head_commit.message, 'Skippy') &&
+      !contains(github.event.head_commit.message, '[skip ci]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build dependencies
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+          pip install -q rasterio pillow numpy opencv-python-headless pyproj shapely reportlab
+      - uses: anthropics/claude-code-action@v1
+        with:
+          # /install-github-app sets one of these; leave both, the action uses whichever exists
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Skippy just pushed to this repository. Read CLAUDE.md first and follow it exactly.
+            Then read his latest commit (git log -1 --stat, and the diff of the files he touched),
+            and the bottom of SKIPPY-QUEUE.md. Fold anything that belongs on the sheet into
+            phase2/compose.py, rebuild, bump the proof version, replace the FINAL file, update
+            PRINT.md, append your dated note to SKIPPY-QUEUE.md, and push with "[skip ci]" in
+            the commit message. If nothing in his push changes the sheet, still append a two-line
+            note saying so and what he should do next, and push that.
+          claude_args: "--max-turns 60"

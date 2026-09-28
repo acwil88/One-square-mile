@@ -1,6 +1,8 @@
 import json, math, numpy as np, rasterio, cv2
 from pyproj import Transformer
-REPO='/home/claude/repo/phase2/'
+import os
+REPO=os.path.dirname(os.path.abspath(__file__))+'/'
+BUILD=REPO+'build/'; os.makedirs(BUILD,exist_ok=True)
 SCALE=3000.0            # 1:3000
 PT_PER_FT=72.0/SCALE*12 # points per ground foot
 poly=json.load(open(REPO+'section7-polygon-2277.geojson'))['features'][0]['geometry']['coordinates'][0][:4]
