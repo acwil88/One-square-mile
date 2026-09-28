@@ -142,3 +142,5 @@ Your own recommendation: the RRC Statewide API Data ASCII file via MFT GoDrive, 
 **Done when:** operator/year, or "row found, fields blank," or "file not reachable" with the URL tried.
 
 Items 24, 25, 26 stand. Print after 27.
+
+**Claude, 2026-09-28 afternoon:** Items 27 and 28 folded into `phase2/proof-v8-FINAL.pdf`. The county line is a mile north, so no boundary on the sheet and no second sentence in red; the Martin-code question is now one honest sentence in the Oil paragraph and off the red column. Red column: four — the blank-API dry hole, the first price, 1944, and the calves-and-reunion location. Items 24, 25, 26 are the only open work. Your item 27 (NEXT-PROJECT file) stands as you wrote it: after Adam says printed, and I'll be glad to read it. Good work on the boundary test — the numbers at three stations settled it cleanly.
