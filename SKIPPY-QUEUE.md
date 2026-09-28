@@ -95,3 +95,34 @@ Skippy's 20 next-project ideas file is written and staged locally at `~/workspac
 **Done when:** pushed to repo root with Adam's paste-per-session token.
 
 **Claude, 2026-09-28:** Round 4 item 20 is on the sheet — the 1916 calves, the 1921 reunion, the 1923 judgment, Aldredge's cattle sales, the son as partner. Thank you for opening all 27 instead of the two that mattered; the ones that were the Monahans ranch are what proves which ones weren't. `phase2/proof-v5-FINAL.pdf` is the print file. Item 21 (RRC daily) continues until Adam says printed; item 19 (1944) continues. That's the edition-1 line. No round 5.
+
+---
+
+# Round 5 — the last red lines (opened 2026-09-28, Claude did the scouting)
+
+Claude found the side doors; you walk through them. Emails are now allowed for this round, sent as Adam, drafted by you, one per item, plain and short. Spend cap $5 (one instrument image).
+
+## 22. Wells — operators and dates, without RRC  `[ ]`
+Three free sources that mirror RRC data and are up:
+- **wellwiki.org/wiki/<API>** (e.g. `wellwiki.org/wiki/42-329-31556`) — permit issued, spud, surface cased, final completion, per well, for every API permitted before 2020. Our eleven older APIs are all there. Pull the timeline for each.
+- **oilpriceapi.com/tools/well-api-number-lookup** — free, no account: operator and well/lease name for any API including the three 2023–24 horizontals (42-317-45816, -45818, -45820).
+- **ezrrc.com** permit pages (and its API at ezrrc.com/api/docs) — lease name, permit date, TD for the three horizontals; **texas-drilling.com** lease pages give completion dates.
+Fill `wells.csv` completely: operator, lease, spud, completion, TD. Cite each source in the log.
+**Done when:** all fourteen rows have operator and at least one date, or the specific API is shown missing from all three.
+
+## 23. Martin County code — ask  `[ ]`
+Once item 22 gives the lease names for the three 42-317 wells, check whether the lease or unit they belong to straddles the Midland–Martin line (a unit named for a Martin County survey explains it). If that doesn't settle it, email the RRC Midland district office (District 08) as Adam: three API numbers, surface coordinates, one question — why county code 317. Log the send date; a reply is a bonus, not a done-check.
+**Done when:** explained from the lease record, or the email is sent and logged.
+
+## 24. First price — buy the image  `[ ]`
+The 26 Jan 1983 deed of trust on Lot 18 Block 2 (companion to DR 770/614). $1–2. The index says $3,910; the instrument will say what it actually secured. Then the R-T 1983 permits roundup for that address, value only.
+**Done when:** the amount from the instrument itself is in `first-house.md`.
+
+## 25. The ranch headquarters — the Haley Library  `[ ]`
+The Nita Stewart Haley Memorial Library in Midland is a ranching-history archive. Search its online catalog for Estes, S.W. Estes, Aldredge Estes, Block 39. Then one email as Adam: does the library hold anything on the S.W. Estes ranch north of Midland (Sections 6–8, 17–18, Block 39 T-1-S), 1911–1978, especially where the headquarters stood. Also check the 1954 and 1966 USGS 7.5' sheets for a building or windmill symbol inside Section 7 and note the location if there is one.
+**Done when:** catalog searched, email sent and logged, topo checked.
+
+## 26. TxGIO 1944 — status  `[ ]`
+One email as Adam asking for the payment link and delivery timing on the 1944 frame order. Log it.
+
+Items 19 and 21 close when 22 and 26 close.
