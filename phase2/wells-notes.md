@@ -84,3 +84,41 @@ Endpoints tried:
 4. **Drilling Permits W-1 (webapps.rrc.texas.gov/DP/publicQuerySearchAction.do?countyCode=317&apiSeqNo=45816)** — never loads (blank page / timeouts).
 
 Verdict: the only working RRC endpoint locates wells but exposes no operator/spud/completion/TD; all record systems holding those fields (webapps, webapps2) are unreachable from this environment. Two attempts on different days, both failed → **item 7 marked blocked [~]** per queue done-check. `operator`, spud/completion, TD remain blank for all 14 rows in wells.csv. A future attempt would need working webapps access or an alternate RRC data source.
+
+## (c) Resolution of the Martin County (42-317) question — 2026-09-28 (queue item 23)
+
+The three horizontals are OCCIDENTAL PERMIAN LTD.'s **EASY TARGET** pad (6-well
+family: 2H = EASY TARGET 1993OP, 4H = EASY TARGET 3097OP, 6H = EASY TARGET
+3099OP), EMMA (BARNETT SHALE) field. Per the ezrrc public API (RRC snapshot
+current 2026-09-28), the approved county is **Martin** (canonical 48317) and
+the surface sections are **Sec 19/30, Blk 39, T1N** — Martin County surveys.
+That settles the question: the permit-approved drilling operation takes place
+in Martin County (pad in T1N), with laterals reaching south under Section 7,
+Blk 39, T1S (Midland County). The RRC-plotted surface points sit on the
+Midland side only because GIS plot points follow the operator's reported
+location; the DA-PERMIT-COUNTY-CODE (Martin, as approved) follows the
+permit surveys. The operator-reported county and the approved county diverge
+exactly as oga049.pdf allows. **No RRC email needed — explained from the
+lease record.** Item 23 DONE.
+
+## (d) API 42-329-xxxxx — declared unrecoverable (2026-09-28)
+
+The suffix is blank in RRC's own authoritative systems (MapServer Layer 1:
+`"API":"329","GIS_API5":" "`; statewide copies show `42329`; Socrata
+uumf-5r4y.json shows the identical truncated record). No wellbore, casing,
+plugging, or log records exist digitally; not an orphan well; no lease/operator
+layer in the RRC public MapServer (all 41 layers reviewed). RRC Layer 1/24
+facts: Dry Hole, Well No. 1, 32.06533251/-102.16394887 (NAD83, location from
+"Commission's hardcopy map", UNIQID 662843), Sec 7 Blk 39 T1S, T&P RR Co.
+Survey, A-34, Midland County, inactive. Fallback for the map: "Dry hole,
+Well No. 1 — API not on file with RRC (location from Commission hardcopy
+map)." Recommended next step (browser work): the RRC Statewide API Data
+ASCII file via MFT GoDrive — the row is findable by survey/block/section/
+well-number despite the blank API.
+
+## (e) Permits that expired unspudded (2026-09-28)
+
+42-329-40218 (perm. issued 2015-05-22, expired 2017-05-22), 42-329-40219
+(issued 2015-05-26, expired 2017-05-26), and 42-329-36355 (issued 2009-08-13,
+expired 2011-08-13) were never spudded. CSV `status` column left as
+"permitted" — Claude's call whether to reflag.

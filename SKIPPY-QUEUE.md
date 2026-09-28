@@ -90,7 +90,7 @@ Once a day until Adam says the print is ordered: retry the drilling-permit and c
 
 Item 19 (1944) continues. Nothing else. No spend.
 
-## 22. Push NEXT-PROJECT-SKIPPY.md — after print  `[ ]`
+## 27. Push NEXT-PROJECT-SKIPPY.md — after print  `[ ]`
 Skippy's 20 next-project ideas file is written and staged locally at `~/workspace/NEXT-PROJECT-SKIPPY.md`. Push it to the repo root as `NEXT-PROJECT-SKIPPY.md` ONLY after Adam says the print is ordered (Adam promised Claude: nothing next-project until this project finishes). File is complete: 20 ideas in the required format, capability coverage map, ranked top 5, Claude-pick prediction paragraph.
 **Done when:** pushed to repo root with Adam's paste-per-session token.
 
@@ -102,7 +102,8 @@ Skippy's 20 next-project ideas file is written and staged locally at `~/workspac
 
 Claude found the side doors; you walk through them. Emails are now allowed for this round, sent as Adam, drafted by you, one per item, plain and short. Spend cap $5 (one instrument image).
 
-## 22. Wells — operators and dates, without RRC  `[ ]`
+## 22. Wells — operators and dates, without RRC  `[x]`
+**Status 2026-09-28:** DONE. 13 of 14 wells filled from wellwiki.org (10 older 42-329 APIs: operators incl. EXXON CORP./HENRY RESOURCES/PARISH; spud+completion; three permits 40218/40219/36355 expired unspudded) + ezrrc public API + texas-drilling lease pages (three 42-317 horizontals: OCCIDENTAL PERMIAN LTD., EASY TARGET pad 2H/4H/6H, spud Feb-Mar 2024, completions June 2024, TDs 24,099-26,081 MD). oilpriceapi.com: no record. `42-329-xxxxx` unrecoverable — blank in RRC's own systems (see wells-notes (d)). Source-log rows 60-61. CORRECTION: 42-317 = Martin County (surfaces Sec 19/30 Blk 39 T1N), not Ector.
 Three free sources that mirror RRC data and are up:
 - **wellwiki.org/wiki/<API>** (e.g. `wellwiki.org/wiki/42-329-31556`) — permit issued, spud, surface cased, final completion, per well, for every API permitted before 2020. Our eleven older APIs are all there. Pull the timeline for each.
 - **oilpriceapi.com/tools/well-api-number-lookup** — free, no account: operator and well/lease name for any API including the three 2023–24 horizontals (42-317-45816, -45818, -45820).
@@ -110,7 +111,8 @@ Three free sources that mirror RRC data and are up:
 Fill `wells.csv` completely: operator, lease, spud, completion, TD. Cite each source in the log.
 **Done when:** all fourteen rows have operator and at least one date, or the specific API is shown missing from all three.
 
-## 23. Martin County code — ask  `[ ]`
+## 23. Martin County code — explained, no email  `[x]`
+**Status 2026-09-28:** DONE without the RRC email. EASY TARGET leases sit on Martin County surveys (Sec 19/30, Blk 39, T1N); RRC's approved DA-PERMIT-COUNTY-CODE is Martin because the permitted drilling operation (pad) is in Martin County, laterals reaching south under Sec 7 Blk 39 T1S. The GIS plot points fall on the Midland side; the permit surveys don't. Written up in wells-notes.md (c).
 Once item 22 gives the lease names for the three 42-317 wells, check whether the lease or unit they belong to straddles the Midland–Martin line (a unit named for a Martin County survey explains it). If that doesn't settle it, email the RRC Midland district office (District 08) as Adam: three API numbers, surface coordinates, one question — why county code 317. Log the send date; a reply is a bonus, not a done-check.
 **Done when:** explained from the lease record, or the email is sent and logged.
 
