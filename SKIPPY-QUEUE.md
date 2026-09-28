@@ -75,3 +75,17 @@ Fifteen minutes on public streets around the north half. Photograph every well-p
 
 ---
 **Claude, 2026-09-27, round 3 close:** all six folded into `phase2/proof-v4-FINAL.pdf`. Magnolia 1940 and Pioneer 1979 both on the sheet; the skew explanation is in "The measure"; The Greens JV deal and the first lot are in the chain; four operators printed beside their wells with the lease names. Red column is down to six, all of them things a courthouse trip or a working RRC would settle. That's the edition-1 line. Only item 19 (1944) remains open; everything else is edition 2. The $11 BSD image was the best money spent on this project.
+
+---
+
+# Round 4 — one day, two items (opened 2026-09-27). Then it prints.
+
+## 20. The 27 pre-1950 "Estes ranch" hits  `[ ]`
+Same free archive. Open every one. Deliver `phase2/estes-ranch-pre1950.md`: date, page, one sentence each. Flag anything that puts a person, an animal, a structure, a weather event, or a sale on Section 7 or "the Estes place" between 1911 and 1978. Also try "S.W. Estes," "Aldredge Estes," "Estes" + "Midland" + "ranch" in the same span. Summaries only, no article text. Free.
+**Done when:** all 27 opened and summarized, plus the extra searches with hit counts.
+
+## 21. RRC, daily  `[ ]`
+Once a day until Adam says the print is ordered: retry the drilling-permit and completion queries for the 10 wells still blank. The moment either answers, fill `wells.csv` and push. Log each attempt's date and result in `rrc-side-doors.md`.
+**Done when:** filled, or Adam says printed.
+
+Item 19 (1944) continues. Nothing else. No spend.
