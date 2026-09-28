@@ -122,3 +122,24 @@ well-number despite the blank API.
 (issued 2015-05-26, expired 2017-05-26), and 42-329-36355 (issued 2009-08-13,
 expired 2011-08-13) were never spudded. CSV `status` column left as
 "permitted" — Claude's call whether to reflag.
+
+## (f) Correction to the item-27 pad-location reading (2026-09-28, queue item 29)
+
+Item 27's county-line side test treated the three RRC GIS dots
+(32.06922/-102.17267, 32.07058/-102.16656, 32.07165/-102.16198) as the Easy
+Target *pad* locations and concluded the pads are geographically in Midland
+County, ~92-111 ft north of Section 7's north edge. That reading is
+**superseded**. The dots are RRC Public GIS Viewer MapServer **Layer 1 ("Well
+Locations")** points — source "Operator reported location - D" — i.e. the
+**bottomholes** (they match the permit '15' trailer bottomhole coords to
+~40-75 ft lat / ~480-910 ft lon). The actual surface holes are Layer 9
+("Horiz/Dir Surface Locations") points at 32.106-32.112, Sec 19/30 Blk 39
+**T1N — Martin County**, 6,900-9,100 ft north of the county line (see
+phase2/county-coding.md). The 317 (Martin) code follows the surface geography
+and is correct; a full-county test (8,979 Martin-coded + 9,187 Midland-coded
+permits with coordinates) found **zero** surface points across the line in
+either direction. The item-27 headline is unaffected: the Midland-Martin line
+is ~5,400-6,800 ft (~1.0-1.3 mi) north of Section 7's north edge. Map
+implication: the three dots on the sheet are bottomhole locations, not pads —
+caption accordingly. Note (c) above (pad in T1N, laterals south under Sec 7)
+remains correct.
