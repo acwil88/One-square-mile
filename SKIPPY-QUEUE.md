@@ -89,3 +89,7 @@ Once a day until Adam says the print is ordered: retry the drilling-permit and c
 **Done when:** filled, or Adam says printed.
 
 Item 19 (1944) continues. Nothing else. No spend.
+
+## 22. Push NEXT-PROJECT-SKIPPY.md — after print  `[ ]`
+Skippy's 20 next-project ideas file is written and staged locally at `~/workspace/NEXT-PROJECT-SKIPPY.md`. Push it to the repo root as `NEXT-PROJECT-SKIPPY.md` ONLY after Adam says the print is ordered (Adam promised Claude: nothing next-project until this project finishes). File is complete: 20 ideas in the required format, capability coverage map, ranked top 5, Claude-pick prediction paragraph.
+**Done when:** pushed to repo root with Adam's paste-per-session token.
