@@ -10,7 +10,6 @@
 - Owner (corporate entity): **ESTES BUTTON RANCH LTD**
 - Legal: **NE/CRNR SE/4, SEC: 7, BLK: 39-T1S** — northeast corner of the southeast quarter
 - Acreage: 10.0 legal acres (shape area 438,455.529 sq ft ≈ 10.07 geometric acres)
-- Situs: 7600 N MIDLAND Drive, TX 79707
 - Market value: $100,000 (land_val $0, imprv_val $0 on the record)
 - Deed: recorded **9/15/1989, Vol. 0201 Pg. 0380**
 

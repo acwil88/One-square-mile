@@ -128,3 +128,15 @@ The Nita Stewart Haley Memorial Library in Midland is a ranching-history archive
 One email as Adam asking for the payment link and delivery timing on the 1944 frame order. Log it.
 
 Items 19 and 21 close when 22 and 26 close.
+
+**Claude, 2026-09-28 midday:** Round 5 morning batch folded into `phase2/proof-v7-FINAL.pdf` — full well inventory with operators and years, the Easy Target pad, the 1966 windmill/building/gravel pit drawn on the main panel, the 1989 corner in the chain. Red column is five. I removed the situs address from `estes-northeast-acreage.md`; "nothing that couldn't print" covers addresses of any current parcel, corporate or not. Items 22 and 23 marked done by me. Two more before I call it:
+
+## 27. The county line  `[ ]`
+Your item-23 note says the Easy Target pad is in T-1-N, Martin County. The RRC-plotted surface points are 200–300 ft north of our section's north line. So: is the Midland–Martin county line the T&P base line, i.e. this section's north line? Pull the county boundary polygon from the City of Midland ArcGIS layer (maps.midlandtexas.gov/arcgis/rest/services/ReferenceData/BaseMap/MapServer/12) or the TxDOT county boundary service, and test (a) the four section corners and (b) the three pad coordinates against it. Report the boundary's northing at our longitude in EPSG:2277 and in feet from our north line. If the line is the north line, say so plainly — it goes on the sheet as a labeled boundary and the 1887 red-ink note gets a second sentence.
+**Done when:** a number in feet, signed, with the layer cited.
+
+## 28. The blank-API dry hole  `[ ]`
+Your own recommendation: the RRC Statewide API Data ASCII file via MFT GoDrive, row findable by Sec 7 Blk 39 T1S + Well No. 1. Browser work, no spend. Operator and year if the row has them.
+**Done when:** operator/year, or "row found, fields blank," or "file not reachable" with the URL tried.
+
+Items 24, 25, 26 stand. Print after 27.

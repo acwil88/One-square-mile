@@ -30,7 +30,7 @@ def lines_of(geom):
     if geom['type']=='Polygon': return geom['coordinates']
     if geom['type']=='MultiPolygon': return [r for p in geom['coordinates'] for r in p]
     return []
-c=canvas.Canvas('/home/claude/build/proof-v6.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
+c=canvas.Canvas('/home/claude/build/proof-v7.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
 BLEED=90.0  # ft shown beyond the section
 def clip_rect():
     x0,y0=pg(loc_minx-BLEED,loc_miny-BLEED); x1,y1=pg(loc_maxx+BLEED,loc_maxy+BLEED); return x0,y0,x1-x0,y1-y0
@@ -77,6 +77,13 @@ for f in streets:
         mx,my=loc[i]; 
         if not(0<mx<W_ft and 0<my<H_ft): continue
         X,Y=pg(mx,my); c.saveState(); c.translate(X,Y); c.rotate(ang); c.drawCentredString(0,2,nm.upper()); c.restoreState(); done.add(nm); break
+# 1966 USGS features (windmill, building, gravel pit)
+for lat,lon,kind,lab in [(32.0647,-102.1588,'wm','WINDMILL, USGS 1966'),(32.0616,-102.1732,'bldg','BUILDING, USGS 1966'),(32.0631,-102.1743,'pit','GRAVEL PIT, USGS 1966')]:
+    gx,gy=T.transform(lon,lat); X,Y=pg_grid(gx,gy); c.setStrokeColor(BLK); c.setLineWidth(0.8); c.setFillColor(white)
+    if kind=='wm': c.circle(X,Y,4,stroke=1,fill=1); c.line(X-4,Y,X+4,Y); c.line(X,Y-4,X,Y+4); c.line(X-3,Y-3,X+3,Y+3); c.line(X-3,Y+3,X+3,Y-3)
+    elif kind=='bldg': c.rect(X-3.5,Y-3.5,7,7,stroke=1,fill=1)
+    else: c.setDash([1,2]); c.circle(X,Y,5,stroke=1,fill=0); c.setDash([])
+    c.setFont('Cond',6); c.setFillColor(BLK); c.drawString(X+7,Y-2,lab)
 # Midland Draw (NHD flowline)
 draw_lines(load('midland-draw-2277.geojson'),BLU,1.1)
 dr=lines_of(load('midland-draw-2277.geojson')[0]['geometry'])[0]; dl=to_local_arr([r[:2] for r in dr]); ins=dl[(dl[:,0]>300)&(dl[:,0]<W_ft-300)]
@@ -125,12 +132,15 @@ for r in rows:
     elif st=='plugged': c.circle(X,Y,s,stroke=1,fill=0); c.line(X-s,Y,X+s,Y)
     else: c.circle(X,Y,s,stroke=1,fill=0)   # permitted
     c.setFont('Cond',6); api=r['api'] if 'xxxxx' not in r['api'] else '42-329-(unconfirmed)'
-    lease={'42-329-37587':'Estes Button 7-8 Unit','42-329-35205':'Estes Button 7','42-329-39287':'Stephens Fee 6','42-329-36421':'Aldridge'}.get(r['api'],'')
-    lab=f"{api}  {lease+' ' if lease else ''}#{r['well_name']} · {st}"+(f" · {r['operator'].title().replace('Llc','LLC').replace('L.P.','LP')} · TD {int(r['td_ft']):,} ft" if r.get('operator') else '')
+    lease={'42-329-37587':'Estes Button 7-8 Unit','42-329-35205':'Estes Button 7','42-329-39287':'Stephens Fee 6','42-329-36421':'Aldridge','42-317-45816':'Easy Target','42-317-45818':'Easy Target','42-317-45820':'Easy Target'}.get(r['api'],'')
+    yr=(r.get('completion_date') or r.get('spud_date') or '')[:4]
+    stl={'permitted':'permitted, never drilled','dry hole':'dry hole','plugged':'plugged','active':'producing'}.get(st,st)
+    op=r.get('operator','').title().replace('Llc','LLC').replace('L.P.','LP').replace('Ltd.','Ltd').replace('Parish, John R.','John R. Parish')
+    lab=f"{api}  {lease+' ' if lease else ''}#{r['well_name']} · {stl}"+(f" · {op}" if op else '')+(f" · {yr}" if yr else '')+(f" · {int(r['td_ft']):,} ft" if r.get('td_ft') else '')
     c.drawString(X+s+2,Y+3,lab)
 c.restoreState()
 # legend
-lx,ly=pg(120,3350); lw_,lh_=2.45*inch,1.9*inch
+lx,ly=pg(120,3350); lw_,lh_=2.9*inch,2.1*inch
 c.setFillColor(Color(1,1,1,alpha=0.82)); c.setStrokeColor(BLK); c.setLineWidth(0.6); c.rect(lx,ly,lw_,lh_,stroke=1,fill=1)
 c.setFillColor(BLK); c.setFont('CondB',8.5); c.drawString(lx+8,ly+lh_-14,'WELLS  (Railroad Commission of Texas, Sept 2026)')
 items=[('producing','fill'),('horizontal pad; tick shows lateral direction','sq'),('permitted, not drilled','open'),('dry hole','dry'),('plugged','plug')]
@@ -145,7 +155,8 @@ for lab,k in items:
     c.setFont('Cond',8); c.drawString(X+18,yy-3,lab); yy-=14
 c.setLineWidth(0.9); c.setDash([5,3]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.drawString(lx+34,yy-5,'pipeline, labeled with operator and system'); yy-=14
 c.setLineWidth(0.5); c.setDash([4,3]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.drawString(lx+34,yy-5,'quarter-section line'); yy-=14
-c.setStrokeColor(G60); c.setLineWidth(0.4); c.setDash([1,2]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.setStrokeColor(BLK); c.drawString(lx+34,yy-5,'soil unit (USDA-NRCS SSURGO), named in small caps')
+c.setStrokeColor(G60); c.setLineWidth(0.4); c.setDash([1,2]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.setStrokeColor(BLK); c.drawString(lx+34,yy-5,'soil unit (USDA-NRCS SSURGO), named in small caps'); yy-=14
+c.setFillColor(white); c.circle(lx+19,yy-2,3.5,stroke=1,fill=1); c.setFillColor(BLK); c.drawString(lx+34,yy-5,'windmill · building · gravel pit as drawn on the 1966 USGS sheet')
 # neatline
 c.setStrokeColor(BLK); c.setLineWidth(2.2); pth=c.beginPath()
 for k,i in enumerate([CORN['SW'],CORN['SE'],CORN['NE'],CORN['NW']]):
@@ -251,22 +262,22 @@ A_=[Paragraph('CHAIN OF TITLE, 1876–1983  ·  complete, no gaps',head)]+[Parag
 '<b>1982.</b> 8 Jan: Midland West sells 20.343 acres — Lots 20–23, Block 6, the seed of Green Tree North — to The Greens, a joint venture of Hailco, Dovecote Inc., and BSD Inc., for $1,348,425 cash, with a four-year build-or-reconvey clock and a promise to annex, plat, zone, pave, and pipe the land. DR 731/258.',
 '<b>1982.</b> Green Tree North plat recorded 1 Dec. Cabinet C, p. 134. Frank Mullins becomes majority owner of Midland West the same month.',
 '<b>1983.</b> 26 Jan: the first Green Tree North lot is deeded to a homebuyer — Lot 18, Block 2, from Midland West. DR 770/614. 1 March: the members buy the clubhouse and both courses from Midland West for more than $6 million. Green Tree North — 297 acres, 220 lots, nine more holes — under construction, 85 lots pre-sold, First National Bank of Midland carrying the paper. Three years later a First National banker is convicted in federal court of hiding his own stake in Midland West while the bank lent it $1.925 million.',
+'<b>1989.</b> Ten acres at the northeast corner of the SE/4, deeded 15 Sept to the family’s ranch partnership. Still theirs.',
 '<i>The chain stops here. Sixty-seven years of one family; ninety-nine years of ranch. Everything since is somebody’s home and is not this map’s business.</i>']]
 B_=[Paragraph('THE GROUND',head)]+[Paragraph(t,body) for t in [
 '<b>Water.</b> Ogallala aquifer 100–180 ft below the section. One City of Midland well inside the line, 147 ft, unused. About ten domestic and irrigation wells drilled 2002–2021, 135–180 ft. Golf course well, 175 ft, 2021. Midland Draw crosses the north half and has carried its name on every USGS sheet from 1954 to 2019 — it never disappeared; the ranch did. Powell’s 1876 notes call this “waters of North Concho.” Modern mapping drains it east to the Colorado by Midland Draw and Beals Creek; the North Concho is not on the path.',
 '<b>Soil.</b> About 60% Amarillo and Midessa fine sandy loam — well drained, “farmland of statewide importance.” Bippus clay loam in the draws, subject to occasional flooding. No hydric soils. Water table below 80 in. A “sandy old farm with one sickly tree,” as the man who sold it put it in 1977.',
-'<b>Oil.</b> Inside the line: three producing wells, one permitted location, one dry hole. On the north line, three horizontal pads; two laterals run south under the streets, one runs north. Those three carry Martin County’s code in their API numbers though they sit in Midland County — the Railroad Commission assigns the code by the county it approved the drilling under, which is its rule and not an explanation. Two crude gathering lines — Oryx Midland Oil Gathering’s “Green Tree” system, 6.63 in, under T-4 Permit 10611 issued in 2024 to serve the new pads — and one 16-in gas line (ONEOK WesTex, on Pioneer Natural Gas’s 1979 right-of-way) cross the north half. Where the Commission’s log index gave them up, operators and depths are printed beside the well; the leases are still named for the family — Estes Button 7, Aldridge.',
-'<b>The ranch years.</b> The family’s big ranch was at Monahans; this was the place north of town. November 1916: a neighbor spends a Monday here helping vaccinate calves. July 1921: the Estes reunion, fifty-eight of eighty-five answering roll call at the S.W. Estes ranch. S.W. sat on a bank board and lost a $45,760 judgment in 1923, on town lots, not this ground. Aldredge ran cattle — 125 cows and calves sold in 1939, eighty heifers in 1941 — with his son as partner until the war took the son. A Midland street and a subdivision still carry the name.',
+'<b>Oil.</b> Fourteen locations on the Commission’s map. Inside the line: a dry hole drilled by John R. Parish in December 1980; Exxon’s No. 1 of 1998, still producing; Petroplex’s Estes Button 7 No. 3 (2005) and the 7-8 Unit No. 4 (2011); Fasken’s Aldridge 1208R (2009), after Henry Resources’ 1208 came up dry; Endeavor’s Stephens Fee No. 3 (2014), since plugged; and three permits that expired without a bit turning. Across the north line, Occidental’s Easy Target pad: three horizontals spudded within four days of each other in early 2024, laterals of 24,000 to 26,000 feet, two of them running south under the streets. The Commission permitted them in Martin County. Two crude gathering lines — Oryx Midland Oil Gathering’s “Green Tree” system, 6.63 in, T-4 Permit 10611, issued in 2024 to serve those pads — and one 16-in gas line (ONEOK WesTex, on Pioneer Natural Gas’s 1979 right-of-way) cross the north half. The leases are still named for the family.',
 '<b>Before the streets.</b> Open rangeland on every USGS edition 1954–1985: oil wells, drill holes, a gravel pit, a pipeline. Streets first appear 1991. Built out by 2010.',
 '<b>The course.</b> Summer 1977: two men buy 320 acres from the Estes family, one of them the head pro at Ranchland Hills. First National Bank finances it — $8.9 million, later litigated. Dirt-trail access until 1980. The course opens July 1979; the members own it from March 1983; the north nine follows; rebuilt 2018.',
 '<b>The measure.</b> Powell called 1,900 varas on every side. The county’s polygon measures 1,910 to 1,926. The section holds about 650 acres against 640 patented — ten acres of survey excess that nobody has had to account for in 150 years. And the tilt is not his mistake: every section in Block 39 runs 14° off north. He ran his lines by needle and wrote the variation down without correcting for it; the whole block is the fossil of his compass.']]
 C_=[Paragraph('COULD NOT BE CONFIRMED',redh),Paragraph('Compiled from records, not walked. The following were looked for and not found, or found and not trusted:',red)]+[Paragraph('· '+t,red) for t in [
-'Operators and depths of ten of the fourteen wells, and completion dates for all of them. The Railroad Commission’s record systems could not be reached on two days; its log index gave up four. One dry hole’s API number returned truncated and is printed as unconfirmed.',
-'Why three wells inside a Midland County section were permitted under Martin County’s code. The rule is in the Commission’s data dictionary; the reason for these three is in no public record.',
+'One dry hole, Well No. 1, plotted from the Commission’s hardcopy map with no API number on file. Its operator and date are in no digital record.',
+'Whether the Midland–Martin county line runs along this section’s north line. The Commission permitted the three pads across it in Martin County and numbered them so; the county’s own boundary file was not checked before this edition.',
 'What the first lot sold for. A course-front lot was asking $55,000 that winter; the first deed of trust is indexed at a figure too small to believe.',
 'Any 1930s–40s aerial. A 1944 Air Force frame exists at TxGIO and is on order; it did not arrive in time for this edition.',
 'Whether the calves of 1916 and the reunion of 1921 were on this section or another Estes place north of town. The paper never names the section.']]+[Paragraph('If you know any of these, write. Second edition is free to anyone who corrects the first.',red),
-Paragraph('<b>Sources.</b> Texas General Land Office (patent, field notes, scrip); Midland County Clerk (deed records as cited); Midland Central Appraisal District (abstracts, parcels); USGS topoView and EarthExplorer (topographic sheets 1954–2019; aerials 1954, 1965, 1974, 1984, 1995); Midland Reporter-Telegram 1950–1999 via the Southwest Collection, Texas Tech University; Texas Comptroller entity records; USDA NAIP 2022 (NAIP 2024 exists as a county mosaic in a proprietary format and was not used); Railroad Commission of Texas GIS and 2024 T-4 permit register; Texas Water Development Board; USDA-NRCS Web Soil Survey; EPA WATERS / NHDPlus; federal court records as cited. Full source log, fifty-plus rows, at github.com/acwil88/One-square-mile.',small),
+Paragraph('<b>Sources.</b> Texas General Land Office (patent, field notes, scrip); Midland County Clerk (deed records as cited); Midland Central Appraisal District (abstracts, parcels); USGS topoView and EarthExplorer (topographic sheets 1954–2019, features from the 1966 Northwest Midland 7.5′ sheet; aerials 1954, 1965, 1974, 1984, 1995); WellWiki, ezrrc, and texas-drilling mirrors of RRC permit and completion data; Midland Reporter-Telegram 1950–1999 via the Southwest Collection, Texas Tech University; Texas Comptroller entity records; USDA NAIP 2022 (NAIP 2024 exists as a county mosaic in a proprietary format and was not used); Railroad Commission of Texas GIS and 2024 T-4 permit register; Texas Water Development Board; USDA-NRCS Web Soil Survey; EPA WATERS / NHDPlus; federal court records as cited. Full source log, fifty-plus rows, at github.com/acwil88/One-square-mile.',small),
 Paragraph('Gathered by Skippy (Meta Muse). Designed by Claude (Anthropic). Approved and paid for by a resident of the section, who is not named on it. No phone calls were made. Sheet oriented to the 1876 survey; true north 15° right of page-up. Scale 1:3,000. Aerial strip: each frame’s placement error is stated in its caption.',small)]
 from reportlab.platypus import Image as RLImage, Spacer
 fnim=Image.open(REPO+'glo-page-6.png'); fw_=fnim.size[0]; fnim.crop((0,int(fnim.size[1]*0.10),fw_,int(fnim.size[1]*0.36))).save('/home/claude/build/fieldnotes.jpg',quality=90)
