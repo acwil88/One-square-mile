@@ -10,7 +10,7 @@ Check for (a) NAIP 2024 Texas, 60 cm, quarter-quads `m_3210263_se_13` and `_ne_1
 Retry the RRC wellbore/lease endpoint for every row in `wells.csv`: operator, spud/completion date, total depth. Fill the CSV; recover the truncated API on the `42-329-xxxxx` dry hole. Two attempts on different days before calling it blocked.
 **Done when:** `operator` is filled for every producing well, or `wells-notes.md` records the dates/times the service failed.
 
-## 8. 1944 USAF frame — $25 (over the $10 estimate, inside the $30 cap)  `[~]` — pay the TxGIO link when it arrives, then align to 1965 and push. If it lands before the print, it becomes a seventh strip frame; if not, edition 2.
+## 8. 1944 USAF frame — SUPERSEDED  `[x]` — see "CANCEL the 1944 order" below (2026-09-29). Order placed 2026-09-26, never paid, left to auto-archive. $0 spent.
 Order the 1944-11-26 USAF Mission 805 frame covering the section from TxGIO's historical imagery archive. Order it with the Stripe link and log the spend. When it arrives, align it to the 1965 frame the way you did 1954, deliver `phase2/ee-1944-2277.tif` + alignment note.
 **Done when:** frame delivered and aligned, or ordered and awaiting delivery with the order number in `spend.md`.
 
@@ -26,8 +26,9 @@ Newspapers.com (or the Portal to Texas History if the R-T is there for the perio
 Midland County Clerk index: marriage records and probate 1915–1980 for Thelma Estes, Ethel Estes, Ethel Aldredge, Aldredge Estes. Question to answer: is Thelma Estes (1921 grantee) the same person as Ethel Aldredge Estes (1976 grantor)? Deliver the answer with instrument numbers in `phase2/estes.md`, or "no instrument connects them."
 **Done when:** answered either way, with citations.
 
-## 12. Source-log hygiene  `[ ]`
+## 12. Source-log hygiene  `[x]`
 As before: every new file in `phase2/` traceable to a row.
+**Status 2026-09-29:** DONE. Backfilled rows 66 (1946 USDA frame), 67 (item 29 county-coding), 68 (item 8 cancel). All phase2/ files traceable.
 
 ---
 Claude's side: fold results into the sheet, re-issue the final, one message to Adam. Print after that.
@@ -68,7 +69,7 @@ Same free archive, 1950–1976 and 1984–1999. Same terms plus "Estes" + "secti
 **Done when:** hit list delivered.
 **Status 2026-09-27:** DONE — all 11 combos complete. Key: 1986 embezzlement trial (ex-FNB banker McCright hid Midland West Corp. ownership, funneled $1.925M 1981 loan); Ranchland Hills 1984–99 = country-club noise only; "Estes"+"section 7" = Ward County oil field, no family link; "Midland West"+"plat" = zero; Thelma Estes obit 1983-04-19 confirms she married a Brown.
 
-## 19. 1944 frame  `[~]` — continues from item 8.
+## 19. 1944 frame  `[x]` — FALLS AWAY with the item-8 cancel (2026-09-29). Frame never ordered-paid; 1946 frame answers the question instead.
 
 ## For Adam (not Skippy): the drive
 Fifteen minutes on public streets around the north half. Photograph every well-pad sign and every pipeline marker. Upload the photos to `phase2/field/`. That alone may close 13, 14, and the Martin County question. Optional; the sheet says "not walked" and can keep saying it.
@@ -120,12 +121,12 @@ The 26 Jan 1983 deed of trust on Lot 18 Block 2 (companion to DR 770/614). $1–
 **Done when:** the amount from the instrument itself is in `first-house.md`.
 **Status 2026-09-28:** Doc 1983-1593 verified (Harrell → First National Bank Midland, 1/26/1983, DT/479/257), but the portal's cart backend was down twice (16:18 and 18:34 CDT — "You are offline!" / timeouts); nothing added, nothing purchased, cart empty. Retry scheduled 2026-09-29 ~8:00 AM CDT.
 
-## 25. The ranch headquarters — the Haley Library  `[ ]`
+## 25. The ranch headquarters — the Haley Library  `[x]` — CANCELLED per Adam 2026-09-28 (relayed by Claude). The 1946 frame answered the HQ question in the negative; no email sent.
 The Nita Stewart Haley Memorial Library in Midland is a ranching-history archive. Search its online catalog for Estes, S.W. Estes, Aldredge Estes, Block 39. Then one email as Adam: does the library hold anything on the S.W. Estes ranch north of Midland (Sections 6–8, 17–18, Block 39 T-1-S), 1911–1978, especially where the headquarters stood. Also check the 1954 and 1966 USGS 7.5' sheets for a building or windmill symbol inside Section 7 and note the location if there is one.
 **Done when:** catalog searched, email sent and logged, topo checked.
 **Status 2026-09-28:** ON HOLD per Adam — email draft NOT sent. Catalog research done separately: public register has no Estes ranch material (only unrelated Billie Sol Estes); library is mid-move, research requests delayed.
 
-## 26. TxGIO 1944 — status  `[ ]`
+## 26. TxGIO 1944 — status  `[x]` — FALLS AWAY with the item-8 cancel (2026-09-29). Email never sent; order left to auto-archive.
 One email as Adam asking for the payment link and delivery timing on the 1944 frame order. Log it.
 **Status 2026-09-28:** ON HOLD per Adam — email NOT sent. Read-only order-status check fires 5:00 PM CDT today (order UUID `c0f80232-acf1-4ccf-a92b-67a791996ef4`; ~$25 expected; no payment or download without approval).
 
@@ -149,7 +150,7 @@ Items 24, 25, 26 stand. Print after 27.
 
 **Adam's call, 2026-09-28 (relayed by Claude):** Stop work on the 1916/1921 "which section" question. It stays in the red column as the paper's limit. Do not search for it again.
 
-## 26a. When the 1944 frame lands — read it before you align it  `[ ]`
+## 26a. When the 1944 frame lands — read it before you align it  `[x]` — FALLS AWAY with the item-8 cancel (2026-09-29). The 1946 frame was read instead (phase2/usda1946-structures.md).
 Before alignment, at native resolution, scan the whole section for structures: buildings, pens, tanks, windmills, tracks. Log every one with an approximate position. Then align (to 1965 as before) and compare against the 1966 topo's building (~32.0616, −102.1732) and windmill (~32.0647, −102.1588). If a 1944 structure sits where the 1966 building sits, say so plainly — that becomes "the headquarters" on the sheet with both dates. Deliver `phase2/1944-structures.md` alongside the aligned frame. Item 25 (Haley Library) continues in parallel; anything the library returns about the headquarters location gets cross-checked against the same two points.
 **Done when:** structures logged, frame aligned, comparison stated either way.
 
