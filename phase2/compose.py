@@ -30,7 +30,7 @@ def lines_of(geom):
     if geom['type']=='Polygon': return geom['coordinates']
     if geom['type']=='MultiPolygon': return [r for p in geom['coordinates'] for r in p]
     return []
-c=canvas.Canvas(BUILD+'proof-v13.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
+c=canvas.Canvas(BUILD+'proof-v14.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
 BLEED=250.0  # ft shown beyond the section
 def clip_rect():
     x0,y0=pg(loc_minx-BLEED,loc_miny-BLEED); x1,y1=pg(loc_maxx+BLEED,loc_maxy+BLEED); return x0,y0,x1-x0,y1-y0
@@ -258,7 +258,7 @@ A_=[Paragraph('CHAIN OF TITLE, 1876–1983  ·  complete, no gaps',head)]+[Parag
 '<b>1941.</b> Family partition, 31 Oct, four instruments in a row. Thelma Estes Brown → Aldredge Estes, Section 7 (DR 70/294); Aldredge → Thelma, Section 6, the same day. Both had taken land from S.W. and Arminta. Kin, plainly; the records never say how. Thelma died in 1983 at 80, in Laguna Hills, California.',
 '<b>1953, 1970.</b> Ethel Estes, signing alone: a royalty deed on the 640 acres to Stanolind Oil & Gas, then an oil and gas lease to Pan American Petroleum — Stanolind under its new name. A share of whatever the ground would ever produce, sold before a well existed. When Aldredge died the records do not say; by 1953 she conveyed without him.',
 '<b>1976.</b> Ethel Aldredge Estes → her three children, 14 Dec. DR 615/436–438.',
-'<b>1978.</b> The Estes family → Midland West Corporation, 21–22 Nov, three deeds. Surface only; the minerals stay with the family. A deed of trust runs back to Mrs. Estes on the SE/4.',
+'<b>1978.</b> The Estes family sells the surface to Midland West Corporation, 21–22 Nov, three deeds. Price unstated, as Texas deeds are; part of it owed — a deed of trust on the SE/4 secures the developer’s note back to Mrs. Estes, so the widow financed the buyer. The minerals stay with the family.',
 '<b>1979.</b> The Estes heirs and Midland West → Pioneer Natural Gas Company, right-of-way, October. DR 673/712–714. Today’s 16-in gas line; ONEOK WesTex is Pioneer’s successor.',
 '<b>1979.</b> Midland West, about a dozen partners, opens the Green Tree course in July.',
 '<b>1980–81.</b> Midland West → Hailco Inc. (incorporated May 1979; Neal Hail, president), a Midland homebuilder buying finished lots.',
