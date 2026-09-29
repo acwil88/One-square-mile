@@ -11,3 +11,5 @@
 | 31 — 1946 frame 68 + full-mile mosaic | TNRIS DataHub S3 (public, no key) | **$0.00** | Done 2026-09-29 — adjacent frame 1C-68 downloaded free; mosaic built from frames 67+68 | 2026-09-29 |
 
 **Total paid to date: $11.00. Total pending: $0.00. Total committed (paid + pending): $11.00.**
+
+| 32 — 1946 south-half structure read | Local read of item-31 mosaic (no new data) | **$0.00** | Done 2026-09-29 — `phase2/ee-1946-south-structures.md`; no ranch HQ anywhere in section; one outbuilding cluster on/near west line | 2026-09-29 |

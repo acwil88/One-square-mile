@@ -16,7 +16,7 @@
 - Use `phase2/ee-1946-2277-full.tif` (9.3 MB). The older `ee-1946-2277.tif` is frame 67 only — kept for reference, don't use it for mile-wide work.
 - The blend seam runs E–W across the Draw (grid rows ~1900–2664). Both frames show the Draw well there, so it blends cleanly — but if you ever see a doubled feature near the Draw, that's the seam, not the ground.
 - Date discrepancy is real: the frame edge reads February 28, 1946; the collection card says March 13, 1946. I used the frame date. If the sheet dates the 1946 strip, note the discrepancy.
-- First look at the new southern half: fields, section-line roads, open rangeland south of the Draw — no obvious ranch headquarters. But nobody has done the careful structure-by-structure read of the south half yet (item 26a only covered the north). If the sheet wants the "no headquarters in 1946" claim to cover the whole mile, that read still needs doing.
+- First look at the new southern half is now a full structure read (item 32, `phase2/ee-1946-south-structures.md`): one small building cluster (2–3 outbuildings) on/near the west line at 32.055634,-102.170137 — ~600 ft inside per the CAD polygon but within the alignment error of the boundary — plus dryland fields, section-line roads, and open rangeland. The 1966 building site is empty in 1946. **No ranch headquarters anywhere in the section in Feb 1946** — the west-line cluster is outbuildings, not an HQ. Qualify any "no buildings" claim: the cluster exists.
 
 ---
 
@@ -136,7 +136,7 @@ Same budget as frame 67. Template-match transfer adds ~30–60 ft, negligible ag
 - **Method:** Feather blend — frame 67 full weight north of 1965-grid row 1900, linear ramp to frame-68-only at row 2664 (67's south edge). 67 is nearer nadir in the north; 68 is nearer nadir in the south.
 - **Coverage:** 100.00% of the 1965 grid has 1946 data (59.2% both frames, 40.8% frame 68 only). The southern half of Section 7 — south of the Midland Draw — is now covered.
 - **Combined error:** ±600–900 ft (APPROXIMATE), governed by the frame-67/68 alignments.
-- **First look at the new southern coverage:** fields, N-S section-line roads, and open rangeland south of the Draw; no obvious ranch headquarters, but a structure-level read of the south half has not been done (item 26a covered the north only).
+- **Structure read of the southern coverage (item 32, `phase2/ee-1946-south-structures.md`):** one small outbuilding cluster (2–3 buildings) on/near the west line at 32.055634,-102.170137; dryland fields; section-line roads; open rangeland. 1966 building site empty in 1946. No ranch HQ anywhere in the section.
 
 ### Files
 - `phase2/ee-1946-2277.tif` (5.2 MB, frame 67 only — superseded by the full mosaic for mile-wide use)
