@@ -168,3 +168,5 @@ Same method as 1954/1965 (against 1965, then chained). Deliver `phase2/ee-1946-2
 **Done when:** aligned, error stated.
 
 Open: 24 (first-price image), 25 (Haley, in parallel), 30. Item 26/26a fall away with the cancel.
+
+**Adam's call, 2026-09-28 (relayed by Claude): item 25 (Haley Library) is cancelled.** The 1946 frame answered it. If the email was already sent, log any reply in `source-log.md` and stop there. Open: 24 (first-price image, $2) and 30 (align 1946). Then Adam prints.
