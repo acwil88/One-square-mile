@@ -30,7 +30,7 @@ def lines_of(geom):
     if geom['type']=='Polygon': return geom['coordinates']
     if geom['type']=='MultiPolygon': return [r for p in geom['coordinates'] for r in p]
     return []
-c=canvas.Canvas(BUILD+'proof-v14.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
+c=canvas.Canvas(BUILD+'proof-v15.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
 BLEED=250.0  # ft shown beyond the section
 def clip_rect():
     x0,y0=pg(loc_minx-BLEED,loc_miny-BLEED); x1,y1=pg(loc_maxx+BLEED,loc_maxy+BLEED); return x0,y0,x1-x0,y1-y0
@@ -261,7 +261,7 @@ A_=[Paragraph('CHAIN OF TITLE, 1876–1983  ·  complete, no gaps',head)]+[Parag
 '<b>1978.</b> The Estes family sells the surface to Midland West Corporation, 21–22 Nov, three deeds. Price unstated, as Texas deeds are; part of it owed — a deed of trust on the SE/4 secures the developer’s note back to Mrs. Estes, so the widow financed the buyer. The minerals stay with the family.',
 '<b>1979.</b> The Estes heirs and Midland West → Pioneer Natural Gas Company, right-of-way, October. DR 673/712–714. Today’s 16-in gas line; ONEOK WesTex is Pioneer’s successor.',
 '<b>1979.</b> Midland West, about a dozen partners, opens the Green Tree course in July.',
-'<b>1980–81.</b> Midland West → Hailco Inc. (incorporated May 1979; Neal Hail, president), a Midland homebuilder buying finished lots.',
+'<b>1980–81.</b> Midland West sells lots to Hailco Inc. — three warranty deeds, prices unstated, no note back — a Midland homebuilder (incorporated May 1979; Neal Hail, president) that took 771 instruments through this courthouse in five years, buying lots and selling houses. One of those lots lies inside the ground platted the next year, which is why Hailco signs the plat.',
 '<b>1982.</b> 8 Jan: Midland West sells 20.343 acres — Lots 20–23, Block 6, the seed of Green Tree North — to The Greens, a joint venture of Hailco, Dovecote Inc., and BSD Inc., for $1,348,425 cash, with a four-year build-or-reconvey clock and a promise to annex, plat, zone, pave, and pipe the land. DR 731/258.',
 '<b>1982.</b> Green Tree North plat recorded 1 Dec. Cabinet C, p. 134. Frank Mullins becomes majority owner of Midland West the same month.',
 '<b>1983.</b> 26 Jan: the first Green Tree North lot is deeded to a homebuyer — Lot 18, Block 2, from Midland West. DR 770/614. 1 March: the members buy the clubhouse and both courses from Midland West for more than $6 million. Green Tree North — 297 acres, 220 lots, nine more holes — under construction, 85 lots pre-sold, First National Bank of Midland carrying the paper. Three years later a First National banker is convicted in federal court of hiding his own stake in Midland West while the bank lent it $1.925 million.',
