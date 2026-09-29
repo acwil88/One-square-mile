@@ -15,5 +15,5 @@
 | 32 — 1946 south-half structure read | Local read of item-31 mosaic (no new data) | **$0.00** | Done 2026-09-29 — `phase2/ee-1946-south-structures.md`; no ranch HQ anywhere in section; one outbuilding cluster on/near west line | 2026-09-29 |
 
 | 33 — Refine 1946/1954/1965/1974 alignments | Local NHD/polygon-guided fit (no new data) | **$0.00** | Done 2026-09-29 — all four targets met; checkerboards in phase2/ | 2026-09-29 |
-| 34 — NAIP 2024 hunt | PC STAC / USGS TNM / TNRIS API (all free, scripted) | **$0.00** | Done 2026-09-29 — no scripted route to a 2024 GeoTIFF; QGIS fallback written up in automation/QGIS-fallback.md §B for Adam | 2026-09-29 |
+| 34 — NAIP 2024 hunt | EarthExplorer (Adam's EROS login; free) after PC STAC / TNM / TxGIO scripted routes failed | **$0.00** | Done 2026-09-29 — `phase2/naip2024-2277.tif` (4059x4038 EPSG:2277, byte-identical 2022 grid, 3-band RGB; SE acq 2024-09-09 + NE acq 2024-08-26 mosaicked, zero holes) + preview; QGIS fallback §B superseded | 2026-09-29 |
 

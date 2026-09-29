@@ -1,3 +1,5 @@
+> **SUPERSEDED 2026-09-29** — §B is no longer needed. Adam's EROS login unlocked EarthExplorer downloads; both 2024 quarter-quads (SE acq 2024-09-09, NE acq 2024-08-26) were pulled as GeoTIFFs and mosaicked onto the exact 2022 grid as `phase2/naip2024-2277.tif`. Skip the MrSID download and Saturday export.
+
 # Adam's Saturday fallback — QGIS on the ThinkPad (only for what Skippy can't close)
 
 Install: QGIS LTR from qgis.org (free). Both jobs below are 15–30 minutes each.
