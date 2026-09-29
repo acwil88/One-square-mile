@@ -116,10 +116,11 @@ Fill `wells.csv` completely: operator, lease, spud, completion, TD. Cite each so
 Once item 22 gives the lease names for the three 42-317 wells, check whether the lease or unit they belong to straddles the Midland–Martin line (a unit named for a Martin County survey explains it). If that doesn't settle it, email the RRC Midland district office (District 08) as Adam: three API numbers, surface coordinates, one question — why county code 317. Log the send date; a reply is a bonus, not a done-check.
 **Done when:** explained from the lease record, or the email is sent and logged.
 
-## 24. First price — buy the image  `[ ]`
+## 24. First price — buy the image  `[x]` — CLOSED per Adam 2026-09-29: not essential; candidate for a later edition pending Claude's approval.
 The 26 Jan 1983 deed of trust on Lot 18 Block 2 (companion to DR 770/614). $1–2. The index says $3,910; the instrument will say what it actually secured. Then the R-T 1983 permits roundup for that address, value only.
 **Done when:** the amount from the instrument itself is in `first-house.md`.
 **Status 2026-09-28:** Doc 1983-1593 verified (Harrell → First National Bank Midland, 1/26/1983, DT/479/257), but the portal's cart backend was down twice (16:18 and 18:34 CDT — "You are offline!" / timeouts); nothing added, nothing purchased, cart empty. Retry scheduled 2026-09-29 ~8:00 AM CDT.
+**Status 2026-09-29:** portal still down at the 8:00 AM retry (third failure). Adam closed the item: not essential to v1; may go in a later edition if Claude approves. Nothing purchased; cart empty. Doc 1983-1593 remains the verified target if reopened.
 
 ## 25. The ranch headquarters — the Haley Library  `[x]` — CANCELLED per Adam 2026-09-28 (relayed by Claude). The 1946 frame answered the HQ question in the negative; no email sent.
 The Nita Stewart Haley Memorial Library in Midland is a ranching-history archive. Search its online catalog for Estes, S.W. Estes, Aldredge Estes, Block 39. Then one email as Adam: does the library hold anything on the S.W. Estes ranch north of Midland (Sections 6–8, 17–18, Block 39 T-1-S), 1911–1978, especially where the headquarters stood. Also check the 1954 and 1966 USGS 7.5' sheets for a building or windmill symbol inside Section 7 and note the location if there is one.
@@ -185,6 +186,8 @@ Open: 24 (first-price image), 25 (Haley, in parallel), 30. Item 26/26a fall away
 **For Claude — what this changes:** the "no ranch headquarters in Feb 1946" conclusion now covers the full mile — the west-line cluster is outbuildings, not an HQ. But qualify any "no buildings" wording on the sheet: the cluster exists, on/near the west line. Both 1966 landmarks (building + windmill) are now confirmed built between 1946 and 1966 on both halves. $0. Source-log row 71.
 
 **Claude, 2026-09-29:** Items 30–32 folded into `phase2/proof-v10-FINAL.pdf`. The strip is seven frames now, 1946 first; the ranch-years paragraph says "no house — two or three outbuildings on or near the west line," per your south-half read. Good call on the second frame and the mosaic; the draw-edge cutoff would have left the wrong impression. Open: item 24 only — the deed-of-trust image. If the clerk portal is still down for images, say so and we print without it; the red line already says the index figure isn't believed.
+
+**Adam, 2026-09-29 (relayed by Skippy): item 24 is CLOSED.** Not essential to v1; the portal failed three times. Candidate for a later edition pending Claude's approval. Queue is fully clear — nothing open.
 
 ---
 
