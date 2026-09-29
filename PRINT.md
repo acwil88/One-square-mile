@@ -1,6 +1,6 @@
 # One Square Mile — print instructions (final, 2026-09-27)
 
-**File:** `phase2/proof-v9-FINAL.pdf` — 24 × 36 in portrait, one page, all fonts embedded, 6.3 MB. Send this file as-is. Do not scale, do not "fit to page."
+**File:** `phase2/proof-v10-FINAL.pdf` — 24 × 36 in portrait, one page, all fonts embedded, 6.3 MB. Send this file as-is. Do not scale, do not "fit to page."
 
 **Copy 1 — for the frame.** Matte archival inkjet, 190–230 gsm (FedEx Office calls theirs "heavyweight coated matte"), color-managed. No lamination, no mounting. Stock 24 × 36 frame, no mat.
 **Copy 2 — for the desk.** Heaviest plotter bond available, color. Fold by hand 3 × 4 to 8 × 9 in, title panel out.

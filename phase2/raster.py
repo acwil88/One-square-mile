@@ -33,4 +33,4 @@ if __name__=='__main__':
     outside=(255-(255-o.astype(float))*0.14).astype(np.uint8)
     base=np.where(m>0,lightened,outside); cv2.imwrite(BUILD+'base_main.png',base)
     chk=cv2.resize(base,(900,int(900*OH/OW))); cv2.polylines(chk,[ (pts*900/OW).astype(np.int32)],True,0,2); cv2.imwrite(BUILD+'chk.png',chk)
-    for yr in ['1995','1984','1974','1965','1954']: warp_to_local(REPO+f'ee-{yr}-2277.tif',BUILD+f'base_{yr}.png')
+    for yr in ['1995','1984','1974','1965','1954','1946']: warp_to_local(REPO+f'ee-{yr}-2277.tif',BUILD+f'base_{yr}.png')
