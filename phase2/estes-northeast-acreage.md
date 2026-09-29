@@ -26,29 +26,25 @@ Earlier research placed Button Estes Ranch Ltd's entity formation in 1996, but M
 
 **Next step (needs Adam's approval, ~$1–2):** pull the Vol. 201 Pg. 380 image from the Midland County Clerk portal and read the grantor/grantee. Do NOT record any current private-resident names from that image in the repo — corporate/historical parties only.
 
-## Item 37 — 1989 deed + 1978 carve-out clause (status 2026-09-29)
+## Item 37 — RESOLVED 2026-09-29 (no purchase needed)
 
-### The 1989 deed (Vol. 201, p. 380) — PENDING pull
-- The image has NOT been pulled yet. It needs a live browser session on the Midland County Clerk portal (midland.tx.publicsearch.us): deed index → Vol. 201 Pg. 380 (recorded 9/15/1989) → cart (~$1–2) → Adam taps to pay via Stripe Link → read grantor, grantee, and instrument type ONLY.
-- Privacy rule: if the grantor is an individual family member, record it in the repo only as "a family member → Estes Button Ranch Ltd" — no individual name anywhere.
-- What the records already say: MCAD parcel R4041, owner ESTES BUTTON RANCH LTD, legal NE/CRNR SE/4, SEC 7, BLK 39-T1S, 10.0 legal acres, vesting deed recorded 9/15/1989, Vol. 0201 Pg. 0380.
+### The "1989 deed" citation was wrong — the real conveyance is 1996
+- **Claude's citation "Vol. 201, p. 380, recorded 9/15/1989" does not exist** in the clerk index. Live portal check 2026-09-29 (signed-in session, Official Public Records): Vol 201 / Pg 380 returns only 3 rows — a 1989 RELEASE OF LIEN (Team Bank NA → Leonard Homes Inc, Polo Estates), a 1961 DEED OF TRUST, and its duplicate — no deed, nothing recorded 9/15/1989. Deeds recorded 9/15/1989 sit at ~DR vol 1018; a 1989 deed would never be in volume 201.
+- **MCAD's vesting-deed reference ("9/15/1989, Vol. 0201 Pg. 0380") is therefore suspect** — not corroborated by the clerk index. Do not cite it on the sheet.
+- **The actual ten-acre conveyance, from the free index (no image bought):**
+  - Book/Vol/Page: **OR/1400/466** · Doc **1996-14037** · Recorded **8/9/1996**
+  - Grantor: **an individual family member** (privacy: no name in repo)
+  - Grantee: **BUTTON ESTES RANCH LTD** (this is the exact indexed name — "ESTES BUTTON RANCH LTD" gets zero hits)
+  - Type: **WARRANTY DEED**
+  - Legal: **"NE 10-ACS SE/4 SEC-7 BLK-39 T-1-S"** — northeast 10 acres of the SE/4.
+- No 1989 conveyance to this grantee exists in the index at all (1989-restricted name search: zero rows).
+- Other Button Estes Ranch Ltd rows are non-candidates (minerals, O&G lease, Highland Park subdivision lots, a 2018 Reliance Gathering conveyance).
 
-### The 1978 deeds (DR 649/510–555) — images NOT in repo
-- The 1978 deed images were read in the clerk portal on 2026-09-26 but were NOT saved — `phase2/images/` holds only the 1982 BSD agreement (`1982-719-bsd-agreement.pdf`, scanned, no text layer). Do not re-buy them for this question unless the 1989 deed leaves the carve-out unexplained.
-- Legal descriptions as paraphrased in source-log rows 15–16 (from the 9/26 image reads):
-  - DR/649/510 (deed, rec. 11/21/1978): "surface & surface rights only in 160 acres of the SE/4 of Sec 7, Blk 39" — the surface of the FULL SE/4.
-  - DR/649/555 (ratification deed, rec. 11/22/1978): "surface & surface rights only in the South 60 acres of the SE/4 of Sec 7, Blk 39".
-- **Carve-out clause: UNVERIFIED.** Neither paraphrase records a "save and except" for the 10-acre NE-corner tract — but the full deed text was not re-examined, so an in-deed exception cannot be ruled out from the paraphrases alone. Two live hypotheses:
-  1. The 1978 deed's full legal contains an exception reserving the NE-corner 10 acres (not captured in the 9/26 paraphrase).
-  2. There is no 1978 exception, and the 10 acres came back to the family via a later instrument — plausibly the 1989 deed itself (a re-conveyance from the developer side to the family entity).
-- The 1989 deed pull resolves this: its grantor/grantee will show whether the 10 acres returned from the developer side or moved within the family.
+### The 1978 carve-out — still unverified, hypotheses updated
+- DR/649/510 (11/21/1978) conveyed the surface of the FULL 160-ac SE/4 (per 9/26 paraphrase; image not in repo). Yet a family member conveyed the NE 10 acres in 1996 — so either (1) the 1978 deed's full legal contains a "save and except" the paraphrase missed, or (2) the 10 acres returned to the family via an instrument between 1978–1996 that the index search didn't surface. Re-pulling the DR/649/510 image ($1–2) would settle it — flagged as an optional follow-up, not bought.
+- $0 spent on item 37. Source-log row 77.
 
-### Next step (blocked on live browser + Adam's $1–2 tap)
-1. Browser → midland.tx.publicsearch.us → deed index → Vol. 201 Pg. 380 (recorded 9/15/1989).
-2. If the index row itself shows grantor/grantee/type, record that (free); buy the $1–2 image only if the index is ambiguous.
-3. Record parties generically per the privacy rule above.
-4. Revisit the 1978 exception question only if the 1989 deed doesn't settle it (then re-pull the DR/649/510 image).
-5. Mark queue item 37 [x] when the 1989 instrument's parties (generic) and type are stated AND the 1978 carve-out clause is quoted or shown absent.
+**For Claude:** the sheet's "1989" line (v16) needs rewording to the real record — **1996 warranty deed, OR/1400/466, family member → Button Estes Ranch Ltd, NE 10 acres of the SE/4**. The 1989/Vol-201 citation should not appear.
 
 ## Secondary-source note (unverified)
 

@@ -19,4 +19,4 @@
 
 | 35+36 — 1974 mirror investigation + full early-frame alignment audit | Local audit (no new data) | **$0.00** | Done 2026-09-29 — v12 mirror claim proven false; wrong flip block removed from `phase2/raster.py`; 1984 verified; 1946/1954/1965/1974 all PASS (no re-warps); report `phase2/early-frame-audit-2026-09-29.md`; v12 PDF 1974 square mirrored — needs rebuild before printing | 2026-09-29 |
 
-| 37 — 1989 deed on the ten acres (Vol. 201 p. 380) | Clerk portal image pull (not yet done) | **$0.00** | Blocked 2026-09-29 — 1978 deed images not in repo (read 2026-09-26, not saved; not re-bought); 1989 image needs live browser session + Adam's $1–2 tap; partial findings + carve-out hypotheses in `phase2/estes-northeast-acreage.md` | 2026-09-29 |
+| 37 — ten-acre deed (citation corrected) | Clerk portal free index rows (live session) | **$0.00** | Done 2026-09-29 — "Vol. 201 p. 380 / 9/15/1989" does not exist; real deed OR/1400/466, Doc 1996-14037, rec. 8/9/1996, warranty deed, family member → BUTTON ESTES RANCH LTD, NE 10 ac SE/4 Sec 7 Blk 39; no image bought (index sufficed); 1978 carve-out re-pull ($1–2) deferred as optional follow-up | 2026-09-29 |
