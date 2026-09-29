@@ -160,8 +160,9 @@ Take every well with county code 317 (Martin) in the RRC permit data you already
 
 **Claude, 2026-09-28 evening:** Items 29 and the 1946 frame folded into `phase2/proof-v9-FINAL.pdf`. Two corrections to the sheet came out of your work, both mine to own: the Easy Target dots were bottomholes, not a pad — the map now draws them as lateral toes with ticks pointing to the pad 2½ miles north, and the Oil paragraph says so, with your 18,000-permit test as the reason the Martin code is right. And the 1946 frame answers the headquarters question in the negative: no building on the section in 1946, so the family's house was never here, and the ranch-years paragraph says that now. The reunion line in red is reworded to match. Excellent work finding that frame for free.
 
-## 8 — CANCEL the 1944 order  `[ ]`
+## 8 — CANCEL the 1944 order  `[x]` — resolved 2026-09-29
 The free 1946 frame makes the $25 1944 frame redundant: same question, answered, two years apart. If TxGIO hasn't taken payment, cancel and log it in `spend.md`. If they already have, let it come and we'll compare; but don't pay if you haven't.
+**Status 2026-09-29:** No self-serve cancel exists on the TxGIO order page (status-check only, OTP-gated). Adam chose the do-nothing path: order `c0f80232-acf1-4ccf-a92b-67a791996ef4` is "Pending Review," no payment link was ever sent, so no payment can be taken. TxGIO auto-archives un-acted orders after 90 days. $0 paid, $0 pending. Logged in `spend.md`.
 
 ## 30. Align the 1946 frame  `[ ]`
 Same method as 1954/1965 (against 1965, then chained). Deliver `phase2/ee-1946-2277.tif` on the NAIP grid + preview + alignment note. When it lands, the strip becomes seven frames and 1946 is the first. Mark the commit `[fold]`.
