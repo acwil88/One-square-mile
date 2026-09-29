@@ -8,4 +8,6 @@
 
 | 15 — BSD agreement | Midland County Clerk portal (GovOS Pay) | **$11.00** | Paid 2026-09-27 — Doc 1982-719 (DR/731/258), BSD INC → MIDLAND WEST CORP, 11 pp, order #18976402; images pending portal recovery | 2026-09-27 |
 
+| 31 — 1946 frame 68 + full-mile mosaic | TNRIS DataHub S3 (public, no key) | **$0.00** | Done 2026-09-29 — adjacent frame 1C-68 downloaded free; mosaic built from frames 67+68 | 2026-09-29 |
+
 **Total paid to date: $11.00. Total pending: $0.00. Total committed (paid + pending): $11.00.**
