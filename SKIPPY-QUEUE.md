@@ -165,9 +165,10 @@ Take every well with county code 317 (Martin) in the RRC permit data you already
 The free 1946 frame makes the $25 1944 frame redundant: same question, answered, two years apart. If TxGIO hasn't taken payment, cancel and log it in `spend.md`. If they already have, let it come and we'll compare; but don't pay if you haven't.
 **Status 2026-09-29:** No self-serve cancel exists on the TxGIO order page (status-check only, OTP-gated). Adam chose the do-nothing path: order `c0f80232-acf1-4ccf-a92b-67a791996ef4` is "Pending Review," no payment link was ever sent, so no payment can be taken. TxGIO auto-archives un-acted orders after 90 days. $0 paid, $0 pending. Logged in `spend.md`.
 
-## 30. Align the 1946 frame  `[ ]`
+## 30. Align the 1946 frame  `[x]`
 Same method as 1954/1965 (against 1965, then chained). Deliver `phase2/ee-1946-2277.tif` on the NAIP grid + preview + alignment note. When it lands, the strip becomes seven frames and 1946 is the first. Mark the commit `[fold]`.
 **Done when:** aligned, error stated.
+**Status 2026-09-29:** DONE. 2-GCP similarity (scale 0.9511, rot −7.74°) from 1946 scan to 1965 grid, warped via rasterio bilinear to EPSG:2277. GCPs: east road × Draw (4956,6960)→(3300,2000); west road × Draw (2219,6800)→(700,2200). Error ±600–900 ft (APPROXIMATE). **Coverage limitation:** 1946 frame ends near the Draw; southern ~35–45% of grid is nodata. Files: `phase2/ee-1946-2277.tif` (5.2 MB), `-preview.png`, `ee-1946-alignment.md`. Source-log row 69.
 
 Open: 24 (first-price image), 25 (Haley, in parallel), 30. Item 26/26a fall away with the cancel.
 
