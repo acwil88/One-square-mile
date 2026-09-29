@@ -67,6 +67,11 @@ across the frame in the correct position relative to the section grid. Midland
 - If a better 1965 alignment is needed, the south section-line road should be
   re-examined on the original scan at full resolution, or additional Draw
   meanders matched to the NHDPlus line.
+- **Scan defect (noted 2026-09-29):** a dead-straight, narrow, uniformly bright
+  N-S line runs the full height of the frame at ~x=950 (aligned px). It is a
+  film/scan scratch, NOT a road: it appears in no other frame (1954/1974/1984),
+  does not match the documented west N-S section-line road (x≈700), and the
+  1966 topo shows no road at that position. Do not use it as a feature.
 
 ## Refined alignment — item 33 (2026-09-29)
 
