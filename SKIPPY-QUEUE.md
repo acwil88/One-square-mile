@@ -203,7 +203,7 @@ Method that will work, in order:
 Deliver the refined `ee-YYYY-2277.tif` in place, same names.
 **Done when:** the west road and the draw continue across tile boundaries in all four checkerboards and the stated error meets target — or a frame is marked "hand GCPs needed" for Adam.
 
-## 34. NAIP 2024 as a GeoTIFF on our frame  `[ ]`
+## 34. NAIP 2024 as a GeoTIFF on our frame  `[x]`
 The 2022 base and last strip square become 2024 if you can get it decoded. Try in this order, stop at the first that works:
 1. **Planetary Computer STAC**, collection `naip`, search year 2024 over the section bbox (−102.18, 32.05, −102.15, 32.075). If items exist, they're COGs; window-read the section + 10% and reproject to EPSG:2277 on the exact `naip2022-2277.tif` grid.
 2. **USGS EarthExplorer / M2M API**, dataset NAIP, 2024, quarter quads `m_3210263_se_13` and `_ne_13` — GeoTIFF, not MrSID.
@@ -211,5 +211,6 @@ The 2022 base and last strip square become 2024 if you can get it decoded. Try i
 4. If all three fail, say so; Adam opens the MrSID in QGIS Saturday (it reads MrSID natively) and exports the clip. Put the exact county-mosaic download URL and the clip bbox in `automation/QGIS-fallback.md` for him.
 Deliver `phase2/naip2024-2277.tif` + preview + source-log row with the acquisition date.
 **Done when:** the file is on the identical grid (`gdalinfo` extents match 2022), or step 4 is written up for Adam.
+**Status 2026-09-29:** Step 4 — scripted routes exhausted, QGIS fallback written up in `automation/QGIS-fallback.md` §B. (1) Planetary Computer STAC: zero 2024 NAIP items over the bbox (re-queried 9/29; latest indexed is 2022-09-24, quads `tx_m_3210263_se_13` / `_ne_13`). (2) USGS: TNM public API returns zero NAIP products for the bbox in any format; M2M needs an EROS login (not attempted — Adam's credentials); APFO image service unreachable from this network. (3) TxGIO: the NAIP 2024 collection (`7e795b90-…`) is 254 county MrSID mosaics only — no DOQQ GeoTIFFs; Midland = `naip24-60cm_48329_nccir-ccm.zip` (2.07 GB). No MrSID decoder in this environment (GDAL has no MrSID driver) and the free Decode SDK needs a LizardTech registration form (browser). §B now has the exact Midland download URL + the clip bbox (EPSG:2277, section + 10%) for Adam's Saturday export. $0. Source-log row 72.
 
 Claude's side once these land: 2024 replaces 2022 as the base and the last strip square; the seven squares are re-cut from the refined frames; v11.

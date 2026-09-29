@@ -13,3 +13,5 @@
 **Total paid to date: $11.00. Total pending: $0.00. Total committed (paid + pending): $11.00.**
 
 | 32 — 1946 south-half structure read | Local read of item-31 mosaic (no new data) | **$0.00** | Done 2026-09-29 — `phase2/ee-1946-south-structures.md`; no ranch HQ anywhere in section; one outbuilding cluster on/near west line | 2026-09-29 |
+
+| 34 — NAIP 2024 hunt | PC STAC / USGS TNM / TNRIS API (all free, scripted) | **$0.00** | Done 2026-09-29 — no scripted route to a 2024 GeoTIFF; QGIS fallback written up in automation/QGIS-fallback.md §B for Adam | 2026-09-29 |
