@@ -185,3 +185,31 @@ Open: 24 (first-price image), 25 (Haley, in parallel), 30. Item 26/26a fall away
 **For Claude — what this changes:** the "no ranch headquarters in Feb 1946" conclusion now covers the full mile — the west-line cluster is outbuildings, not an HQ. But qualify any "no buildings" wording on the sheet: the cluster exists, on/near the west line. Both 1966 landmarks (building + windmill) are now confirmed built between 1946 and 1966 on both halves. $0. Source-log row 71.
 
 **Claude, 2026-09-29:** Items 30–32 folded into `phase2/proof-v10-FINAL.pdf`. The strip is seven frames now, 1946 first; the ranch-years paragraph says "no house — two or three outbuildings on or near the west line," per your south-half read. Good call on the second frame and the mosaic; the draw-edge cutoff would have left the wrong impression. Open: item 24 only — the deed-of-trust image. If the clerk portal is still down for images, say so and we print without it; the red line already says the index figure isn't believed.
+
+---
+
+# Round 6 — the strip lines up, and the last frame is 2024 (opened 2026-09-29)
+
+Both items are yours first; `automation/QGIS-fallback.md` is Adam's Saturday fallback for whatever you can't close. No spend. Mark `[fold]` only when a frame is delivered on the NAIP grid with an error under the target.
+
+## 33. Re-align 1946, 1954, 1965, 1974 so the draw and the roads sit in the same place in every square  `[ ]`
+Target: **±100 ft** for 1965/1974, **±200 ft** for 1946/1954, rotation within 0.5°. Reference: `ee-1984-2277.tif` (already ±30 ft to 1995, ±150 ft absolute).
+Method that will work, in order:
+1. Work in the NAIP grid (the frames are already roughly there). Lock rotation to ±3° and scale to ±3% of the current placement — the 2-GCP fits got the gross placement right; only fine correction is needed.
+2. Control is **linear features, three at once**: the west section-line road (present 1965 onward — it runs on the polygon's west edge), the draw's dark band (all frames; it is the vegetation, not the NHD centerline — offset it ~50 ft south of the band's north edge when comparing to `midland-draw-2277.geojson`), and the north-line road/track (1965 onward). For 1946 add the field's straight edges; for 1954 the two-track that becomes the west road.
+3. Extract each feature as points (bright tophat for roads, dark blackhat for the draw, then skeletonize), then run a *constrained* similarity fit — rotation bounded, scale bounded — against the same features in 1984 (roads) and the NHD line (draw). Three feature classes together pin rotation; one alone won't. Claude tried one-feature ICP tonight: it spun the frame 15°. Don't repeat that.
+4. If the automated fit won't converge for a frame, pick 4–6 GCPs by hand on gridded zooms the way you did for 1974's south road, but use *intersections* (road × draw, road × north line, field corners), not points along a line.
+5. Checkerboard each result against 1984 at 500-px tiles; the west road must continue straight across every tile boundary. Report residuals in `ee-YYYY-alignment.md` (append a "refined" section; keep the old one).
+Deliver the refined `ee-YYYY-2277.tif` in place, same names.
+**Done when:** the west road and the draw continue across tile boundaries in all four checkerboards and the stated error meets target — or a frame is marked "hand GCPs needed" for Adam.
+
+## 34. NAIP 2024 as a GeoTIFF on our frame  `[ ]`
+The 2022 base and last strip square become 2024 if you can get it decoded. Try in this order, stop at the first that works:
+1. **Planetary Computer STAC**, collection `naip`, search year 2024 over the section bbox (−102.18, 32.05, −102.15, 32.075). If items exist, they're COGs; window-read the section + 10% and reproject to EPSG:2277 on the exact `naip2022-2277.tif` grid.
+2. **USGS EarthExplorer / M2M API**, dataset NAIP, 2024, quarter quads `m_3210263_se_13` and `_ne_13` — GeoTIFF, not MrSID.
+3. **TxGIO's MrSID mosaic** with the free Extensis "MrSID Decode" command-line tool (free download, registration form only, no payment). Decode a window around the section, then reproject as above.
+4. If all three fail, say so; Adam opens the MrSID in QGIS Saturday (it reads MrSID natively) and exports the clip. Put the exact county-mosaic download URL and the clip bbox in `automation/QGIS-fallback.md` for him.
+Deliver `phase2/naip2024-2277.tif` + preview + source-log row with the acquisition date.
+**Done when:** the file is on the identical grid (`gdalinfo` extents match 2022), or step 4 is written up for Adam.
+
+Claude's side once these land: 2024 replaces 2022 as the base and the last strip square; the seven squares are re-cut from the refined frames; v11.
