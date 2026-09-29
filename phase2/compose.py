@@ -30,7 +30,7 @@ def lines_of(geom):
     if geom['type']=='Polygon': return geom['coordinates']
     if geom['type']=='MultiPolygon': return [r for p in geom['coordinates'] for r in p]
     return []
-c=canvas.Canvas(BUILD+'proof-v10.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
+c=canvas.Canvas(BUILD+'proof-v11.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
 BLEED=250.0  # ft shown beyond the section
 def clip_rect():
     x0,y0=pg(loc_minx-BLEED,loc_miny-BLEED); x1,y1=pg(loc_maxx+BLEED,loc_maxy+BLEED); return x0,y0,x1-x0,y1-y0
@@ -217,7 +217,7 @@ c.setFont('Serif',8.4); c.setFillColor(BLK); c.drawString(W-M-iw,ty-ih-11,'Powel
 # ---------- AERIAL STRIP ----------
 g=0.18*inch; fw=(panel_w-6*g)/7
 years=[('1946','USDA, 20 Feb 1946, two frames mosaicked',BUILD+'base_1946.png'),('1954','USGS single frame, 1:63,000, 2 May 1954',BUILD+'base_1954.png'),('1965','USGS single frame, 1:21,400, 20 Feb 1965',BUILD+'base_1965.png'),('1974','USGS single frame, 1:29,000, 19 Feb 1974',BUILD+'base_1974.png'),
-       ('1984','USGS NHAP, 28 Oct 1984',BUILD+'base_1984.png'),('1995','USGS NAPP color-infrared, 19 Dec 1995',BUILD+'base_1995.png'),('2022','USDA NAIP, 24 Sep 2022',BUILD+'base_naip.png')]
+       ('1984','USGS NHAP, 28 Oct 1984',BUILD+'base_1984.png'),('1995','USGS NAPP color-infrared, 19 Dec 1995',BUILD+'base_1995.png'),('2024','USDA NAIP, 26 Aug – 9 Sep 2024',BUILD+'base_naip.png')]
 # strip crop = polygon bbox + 10% in local frame, square
 side=max(W_ft,H_ft)*1.1; cx0=(loc_minx+loc_maxx)/2; cy0=(loc_miny+loc_maxy)/2
 u0,v0=local_to_px(cx0-side/2,cy0+side/2); u1,v1=local_to_px(cx0+side/2,cy0-side/2)
@@ -235,7 +235,7 @@ for i,(yr,src,img) in enumerate(years):
     else:
         c.setDash([3,3]); c.rect(x,y+0.42*inch,fw,fw); c.setDash([]); c.setFont('CondM',8); c.setFillColor(G60); c.drawCentredString(x+fw/2,y+0.42*inch+fw/2,'FRAME NOT YET ALIGNED')
     c.setFillColor(BLK); c.setFont('Serif',12); c.drawString(x,y+0.22*inch,yr); c.setFont('Cond',7); c.setFillColor(G40); c.drawString(x+c.stringWidth(yr,'Serif',13)+5,y+0.22*inch,src)
-    c.setFont('Cond',6.6); c.drawString(x,y+0.06*inch,{'1946':'Range, one field, a full playa, outbuildings on the west line, no house. Approximate, ±600–900 ft.','1954':'Open range; the draw plain across the north. Approximate, over 500 ft.','1965':'Still range; a road on the west line, a pad at the draw. Approximate, ±300–500 ft.','1974':'First graded corridors. Placement ±300 ft, two control points on the south-line road.','1984':'Streets and a golf course under construction, south half. ±150 ft.','1995':'Course mature, south half built out. North half still range. ±150 ft.','2022':'Built out to the plat. North half: pads, gathering lines, a caliche yard. Orthoimage.'}[yr])
+    c.setFont('Cond',6.6); c.drawString(x,y+0.06*inch,{'1946':'Range, one field, a full playa, outbuildings on the west line, no house. Placed on the draw, ±100 ft.','1954':'Open range; the draw plain across the north. Placed on the draw, ±100 ft.','1965':'Still range; a road on the west line, a pad at the draw. Placed on the draw, ±100 ft.','1974':'First graded corridors. Roads on the section lines, ±100 ft.','1984':'Streets and a golf course under construction, south half. ±150 ft.','1995':'Course mature, south half built out. North half still range. ±150 ft.','2024':'Built out to the plat. North half: pads, gathering lines, a caliche yard. Orthoimage.'}[yr])
 # ---------- TEXT ZONE ----------
 body=ParagraphStyle('b',fontName='Serif',fontSize=9.1,leading=11.0,alignment=TA_JUSTIFY,spaceAfter=3)
 head=ParagraphStyle('h',fontName='CondB',fontSize=12.5,leading=15,spaceAfter=4)
@@ -279,7 +279,7 @@ C_=[Paragraph('COULD NOT BE CONFIRMED',redh),Paragraph('Compiled from records, n
 'What the first lot sold for. A course-front lot was asking $55,000 that winter; the first deed of trust is indexed at a figure too small to believe.',
 'Any 1930s–40s aerial. A 1944 Air Force frame exists at TxGIO and is on order; it did not arrive in time for this edition.',
 'Where on the ranch the calves of 1916 and the reunion of 1921 were. Not on this section, which had no house in 1946; which of the family’s other sections is not known.']]+[Paragraph('If you know any of these, write. Second edition is free to anyone who corrects the first.',red),
-Paragraph('<b>Sources.</b> Texas General Land Office (patent, field notes, scrip); Midland County Clerk (deed records as cited); Midland Central Appraisal District (abstracts, parcels); USGS topoView and EarthExplorer (topographic sheets 1954–2019, features from the 1966 Northwest Midland 7.5′ sheet; aerials 1954, 1965, 1974, 1984, 1995); WellWiki, ezrrc, and texas-drilling mirrors of RRC permit and completion data; Midland Reporter-Telegram 1950–1999 via the Southwest Collection, Texas Tech University; Texas Comptroller entity records; USDA 1946 aerials, frames 67–68 (TxGIO); USDA NAIP 2022 (NAIP 2024 exists as a county mosaic in a proprietary format and was not used); Railroad Commission of Texas GIS and 2024 T-4 permit register; Texas Water Development Board; USDA-NRCS Web Soil Survey; EPA WATERS / NHDPlus; federal court records as cited. Full source log, fifty-plus rows, at github.com/acwil88/One-square-mile.',small),
+Paragraph('<b>Sources.</b> Texas General Land Office (patent, field notes, scrip); Midland County Clerk (deed records as cited); Midland Central Appraisal District (abstracts, parcels); USGS topoView and EarthExplorer (topographic sheets 1954–2019, features from the 1966 Northwest Midland 7.5′ sheet; aerials 1954, 1965, 1974, 1984, 1995); WellWiki, ezrrc, and texas-drilling mirrors of RRC permit and completion data; Midland Reporter-Telegram 1950–1999 via the Southwest Collection, Texas Tech University; Texas Comptroller entity records; USDA 1946 aerials, frames 67–68 (TxGIO); USDA NAIP 2024 (quarter quads of 26 Aug and 9 Sep 2024, via USGS EarthExplorer); Railroad Commission of Texas GIS and 2024 T-4 permit register; Texas Water Development Board; USDA-NRCS Web Soil Survey; EPA WATERS / NHDPlus; federal court records as cited. Full source log, fifty-plus rows, at github.com/acwil88/One-square-mile.',small),
 Paragraph('Gathered by Skippy (Meta Muse). Designed by Claude (Anthropic). Approved and paid for by a resident of the section, who is not named on it. No phone calls were made. Sheet oriented to the 1876 survey; true north 15° right of page-up. Scale 1:3,000. Aerial strip: each frame’s placement error is stated in its caption.',small)]
 from reportlab.platypus import Image as RLImage, Spacer
 fnim=Image.open(REPO+'glo-page-6.png'); fw_=fnim.size[0]; fnim.crop((0,int(fnim.size[1]*0.10),fw_,int(fnim.size[1]*0.36))).save(BUILD+'fieldnotes.jpg',quality=90)

@@ -9,6 +9,7 @@ def warp_to_local(path, out, band=None, gray=True):
     with rasterio.open(path) as d:
         T=d.transform; Ti=~T
         arr=d.read() if band is None else d.read([band])
+        if arr.shape[0]>=3: arr=arr[:3]
     # dst px -> local -> grid -> src px ; build 2x3 matrix for cv2 (src = M @ [u,v,1])
     # local x = u*R + (minx-PAD); local y = (maxy+PAD) - v*R
     # grid = A + Rot(theta) @ local
@@ -24,7 +25,7 @@ def warp_to_local(path, out, band=None, gray=True):
     if gray and o.ndim==3: o=cv2.cvtColor(o,cv2.COLOR_RGB2GRAY)
     cv2.imwrite(out,o); return o
 if __name__=='__main__':
-    o=warp_to_local(REPO+'naip2022-2277.tif',BUILD+'base_naip.png')
+    o=warp_to_local(REPO+'naip2024-2277.tif',BUILD+'base_naip.png')
     print(o.shape)
     # polygon mask in px
     pts=np.array([local_to_px(x,y) for x,y in L],np.int32)
