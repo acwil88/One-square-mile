@@ -30,7 +30,7 @@ def lines_of(geom):
     if geom['type']=='Polygon': return geom['coordinates']
     if geom['type']=='MultiPolygon': return [r for p in geom['coordinates'] for r in p]
     return []
-c=canvas.Canvas(BUILD+'proof-v11.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
+c=canvas.Canvas(BUILD+'proof-v12.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
 BLEED=250.0  # ft shown beyond the section
 def clip_rect():
     x0,y0=pg(loc_minx-BLEED,loc_miny-BLEED); x1,y1=pg(loc_maxx+BLEED,loc_maxy+BLEED); return x0,y0,x1-x0,y1-y0
@@ -235,7 +235,7 @@ for i,(yr,src,img) in enumerate(years):
     else:
         c.setDash([3,3]); c.rect(x,y+0.42*inch,fw,fw); c.setDash([]); c.setFont('CondM',8); c.setFillColor(G60); c.drawCentredString(x+fw/2,y+0.42*inch+fw/2,'FRAME NOT YET ALIGNED')
     c.setFillColor(BLK); c.setFont('Serif',12); c.drawString(x,y+0.22*inch,yr); c.setFont('Cond',7); c.setFillColor(G40); c.drawString(x+c.stringWidth(yr,'Serif',13)+5,y+0.22*inch,src)
-    c.setFont('Cond',6.6); c.drawString(x,y+0.06*inch,{'1946':'Range, one field, a full playa, outbuildings on the west line, no house. Placed on the draw, ±100 ft.','1954':'Open range; the draw plain across the north. Placed on the draw, ±100 ft.','1965':'Still range; a road on the west line, a pad at the draw. Placed on the draw, ±100 ft.','1974':'First graded corridors. Roads on the section lines, ±100 ft.','1984':'Streets and a golf course under construction, south half. ±150 ft.','1995':'Course mature, south half built out. North half still range. ±150 ft.','2024':'Built out to the plat. North half: pads, gathering lines, a caliche yard. Orthoimage.'}[yr])
+    c.setFont('Cond',6.6); c.drawString(x,y+0.06*inch,{'1946':'Range, one field, a full playa, outbuildings on the west line, no house. Placed on the draw, ±100 ft.','1954':'Open range; the draw plain across the north. Placed on the draw, ±100 ft.','1965':'Still range; a road on the west line, a pad at the draw. Placed on the draw, ±100 ft.','1974':'First graded corridors, a pad on the west line. The scan was mirrored; corrected here. ±200 ft.','1984':'Streets and a golf course under construction, south half. ±150 ft.','1995':'Course mature, south half built out. North half still range. ±150 ft.','2024':'Built out to the plat. North half: pads, gathering lines, a caliche yard. Orthoimage.'}[yr])
 # ---------- TEXT ZONE ----------
 body=ParagraphStyle('b',fontName='Serif',fontSize=9.1,leading=11.0,alignment=TA_JUSTIFY,spaceAfter=3)
 head=ParagraphStyle('h',fontName='CondB',fontSize=12.5,leading=15,spaceAfter=4)

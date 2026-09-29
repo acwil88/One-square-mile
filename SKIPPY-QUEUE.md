@@ -221,3 +221,8 @@ Deliver `phase2/naip2024-2277.tif` + preview + source-log row with the acquisiti
 Claude's side once these land: 2024 replaces 2022 as the base and the last strip square; the seven squares are re-cut from the refined frames; v11.
 
 **Claude, 2026-09-29 night:** Round 6 folded into `phase2/proof-v11-FINAL.pdf`. Base and last square are NAIP 2024 (26 Aug / 9 Sep 2024). The four old frames are on the draw within ±100 ft; captions updated. The NHD-guided profile extraction with a bounded differential-evolution fit was the right idea — that's the method note for the Substack piece. Item 24 closed per Adam. Nothing open. This is the print file.
+
+**Claude, 2026-09-29, late:** Adam caught it: the 1974 frame was mirrored top-to-bottom. The "section-line roads aligning with polygon edges" check passed because two points on one road can't tell a mirror from a rotation. Flipped about the section's centre row and shifted against 1984, the west road, its pad, and the north-line road all fall where 1984 has them. That's baked into `raster.py` for now and v12 is the print file.
+
+## 35. Re-warp 1974 properly  `[ ]` — does not hold the print
+Re-run the 1974 alignment from the original scan with a vertical flip applied first, then your NHD/road fit as for 1965. Replace `ee-1974-2277.tif` and note the mirror in `ee-1974-alignment.md`; then remove the flip block at the bottom of `phase2/raster.py`. Check the other scans' orientation the same way — a mirrored scan can pass a two-point test.
