@@ -237,7 +237,7 @@ for i,(yr,src,img) in enumerate(years):
     c.setFillColor(BLK); c.setFont('Serif',12); c.drawString(x,y+0.22*inch,yr); c.setFont('Cond',7); c.setFillColor(G40); c.drawString(x+c.stringWidth(yr,'Serif',13)+5,y+0.22*inch,src)
     c.setFont('Cond',6.6); c.drawString(x,y+0.06*inch,{'1946':'Range, one field, a full playa, outbuildings on the west line, no house. Placed on the draw, ±100 ft.','1954':'Open range; the draw plain across the north. Placed on the draw, ±100 ft.','1965':'Still range; a road on the west line, a pad at the draw. Placed on the draw, ±100 ft.','1974':'First graded corridors, a pad on the west line. The scan was mirrored; corrected here. ±200 ft.','1984':'Streets and a golf course under construction, south half. ±150 ft.','1995':'Course mature, south half built out. North half still range. ±150 ft.','2024':'Built out to the plat. North half: pads, gathering lines, a caliche yard. Orthoimage.'}[yr])
 # ---------- TEXT ZONE ----------
-body=ParagraphStyle('b',fontName='Serif',fontSize=9.1,leading=11.0,alignment=TA_JUSTIFY,spaceAfter=3)
+body=ParagraphStyle('b',fontName='Serif',fontSize=8.8,leading=10.5,alignment=TA_JUSTIFY,spaceAfter=3)
 head=ParagraphStyle('h',fontName='CondB',fontSize=12.5,leading=15,spaceAfter=4)
 red=ParagraphStyle('rb',parent=body,textColor=RED,alignment=0); redh=ParagraphStyle('rh',parent=head,textColor=RED)
 small=ParagraphStyle('s',fontName='Serif',fontSize=8.4,leading=10.2,alignment=TA_JUSTIFY,spaceBefore=6)
