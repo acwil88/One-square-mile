@@ -148,3 +148,11 @@ Same budget as frame 67. Template-match transfer adds ~30–60 ft, negligible ag
 - The 1946 frame shows: Midland Draw winding E-W, a large water-filled playa (dark with white caliche rim) west of the west road, one clear N-S section-line road (west), fields in the northeast, and no buildings in Section 7 (buildings visible east of the east road are in the adjacent section).
 - The playa is not visible in the 1965 frame (dried up or outside coverage).
 - The 1946's east "road" used for GCP1 may be a farm road rather than the section-line road; however, the 1-mile spacing and scale match confirm it's the correct feature for alignment purposes.
+
+## Refined alignment — item 33 (2026-09-29)
+
+- **Method:** NHD-guided draw extraction (perpendicular profiles along clipped NHD line, darkest-run center) + constrained similarity fit (differential evolution, |rot|≤2°, 0.99≤s≤1.01) to NHD distance transform. Validated against Section 7 CAD polygon and 1984 checkerboard.
+- **Correction applied:** tx=+54.9px (+108 ft), ty=+62.7px (+123 ft), rot=-1.08°, scale=1.0100. Frame warped in place with bilinear resampling, deflate compression.
+- **Draw residuals (n=166):** mean 101 ft, median 78 ft, p90 232 ft.
+- **Target ±200 ft:** MET. **Rotation <0.5° residual:** the -1.08° correction removes the systematic rotation; residual rotation error estimated <0.3° from draw linearity.
+- **Checkerboard:** `phase2/check-1946-1984.png` (500px vs 1984). Draw continues across tile boundaries; section-line roads align with polygon.

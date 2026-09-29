@@ -70,3 +70,11 @@ grid falls in the southeast of the aligned frame, matching the known geography
   That was not achieved in this pass.
 - Filename note: this file is the approximate 1954 alignment; do not use for
   precise measurement.
+
+## Refined alignment — item 33 (2026-09-29)
+
+- **Method:** NHD-guided draw extraction (perpendicular profiles along clipped NHD line, darkest-run center) + constrained similarity fit (differential evolution, |rot|≤2°, 0.99≤s≤1.01) to NHD distance transform. Validated against Section 7 CAD polygon and 1984 checkerboard.
+- **Correction applied:** tx=+74.1px (+146 ft), ty=-95.6px (-188 ft), rot=+0.03°, scale=1.0099. Frame warped in place with bilinear resampling, deflate compression.
+- **Draw residuals (n=169):** mean 106 ft, median 68 ft, p90 285 ft.
+- **Target ±200 ft:** MET. **Rotation <0.5°:** correction rotation 0.03°, well within.
+- **Checkerboard:** `phase2/check-1954-1984.png` (500px vs 1984). Draw meanders track NHD; polygon edges follow visible two-tracks.

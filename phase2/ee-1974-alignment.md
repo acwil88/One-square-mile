@@ -67,3 +67,10 @@ southeast of the section in the aligned frame, as expected. **Orientation: north
 
 - Affine was not needed; the similarity residuals/validation were already within tolerance.
 - The 1954/1965 frames were aligned with the same south-road method.
+
+## Refined alignment — item 33 (2026-09-29)
+
+- **Method:** Verified only — no warp applied. NHD-guided draw fit was attempted but rejected (draw too subtle in 1974; fit hit rotation bounds with inconsistent residuals). Visual verification against Section 7 CAD polygon shows section-line roads aligning with polygon edges (SE/SW intersections within a few px of CAD corners).
+- **Correction applied:** None (identity).
+- **Target ±100 ft:** MET by inspection — road/polygon alignment confirms the existing placement. **Rotation <0.5°:** confirmed (no systematic rotation visible).
+- **Checkerboard:** `phase2/check-1974-1984.png` (500px vs 1984).

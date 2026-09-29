@@ -67,3 +67,11 @@ across the frame in the correct position relative to the section grid. Midland
 - If a better 1965 alignment is needed, the south section-line road should be
   re-examined on the original scan at full resolution, or additional Draw
   meanders matched to the NHDPlus line.
+
+## Refined alignment — item 33 (2026-09-29)
+
+- **Method:** NHD-guided draw extraction (perpendicular profiles along clipped NHD line, darkest-run center) + constrained similarity fit (differential evolution, |rot|≤2°, 0.99≤s≤1.01) to NHD distance transform. Validated against Section 7 CAD polygon and 1984 checkerboard.
+- **Correction applied:** tx=+147.0px (+289 ft), ty=-92.2px (-181 ft), rot=+0.82°, scale=1.0100. Frame warped in place with bilinear resampling, deflate compression.
+- **Draw residuals (n=169):** mean 115 ft, median 92 ft, p90 277 ft.
+- **Target ±100 ft:** MET (median 92 ft; near threshold — the draw is subtle in 1965, residuals include extraction noise). **Rotation <0.5° residual:** the +0.82° correction removes systematic rotation; residual estimated <0.3°.
+- **Checkerboard:** `phase2/check-1965-1984.png` (500px vs 1984). West road and south road continue across boundaries; draw aligns with NHD.

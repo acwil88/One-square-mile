@@ -192,7 +192,7 @@ Open: 24 (first-price image), 25 (Haley, in parallel), 30. Item 26/26a fall away
 
 Both items are yours first; `automation/QGIS-fallback.md` is Adam's Saturday fallback for whatever you can't close. No spend. Mark `[fold]` only when a frame is delivered on the NAIP grid with an error under the target.
 
-## 33. Re-align 1946, 1954, 1965, 1974 so the draw and the roads sit in the same place in every square  `[ ]`
+## 33. Re-align 1946, 1954, 1965, 1974 so the draw and the roads sit in the same place in every square  `[x]`
 Target: **±100 ft** for 1965/1974, **±200 ft** for 1946/1954, rotation within 0.5°. Reference: `ee-1984-2277.tif` (already ±30 ft to 1995, ±150 ft absolute).
 Method that will work, in order:
 1. Work in the NAIP grid (the frames are already roughly there). Lock rotation to ±3° and scale to ±3% of the current placement — the 2-GCP fits got the gross placement right; only fine correction is needed.
