@@ -18,3 +18,5 @@
 | 34 — NAIP 2024 hunt | EarthExplorer (Adam's EROS login; free) after PC STAC / TNM / TxGIO scripted routes failed | **$0.00** | Done 2026-09-29 — `phase2/naip2024-2277.tif` (4059x4038 EPSG:2277, byte-identical 2022 grid, 3-band RGB; SE acq 2024-09-09 + NE acq 2024-08-26 mosaicked, zero holes) + preview; QGIS fallback §B superseded | 2026-09-29 |
 
 | 35+36 — 1974 mirror investigation + full early-frame alignment audit | Local audit (no new data) | **$0.00** | Done 2026-09-29 — v12 mirror claim proven false; wrong flip block removed from `phase2/raster.py`; 1984 verified; 1946/1954/1965/1974 all PASS (no re-warps); report `phase2/early-frame-audit-2026-09-29.md`; v12 PDF 1974 square mirrored — needs rebuild before printing | 2026-09-29 |
+
+| 37 — 1989 deed on the ten acres (Vol. 201 p. 380) | Clerk portal image pull (not yet done) | **$0.00** | Blocked 2026-09-29 — 1978 deed images not in repo (read 2026-09-26, not saved; not re-bought); 1989 image needs live browser session + Adam's $1–2 tap; partial findings + carve-out hypotheses in `phase2/estes-northeast-acreage.md` | 2026-09-29 |
