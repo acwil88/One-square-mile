@@ -84,9 +84,8 @@ Fifteen minutes on public streets around the north half. Photograph every well-p
 Same free archive. Open every one. Deliver `phase2/estes-ranch-pre1950.md`: date, page, one sentence each. Flag anything that puts a person, an animal, a structure, a weather event, or a sale on Section 7 or "the Estes place" between 1911 and 1978. Also try "S.W. Estes," "Aldredge Estes," "Estes" + "Midland" + "ranch" in the same span. Summaries only, no article text. Free.
 **Done when:** all 27 opened and summarized, plus the extra searches with hit counts.
 
-## 21. RRC, daily  `[ ]`
-Once a day until Adam says the print is ordered: retry the drilling-permit and completion queries for the 10 wells still blank. The moment either answers, fill `wells.csv` and push. Log each attempt's date and result in `rrc-side-doors.md`.
-**Done when:** filled, or Adam says printed.
+## 21. RRC, daily  `[x]`
+**Status 2026-09-28:** DONE as filled. wells.csv is 13/14 via item-22 side doors; `42-329-xxxxx` is blank in RRC's own systems, so no retry would ever answer. Daily retry cron removed. No more RRC attempts unless Adam reopens it.
 
 Item 19 (1944) continues. Nothing else. No spend.
 
@@ -119,13 +118,16 @@ Once item 22 gives the lease names for the three 42-317 wells, check whether the
 ## 24. First price — buy the image  `[ ]`
 The 26 Jan 1983 deed of trust on Lot 18 Block 2 (companion to DR 770/614). $1–2. The index says $3,910; the instrument will say what it actually secured. Then the R-T 1983 permits roundup for that address, value only.
 **Done when:** the amount from the instrument itself is in `first-house.md`.
+**Status 2026-09-28:** Doc 1983-1593 verified (Harrell → First National Bank Midland, 1/26/1983, DT/479/257), but the portal's cart backend was down twice (16:18 and 18:34 CDT — "You are offline!" / timeouts); nothing added, nothing purchased, cart empty. Retry scheduled 2026-09-29 ~8:00 AM CDT.
 
 ## 25. The ranch headquarters — the Haley Library  `[ ]`
 The Nita Stewart Haley Memorial Library in Midland is a ranching-history archive. Search its online catalog for Estes, S.W. Estes, Aldredge Estes, Block 39. Then one email as Adam: does the library hold anything on the S.W. Estes ranch north of Midland (Sections 6–8, 17–18, Block 39 T-1-S), 1911–1978, especially where the headquarters stood. Also check the 1954 and 1966 USGS 7.5' sheets for a building or windmill symbol inside Section 7 and note the location if there is one.
 **Done when:** catalog searched, email sent and logged, topo checked.
+**Status 2026-09-28:** ON HOLD per Adam — email draft NOT sent. Catalog research done separately: public register has no Estes ranch material (only unrelated Billie Sol Estes); library is mid-move, research requests delayed.
 
 ## 26. TxGIO 1944 — status  `[ ]`
 One email as Adam asking for the payment link and delivery timing on the 1944 frame order. Log it.
+**Status 2026-09-28:** ON HOLD per Adam — email NOT sent. Read-only order-status check fires 5:00 PM CDT today (order UUID `c0f80232-acf1-4ccf-a92b-67a791996ef4`; ~$25 expected; no payment or download without approval).
 
 Items 19 and 21 close when 22 and 26 close.
 
