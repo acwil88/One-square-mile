@@ -35,7 +35,7 @@ Reading notes:
 - The beginning corner is the SW corner of Survey No. 6 (the adjoining section to the north),
   i.e. the NW corner of Section 7. The traverse runs clockwise: west side → south side →
   east side → north side, closing at the place of beginning.
-- "St & Earth mnd" = stake and earth mound (corner monument). "pls" is written as-is;
+- "St & Earth mnd" = stake and earth mound (corner monument). "pls" was transcribed as-is in Phase 1; Claude reads the scan as "pits" (earth mound and pits, the standard GLO corner monument) and the sheet prints "pits";
   most likely "piles" (of earth). The south... (west) line carries an intermediate monument
   at 950 vrs ("2 pls") — the quarter-corner — and the full corner at 1900 vrs ("4 pls").
 - Bearings are 13° off cardinal (S 13° E / N 77° E / N 13° W / S 77° W). The field-notes
