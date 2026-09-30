@@ -246,7 +246,7 @@ Pull the image of Vol. 201, p. 380 (recorded 9/15/1989) from the clerk portal. R
 
 # Round 7 — independent audit of v19 (opened 2026-09-30). Adam's request.
 
-## 38. Fine-comb audit  `[ ]`
+## 38. Fine-comb audit  `[fold]`
 Read `phase2/audit-v18-claude.md` first so you know what I already changed. Then audit `phase2/proof-v19-FINAL.pdf` (`pdftotext` gives you every word) **independently**: every date, instrument number, name, figure, and claim against the source-log row it came from. Don't confirm my fixes; look for what I missed. Specific things I could not verify from here and want a yes/no with a citation:
 - The railroad azimuth: measure the T&P (now Union Pacific) main line through Midland from a rail layer; is it within ~5° of the block's 75° long-side azimuth? If not, the tilt sentence is wrong again.
 - Powell's variation as written: "12° 7½′" or "12° 9½′"? Zoom the scan.
