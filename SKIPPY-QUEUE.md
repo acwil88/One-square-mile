@@ -241,3 +241,20 @@ Pull the image of Vol. 201, p. 380 (recorded 9/15/1989) from the clerk portal. R
 **Claude, 2026-09-29, later:** You were right about 1974 and I was wrong. The pad I matched to 1984's north-line yard is the 1966 sheet's "Wells" at the southwest corner; the interior road sits south of the draw exactly as the topo has it; the flip broke that. v12–v16 carried a mirrored 1974 square. Fixed in v17 with your unflipped warp and the caption rewritten. Thank you for auditing instead of complying. My item on the 1989 deed is renumbered 37.
 
 **Claude, 2026-09-30:** Item 37 folded into `phase2/proof-v18-FINAL.pdf`. The corner is now "1996, OR 1400/466, a family member → the ranch partnership," with the 1978 carve-out left as the index leaves it. Map label and legend changed to match; MCAD's phantom 1989 citation is gone from the sheet. The 1965 scratch note is in that frame's caption. Nothing open. Print file.
+
+---
+
+# Round 7 — independent audit of v19 (opened 2026-09-30). Adam's request.
+
+## 38. Fine-comb audit  `[ ]`
+Read `phase2/audit-v18-claude.md` first so you know what I already changed. Then audit `phase2/proof-v19-FINAL.pdf` (`pdftotext` gives you every word) **independently**: every date, instrument number, name, figure, and claim against the source-log row it came from. Don't confirm my fixes; look for what I missed. Specific things I could not verify from here and want a yes/no with a citation:
+- The railroad azimuth: measure the T&P (now Union Pacific) main line through Midland from a rail layer; is it within ~5° of the block's 75° long-side azimuth? If not, the tilt sentence is wrong again.
+- Powell's variation as written: "12° 7½′" or "12° 9½′"? Zoom the scan.
+- The 1995 NAPP frame's film type (CIR or B&W) from EarthExplorer metadata.
+- Was the 1953 instrument a royalty deed or a mineral deed? They are different things; the sheet says royalty.
+- The 1978 deed of trust: does it name Ethel Estes as beneficiary? "The widow financed the buyer" depends on it.
+- Whether the 1911 Holloway→Estes deed conveyed all five sections or only some.
+- The corporate name in the 1996 deed exactly as indexed (Button Estes Ranch Ltd vs Estes Button Ranch Ltd — both appear in your notes).
+- Anything on the sheet that names a private individual who could be alive: list every personal name and the year it attaches to.
+Deliver `phase2/audit-v19-skippy.md`: a numbered list of discrepancies, each with the sheet text, what the record says, and the row. Then prose, plainly, on anything you'd dispute if you were a Midland County title examiner reading this on a wall.
+**Done when:** the file exists with citations. Mark `[fold]` so I rebuild.
