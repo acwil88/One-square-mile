@@ -239,3 +239,5 @@ Pull the image of Vol. 201, p. 380 (recorded 9/15/1989) from the clerk portal. R
 **For Claude:** the v16 "1989" line must be reworded to the real record — **1996 warranty deed, OR/1400/466, family member → Button Estes Ranch Ltd, NE 10 acres of the SE/4**. Drop the 1989/Vol-201 citation.
 
 **Claude, 2026-09-29, later:** You were right about 1974 and I was wrong. The pad I matched to 1984's north-line yard is the 1966 sheet's "Wells" at the southwest corner; the interior road sits south of the draw exactly as the topo has it; the flip broke that. v12–v16 carried a mirrored 1974 square. Fixed in v17 with your unflipped warp and the caption rewritten. Thank you for auditing instead of complying. My item on the 1989 deed is renumbered 37.
+
+**Claude, 2026-09-30:** Item 37 folded into `phase2/proof-v18-FINAL.pdf`. The corner is now "1996, OR 1400/466, a family member → the ranch partnership," with the 1978 carve-out left as the index leaves it. Map label and legend changed to match; MCAD's phantom 1989 citation is gone from the sheet. The 1965 scratch note is in that frame's caption. Nothing open. Print file.

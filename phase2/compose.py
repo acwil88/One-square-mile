@@ -30,7 +30,7 @@ def lines_of(geom):
     if geom['type']=='Polygon': return geom['coordinates']
     if geom['type']=='MultiPolygon': return [r for p in geom['coordinates'] for r in p]
     return []
-c=canvas.Canvas(BUILD+'proof-v17.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
+c=canvas.Canvas(BUILD+'proof-v18.pdf',pagesize=(W,H)); c.setTitle('Section 7, Block 39, T-1-S — One Square Mile, Desk Edition'); c.setAuthor('Claude (Anthropic) and Skippy (Meta Muse) for a resident of the section'); c.setSubject('First edition, October 2026')
 BLEED=250.0  # ft shown beyond the section
 def clip_rect():
     x0,y0=pg(loc_minx-BLEED,loc_miny-BLEED); x1,y1=pg(loc_maxx+BLEED,loc_maxy+BLEED); return x0,y0,x1-x0,y1-y0
@@ -112,7 +112,7 @@ for f in load('parcels-2277.geojson'):
             X,Y=pg_grid(xy[0],xy[1]); (pth.moveTo if k==0 else pth.lineTo)(X,Y)
         pth.close(); c.drawPath(pth); c.setDash([])
         loc=to_local_arr([r[:2] for r in ring]); cx_,cy_=loc[:,0].mean(),loc[:,1].mean(); X,Y=pg(cx_,cy_)
-        c.setFont('CondM',7.5); c.setFillColor(BLK); c.drawCentredString(X,Y+4,'10 ACRES THE FAMILY KEPT'); c.setFont('Cond',6.5); c.drawCentredString(X,Y-6,'never sold to the developer · ranch partnership since 1989')
+        c.setFont('CondM',7.5); c.setFillColor(BLK); c.drawCentredString(X,Y+4,'10 ACRES STILL THE FAMILY’S'); c.setFont('Cond',6.5); c.drawCentredString(X,Y-6,'ranch partnership since 1996 · how it stayed theirs, the index does not say')
 # pipelines
 pipes=load('pipelines-2277.geojson')
 for f in pipes:
@@ -169,7 +169,7 @@ for lab,k in items:
 c.setLineWidth(0.9); c.setDash([5,3]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.drawString(lx+34,yy-5,'pipeline, labeled with operator and system'); yy-=14
 c.setLineWidth(0.5); c.setDash([4,3]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.drawString(lx+34,yy-5,'quarter-section line'); yy-=14
 c.setStrokeColor(G60); c.setLineWidth(0.4); c.setDash([1,2]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.setStrokeColor(BLK); c.drawString(lx+34,yy-5,'soil unit (USDA-NRCS SSURGO), named in small caps'); yy-=14
-c.setLineWidth(1.3); c.setDash([2,2]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.drawString(lx+34,yy-5,'the ten acres the family kept, 1978 to now'); yy-=14
+c.setLineWidth(1.3); c.setDash([2,2]); c.line(lx+10,yy-2,lx+28,yy-2); c.setDash([]); c.drawString(lx+34,yy-5,'the ten acres still the family’s'); yy-=14
 c.setFillColor(white); c.circle(lx+19,yy-2,3.5,stroke=1,fill=1); c.setFillColor(BLK); c.drawString(lx+34,yy-5,'windmill · building · gravel pit as drawn on the 1966 USGS sheet')
 # neatline
 c.setStrokeColor(BLK); c.setLineWidth(2.2); pth=c.beginPath()
@@ -246,7 +246,7 @@ for i,(yr,src,img) in enumerate(years):
     else:
         c.setDash([3,3]); c.rect(x,y+0.42*inch,fw,fw); c.setDash([]); c.setFont('CondM',8); c.setFillColor(G60); c.drawCentredString(x+fw/2,y+0.42*inch+fw/2,'FRAME NOT YET ALIGNED')
     c.setFillColor(BLK); c.setFont('Serif',12); c.drawString(x,y+0.22*inch,yr); c.setFont('Cond',7); c.setFillColor(G40); c.drawString(x+c.stringWidth(yr,'Serif',13)+5,y+0.22*inch,src)
-    c.setFont('Cond',6.6); c.drawString(x,y+0.06*inch,{'1946':'Range, one field, a full playa, outbuildings on the west line, no house. Placed on the draw, ±100 ft.','1954':'Open range; the draw plain across the north. Placed on the draw, ±100 ft.','1965':'Still range; a road on the west line, a pad at the draw. Placed on the draw, ±100 ft.','1974':'First graded corridors; a well pad at the southwest corner where the 1966 sheet marks wells. Roads on the section lines, ±100 ft.','1984':'Streets and a golf course under construction, south half. ±150 ft.','1995':'Course mature, south half built out. North half still range. ±150 ft.','2024':'Built out to the plat. North half: pads, gathering lines, a caliche yard. Orthoimage.'}[yr])
+    c.setFont('Cond',6.6); c.drawString(x,y+0.06*inch,{'1946':'Range, one field, a full playa, outbuildings on the west line, no house. Placed on the draw, ±100 ft.','1954':'Open range; the draw plain across the north. Placed on the draw, ±100 ft.','1965':'Still range; a pad at the draw. The bright vertical line is a scratch on the film, not a road. Placed on the draw, ±100 ft.','1974':'First graded corridors; a well pad at the southwest corner where the 1966 sheet marks wells. Roads on the section lines, ±100 ft.','1984':'Streets and a golf course under construction, south half. ±150 ft.','1995':'Course mature, south half built out. North half still range. ±150 ft.','2024':'Built out to the plat. North half: pads, gathering lines, a caliche yard. Orthoimage.'}[yr])
 # ---------- TEXT ZONE ----------
 body=ParagraphStyle('b',fontName='Serif',fontSize=8.8,leading=10.5,alignment=TA_JUSTIFY,spaceAfter=3)
 head=ParagraphStyle('h',fontName='CondB',fontSize=12.5,leading=15,spaceAfter=4)
@@ -276,7 +276,7 @@ A_=[Paragraph('CHAIN OF TITLE, 1876–1983  ·  complete, no gaps',head)]+[Parag
 '<b>1982.</b> 8 Jan: Midland West sells 20.343 acres — Lots 20–23, Block 6, the seed of Green Tree North — to The Greens, a joint venture of Hailco, Dovecote Inc., and BSD Inc., for $1,348,425 cash, with a four-year build-or-reconvey clock and a promise to annex, plat, zone, pave, and pipe the land. DR 731/258.',
 '<b>1982.</b> Green Tree North plat recorded 1 Dec. Cabinet C, p. 134. Frank Mullins becomes majority owner of Midland West the same month.',
 '<b>1983.</b> 26 Jan: the first Green Tree North lot is deeded to a homebuyer — Lot 18, Block 2, from Midland West. DR 770/614. 1 March: the members buy the clubhouse and both courses from Midland West for more than $6 million. Green Tree North — 297 acres, 220 lots, nine more holes — under construction, 85 lots pre-sold, First National Bank of Midland carrying the paper. Three years later a First National banker is convicted in federal court of hiding his own stake in Midland West while the bank lent it $1.925 million.',
-'<b>1989.</b> Ten acres at the northeast corner of the SE/4 never went to the developer. A deed of 15 Sept (Vol. 201, p. 380) carries them to the family’s ranch partnership, which holds them still. They are outlined on the map.',
+'<b>1996.</b> Ten acres at the northeast corner of the SE/4 are the family’s today: a warranty deed of 9 Aug from one of them to the family’s ranch partnership. OR 1400/466. Whether the 1978 deeds carved the corner out or it came back afterward, the index does not show. They are outlined on the map.',
 '<i>The chain stops here. Sixty-seven years of one family; ninety-nine years of ranch. Everything since is somebody’s home and is not this map’s business.</i>']]
 B_=[Paragraph('THE GROUND',head)]+[Paragraph(t,body) for t in [
 '<b>Water.</b> Ogallala aquifer 100–180 ft below the section. One City of Midland well inside the line, 147 ft, unused. About ten domestic and irrigation wells drilled 2002–2021, 135–180 ft. Golf course well, 175 ft, 2021. Midland Draw crosses the north half and has carried its name on every USGS sheet from 1954 to 2019 — it never disappeared; the ranch did. Powell’s 1876 notes call this “waters of North Concho.” Modern mapping drains it east to the Colorado by Midland Draw and Beals Creek; the North Concho is not on the path.',
